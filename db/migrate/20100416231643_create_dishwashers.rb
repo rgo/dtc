@@ -6,7 +6,7 @@ class CreateDishwashers < ActiveRecord::Migration
       t.string :brand
       t.string :model
       t.string :efficiency
-      t.decimal :consume
+      t.decimal :consume, :precision => 10, :scale => 3
       t.string :washing_efficiency
       t.string :drying_efficiency
       t.integer :cutlery

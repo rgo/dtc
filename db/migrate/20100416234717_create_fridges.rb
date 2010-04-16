@@ -6,7 +6,7 @@ class CreateFridges < ActiveRecord::Migration
       t.string :brand
       t.string :model
       t.string :efficiency
-      t.decimal :consume
+      t.decimal :consume, :precision => 10, :scale => 3
       t.integer :height
       t.integer :width
       t.integer :deep

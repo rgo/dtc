@@ -6,9 +6,9 @@ class CreateDryers < ActiveRecord::Migration
       t.string :brand
       t.string :model
       t.string :efficiency
-      t.decimal :consume
+      t.decimal :consume, :precision => 10, :scale => 3
       t.integer :capacity
-      t.decimal :consume_kg
+      t.decimal :consume_kg, :precision => 10, :scale => 3
       t.integer :height
       t.integer :width
       t.integer :deep

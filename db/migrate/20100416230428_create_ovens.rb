@@ -7,7 +7,7 @@ class CreateOvens < ActiveRecord::Migration
       t.string :model
       t.string :type
       t.string :efficiency
-      t.decimal :consume
+      t.decimal :consume, :precision => 10, :scale => 3
       t.integer :volume
       t.string :warming
       t.integer :height

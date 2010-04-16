@@ -5,7 +5,7 @@ class CreateFreezers < ActiveRecord::Migration
       t.string :product
       t.string :brnand
       t.string :model
-      t.decimal :consume
+      t.decimal :consume, :precision => 10, :scale => 3
       t.integer :height
       t.integer :width
       t.boolean :froost
