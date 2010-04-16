@@ -1,0 +1,40 @@
+<h1>Listing ovens</h1>
+
+<table>
+  <tr>
+    <th>Producer</th>
+    <th>Product</th>
+    <th>Brand</th>
+    <th>Type</th>
+    <th>Efficiency</th>
+    <th>Consume</th>
+    <th>Volume</th>
+    <th>Warming</th>
+    <th>Height</th>
+    <th>Width</th>
+    <th>Deep</th>
+  </tr>
+
+<% @ovens.each do |oven| %>
+  <tr>
+    <td><%=h oven.producer %></td>
+    <td><%=h oven.product %></td>
+    <td><%=h oven.brand %></td>
+    <td><%=h oven.type %></td>
+    <td><%=h oven.efficiency %></td>
+    <td><%=h oven.consume %></td>
+    <td><%=h oven.volume %></td>
+    <td><%=h oven.warming %></td>
+    <td><%=h oven.height %></td>
+    <td><%=h oven.width %></td>
+    <td><%=h oven.deep %></td>
+    <td><%= link_to 'Show', oven %></td>
+    <td><%= link_to 'Edit', edit_oven_path(oven) %></td>
+    <td><%= link_to 'Destroy', oven, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New oven', new_oven_path %>

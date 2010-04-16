@@ -1,4 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :fridges
+
+  map.resources :fridge_freezers
+
+  map.resources :freezers
+
+  map.resources :washing_machines
+
+  map.resources :dishwashers
+
+  map.resources :dryers
+
+  map.resources :ovens
+
+  map.resources :washer_dryers
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  producer: MyString
+  product: MyString
+  brand: MyString
+  model: MyString
+  efficiency: MyString
+  consume: 9.99
+  washing_efficiency: MyString
+  drying_efficiency: MyString
+  cutlery: 1
+  water_consume: 1
+  height: 1
+  width: 1
+  deep: 1
+  termoefficiency: MyString
+
+two:
+  producer: MyString
+  product: MyString
+  brand: MyString
+  model: MyString
+  efficiency: MyString
+  consume: 9.99
+  washing_efficiency: MyString
+  drying_efficiency: MyString
+  cutlery: 1
+  water_consume: 1
+  height: 1
+  width: 1
+  deep: 1
+  termoefficiency: MyString

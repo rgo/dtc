@@ -1,0 +1,38 @@
+<h1>Listing fridge_freezers</h1>
+
+<table>
+  <tr>
+    <th>Producer</th>
+    <th>Product</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Efficiency</th>
+    <th>Consume</th>
+    <th>Height</th>
+    <th>Width</th>
+    <th>Deep</th>
+    <th>Froost</th>
+  </tr>
+
+<% @fridge_freezers.each do |fridge_freezer| %>
+  <tr>
+    <td><%=h fridge_freezer.producer %></td>
+    <td><%=h fridge_freezer.product %></td>
+    <td><%=h fridge_freezer.brand %></td>
+    <td><%=h fridge_freezer.model %></td>
+    <td><%=h fridge_freezer.efficiency %></td>
+    <td><%=h fridge_freezer.consume %></td>
+    <td><%=h fridge_freezer.height %></td>
+    <td><%=h fridge_freezer.width %></td>
+    <td><%=h fridge_freezer.deep %></td>
+    <td><%=h fridge_freezer.froost %></td>
+    <td><%= link_to 'Show', fridge_freezer %></td>
+    <td><%= link_to 'Edit', edit_fridge_freezer_path(fridge_freezer) %></td>
+    <td><%= link_to 'Destroy', fridge_freezer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New fridge_freezer', new_fridge_freezer_path %>

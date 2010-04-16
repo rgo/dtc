@@ -1,0 +1,52 @@
+<h1>Listing washer_dryers</h1>
+
+<table>
+  <tr>
+    <th>Producer</th>
+    <th>Product</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Rpm</th>
+    <th>Efficiency</th>
+    <th>Consume</th>
+    <th>Washing consume</th>
+    <th>Washing efficiency</th>
+    <th>Washing capacity</th>
+    <th>Drying capacity</th>
+    <th>Consume kg</th>
+    <th>Water consume</th>
+    <th>Height</th>
+    <th>Width</th>
+    <th>Deep</th>
+    <th>Termoefficiency</th>
+  </tr>
+
+<% @washer_dryers.each do |washer_dryer| %>
+  <tr>
+    <td><%=h washer_dryer.producer %></td>
+    <td><%=h washer_dryer.product %></td>
+    <td><%=h washer_dryer.brand %></td>
+    <td><%=h washer_dryer.model %></td>
+    <td><%=h washer_dryer.rpm %></td>
+    <td><%=h washer_dryer.efficiency %></td>
+    <td><%=h washer_dryer.consume %></td>
+    <td><%=h washer_dryer.washing_consume %></td>
+    <td><%=h washer_dryer.washing_efficiency %></td>
+    <td><%=h washer_dryer.washing_capacity %></td>
+    <td><%=h washer_dryer.drying_capacity %></td>
+    <td><%=h washer_dryer.consume_kg %></td>
+    <td><%=h washer_dryer.water_consume %></td>
+    <td><%=h washer_dryer.height %></td>
+    <td><%=h washer_dryer.width %></td>
+    <td><%=h washer_dryer.deep %></td>
+    <td><%=h washer_dryer.termoefficiency %></td>
+    <td><%= link_to 'Show', washer_dryer %></td>
+    <td><%= link_to 'Edit', edit_washer_dryer_path(washer_dryer) %></td>
+    <td><%= link_to 'Destroy', washer_dryer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New washer_dryer', new_washer_dryer_path %>

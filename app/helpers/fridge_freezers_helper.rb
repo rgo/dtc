@@ -1,0 +1,2 @@
+module FridgeFreezersHelper
+end

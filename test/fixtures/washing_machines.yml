@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  producer: MyString
+  product: MyString
+  brand: MyString
+  model: MyString
+  rpm: 1
+  efficiency: MyString
+  consume: 1
+  washing_efficiency: MyString
+  spin_efficiency: MyString
+  capacity: 1
+  consume_kg: 1
+  consume_water: 1
+  height: 1
+  width: 1
+  deep: 1
+  termoefficiency: MyString
+
+two:
+  producer: MyString
+  product: MyString
+  brand: MyString
+  model: MyString
+  rpm: 1
+  efficiency: MyString
+  consume: 1
+  washing_efficiency: MyString
+  spin_efficiency: MyString
+  capacity: 1
+  consume_kg: 1
+  consume_water: 1
+  height: 1
+  width: 1
+  deep: 1
+  termoefficiency: MyString

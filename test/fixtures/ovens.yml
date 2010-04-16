@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  producer: MyString
+  product: MyString
+  brand: MyString
+  type: MyString
+  efficiency: MyString
+  consume: 9.99
+  volume: 1
+  warming: MyString
+  height: 1
+  width: 1
+  deep: 1
+
+two:
+  producer: MyString
+  product: MyString
+  brand: MyString
+  type: MyString
+  efficiency: MyString
+  consume: 9.99
+  volume: 1
+  warming: MyString
+  height: 1
+  width: 1
+  deep: 1

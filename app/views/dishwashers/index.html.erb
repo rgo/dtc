@@ -1,0 +1,46 @@
+<h1>Listing dishwashers</h1>
+
+<table>
+  <tr>
+    <th>Producer</th>
+    <th>Product</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Efficiency</th>
+    <th>Consume</th>
+    <th>Washing efficiency</th>
+    <th>Drying efficiency</th>
+    <th>Cutlery</th>
+    <th>Water consume</th>
+    <th>Height</th>
+    <th>Width</th>
+    <th>Deep</th>
+    <th>Termoefficiency</th>
+  </tr>
+
+<% @dishwashers.each do |dishwasher| %>
+  <tr>
+    <td><%=h dishwasher.producer %></td>
+    <td><%=h dishwasher.product %></td>
+    <td><%=h dishwasher.brand %></td>
+    <td><%=h dishwasher.model %></td>
+    <td><%=h dishwasher.efficiency %></td>
+    <td><%=h dishwasher.consume %></td>
+    <td><%=h dishwasher.washing_efficiency %></td>
+    <td><%=h dishwasher.drying_efficiency %></td>
+    <td><%=h dishwasher.cutlery %></td>
+    <td><%=h dishwasher.water_consume %></td>
+    <td><%=h dishwasher.height %></td>
+    <td><%=h dishwasher.width %></td>
+    <td><%=h dishwasher.deep %></td>
+    <td><%=h dishwasher.termoefficiency %></td>
+    <td><%= link_to 'Show', dishwasher %></td>
+    <td><%= link_to 'Edit', edit_dishwasher_path(dishwasher) %></td>
+    <td><%= link_to 'Destroy', dishwasher, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New dishwasher', new_dishwasher_path %>
