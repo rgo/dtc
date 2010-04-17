@@ -1,0 +1,11 @@
+		<ul id="nav">
+            <li <%= 'class="selected"' if current_page?(root_path) %>>
+              <%= link_to( content_tag(:span, t('navigation.home')), root_path) %>
+            </li>
+            <li <%= 'class="selected"' if current_page?(appliances_path) %>>
+              <%= link_to( content_tag(:span, t('navigation.appliances')), appliances_path) %>
+            </li>
+            <li <%= 'class="selected"' if current_page?(cars_path) %>>
+              <%= link_to( content_tag(:span, t('navigation.cars')), cars_path) %>
+            </li>
+		</ul>
