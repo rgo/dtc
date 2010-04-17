@@ -1,0 +1,20 @@
+base: &base
+  adapter: mysql
+  username: <%=  database_username %>
+  password: <%=  database_password %>
+  encoding: utf8
+  host: <%= database_server  %>
+
+development:
+  database: <%= database_name_dev %>
+  <<: *base
+
+test:
+  database: <%= database_name_test %> 
+  <<: *base
+
+production:
+  database: <%= database_name_prd %> 
+  <<: *base
+
+
