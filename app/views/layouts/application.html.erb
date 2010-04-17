@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title><%= @meta_title || "Desenchufa tu cocina" %></title>	
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />    
+	<meta name="description" content="<%= @meta_content || "Información sobre productos eficientes" %>"></meta>
+	<meta http-equiv="imagetoolbar" content="no" />
+	<link rel="icon" href="favicon.gif" type="image/gif" />
+	<%= stylesheet_link_tag 'screen', :media => 'screen' %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+
+<div id="container">
+
+	<div id="header">
+		
+		<p><a href="/" title="click here to return to the homepage">D.T.C.</a></p>
+		
+		<ul id="nav">
+			<li class="selected"><a href="#"><span>Inicio</span></a></li>
+			<li><a href="#"><span>Electrodomésticos</span></a></li>
+			<li><a href="#"><span>Coches</span></a></li>
+		</ul>
+		
+	</div>
+
+	<%= yield %>		
+	
+	
+	<div id="footer">
+	
+		<ul>
+			<li><a href="#">Inicio</a></li>
+			<li><a href="#">Electrodomésticos</a></li>
+			<li><a href="#">Coches</a></li>
+			<li><a href="http://www.abredatos.es">Abre Datos</a></li>
+		</ul>
+	
+		<p>Copyright &copy; 2010 Equipo DTC - 
+    <!-- Creative Commons License -->
+    <a href="http://creativecommons.org/licenses/GPL/2.0/">
+    <img alt="CC-GNU GPL" border="0" src="http://creativecommons.org/images/public/cc-GPL-a.png" /></a><br />
+    Este software está sujeto a la <a href="http://creativecommons.org/licenses/GPL/2.0/">CC-GNU GPL</a> o superior.
+    <!-- /Creative Commons License --></p>
+
+	
+	</div>
+
+</div>
+
+</body>
+</html>

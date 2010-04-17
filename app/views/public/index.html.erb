@@ -1,2 +1,31 @@
-<h1>Public#index</h1>
-<p>Find me in app/views/public/index.html.erb</p>
+<h1 id="slogan">Encuentra productos energéticamente eficientes y ahorra dinero</h1>
+
+<div id="intro">
+  <h2>Busca un coche, electrodoméstico (lavadora, frigorífico, lavavajillas...)</h2>
+	<% form_tag '/queries/results', :id => 'main_search' do %>
+	  <%= text_field_tag 'q', '',  :class => 'text' %>
+	  <%= submit_tag 'Buscar', :class => "submit" %>
+	<% end %>		
+</div>
+
+<div class="col2 first">
+
+	<h2><%= link_to "Top Electrodomésticos", appliances_path %></h2>	
+	<ul>
+	  <li>electrodoméstico 1</li>
+	  <li>electrodoméstico 1</li>
+	  <li>electrodoméstico 1</li>
+	</ul>
+	
+</div>
+
+<div class="col2">
+
+	<h2><%= link_to "Top Coches", cars_path %></h2>	
+	<ul>
+	  <li>electrodoméstico 1</li>
+	  <li>electrodoméstico 1</li>
+	  <li>electrodoméstico 1</li>
+	</ul>
+	
+</div>

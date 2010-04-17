@@ -25,11 +25,36 @@
 #
 class WasherDryer < ActiveRecord::Base
 
+  include DataFetcher
+  data_fetcher :uri => 'http://www.idae.es/index.php/mod.buscador/mem.busquedaLavasecadoras/relmenu.87',
+               :form => 'form_buscar_elect',
+               :selector => 'div#dts-lst.con div.cpo table.tbl-f3 tbody tr'
+
   define_indexes do
     indexes producer
     indexes product
     indexes brand
     indexes model
+  end
+
+  def self.fetch_mapping
+    {:prodtr => 'producer',
+     :prod => 'product',
+     :marc => 'brand',
+     :modelo => 'model',
+     :vel_centrif => 'rpm',
+     :clas_energ => 'efficiency',
+     :cons_kwcyclo => 'consume',
+     :cons_lavado => 'washing_consume',
+     :efic_lavado => 'washing_efficiency',
+     :cap_lavado => 'washing_capcity',
+     :cap_secado => 'drying_capacity',
+     :cons_kwkg => 'consume_kg',
+     :cons_agua => 'water_consume',
+     :alto => 'height',
+     :ancho => 'width',
+     :fondo => 'deep',
+     :termoeficiente => 'termoefficiency'}
   end
 end
 

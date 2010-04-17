@@ -21,6 +21,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :ovens
 
   map.resources :washer_dryers
+  
+  map.resources :appliances, :only => [:show, :index] 
 
   # The priority is based upon order of creation: first created -> highest priority.
 

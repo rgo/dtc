@@ -18,5 +18,6 @@ class Car < ActiveRecord::Base
     indexes brand
     indexes model
   end
+
 end
 
