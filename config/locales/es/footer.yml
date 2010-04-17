@@ -1,7 +1,11 @@
 es:
   footer:
     abredatos: Abredatos
+    abredatos_participation: Yo participo en Abredatos.es
+    appliances: Electrodomésticos
     cars: Coches
-    electrical_appliances: Electrodomésticos
+    copyright:	Copyright &copy; 2010 Equipo DTC -
+			Este software está sujeto a la <a href="http://creativecommons.org/licenses/GPL/2.0/">CC-GNU GPL</a> o
+			superior.
     home: Inicio
     
