@@ -1,9 +1,23 @@
 <div id="footer">
+
 	<ul>
 		<li><%= link_to t('footer.home'), root_path %></li>
-		<li><%= link_to t('footer.electrical_appliances'), appliances_path %></li>
+		<li><%= link_to t('footer.appliances'), appliances_path %></li>
 		<li><%= link_to t('footer.cars'), cars_path %></li>
 		<li><%= link_to t('footer.abredatos'), ABREDATOS_URL %></li>
 	</ul>
+
+	<div class="footer-left">
+		<!-- Creative Commons License -->
+			<%= link_to image_tag('http://creativecommons.org/images/public/cc-GPL-a.png', :alt => t('footer.license.alt')), :title => t('footer.license.title') %>
+			<span><%= t('footer.copyright')%></span>
+		</span>
+		<!-- /Creative Commons License -->
+	</div>
+
+	<div class="footer-right">
+		<%= image_tag 'badge_abredatos.png', :alt => t('footer.abredatos_participation') %>
+	</div>
+
 </div>
 

@@ -1,14 +1,44 @@
 es:
   activerecord:
     models:
-      washer_dryer: secadora
-      oven: horno
-      dryer: secadora
-      dishwasher: lavavajillas
-      washing_machine: lavadora
-      freeze: congelador
-      fridge_freeze: frigorífico congelador
-      frige: frigorífico
-      worktop_induction: encímera de inducción
-      worktop_gas: encímera de gas
+    # Overrides default messages
+      car: Coche
+      dishwasher: Lavavajillas
+      dryer: Secadora
+      freezer: Congelador
+      fridge: Frigorífico
+      fridge_freeze: Frigorífico congelador
+      oven: Horno
+      washer_dryer: Secadora
+      washing_machine: Lavadora
+      worktop_induction: Cocina de inducción
+      worktop_gas: Cocina de gas
     attributes:
+      car:
+        brand: Marca
+        consume: Consumo
+        consume_range: Rango de consumo
+        cylinders: Cilindros
+        emissions: Emisiones
+        engine: Cilindrada
+        finish: Acabado
+        fuel: Combustible
+        gear: Cambio
+        height: Altura
+        length: Longitud
+        market_segment: Segmento de mercado
+        minimal_tare: Tara mínima
+        model: Modelo
+        power: Potencia
+        rating: Clasificación
+        seats: Plazas
+        torque: Par
+        wheel_drive: Tracción
+        width: Anchura
+        
+        
+        
+        
+
+        
+    # Overrides model and default messages.

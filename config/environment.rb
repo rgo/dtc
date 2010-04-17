@@ -20,7 +20,7 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'will_paginate', :version => '~> 2.3.12'
-  #config.gem 'searchlogic', :version => '~> 2.4.19'
+  config.gem 'searchlogic', :version => '~> 2.4.19'
   config.gem 'thinking-sphinx', :version => '~> 1.3.16', :lib => 'thinking_sphinx'
   config.gem 'ts-datetime-delta', :version => '1.0.2', :lib => 'thinking_sphinx/deltas/datetime_delta'
 
@@ -42,6 +42,6 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-  # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+  config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*', '*.{rb,yml}')]
   config.i18n.default_locale = :es
 end
