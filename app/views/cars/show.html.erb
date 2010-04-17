@@ -1,33 +1,37 @@
-<p>
-  <b>Brand:</b>
-  <%=h @car.brand %>
-</p>
+<p id="slogan">Renault Laguna 1.1 fdksalfjda TDI</p>
 
-<p>
-  <b>Model:</b>
-  <%=h @car.model %>
-</p>
+<div id="content">
 
-<p>
-  <b>Diesel:</b>
-  <%=h @car.diesel %>
-</p>
+	<div id="main">
+	
+		<h2>Datos Técnicos</h2>
+		
+		<table>
+		  <summary>Detalles técnicos del vehículo</summary>
+		  <thead>
+  		  <tr>
+  		    <th>Característica</th>
+  		    <th>Valor</th>
+  		  </tr>
+  		</thead>
+  		<tbody>
+  		  <tr>
+  		    <td>Tipo de vehículo</td>
+  		    <td>Berlinas y Familiares grandes </td>
+  		  </tr>
+  		  <tr class="even">
+  		    <td>Motorización</td>
+  		    <td>Gasolina</td>
+  		  </tr>
+  		</tbody>
+  	</table>
 
-<p>
-  <b>Consumption:</b>
-  <%=h @car.consumption %>
-</p>
+	</div>
+	
+</div>
 
-<p>
-  <b>Emission:</b>
-  <%=h @car.emission %>
-</p>
-
-<p>
-  <b>Rating:</b>
-  <%=h @car.rating %>
-</p>
-
-
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<div id="side">
+	
+	<h2>Latest Updates</h2>
+	
+</div>
