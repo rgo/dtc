@@ -1,19 +1,59 @@
-<h1 id="slogan">Encuentra productos energéticamente eficientes y ahorra dinero</h1>
+<h1 id="slogan">Busca el coche más eficiente del mercado</h1>
 
 <div id="intro">
-  <h2>Busca un coche, electrodoméstico (lavadora, frigorífico, lavavajillas...)</h2>
 	<form id="car_search" class="top_form">
-    <label for="gasoline">Combustible</label><br />
-    <select id="gasoline" name"gasoline">
-      <option value="G">Gasolina</option>
-      <option value="D">Gasóleo/Diesel</option>
-    <select>
+	  <p class="select_field">
+      <label for="gasoline">Combustible</label><br />
+      <select id="gasoline" name="gasoline" size="5">
+        <option value="G">Gasolina</option>
+        <option value="D">Gasóleo/Diesel</option>
+      </select>
+    </p>
+    <p class="select_field">
+      <label for="transmission">Cambio</label><br />
+      <select id="transmission" name="transmission" size="5">
+        <option value="M">Manual</option>
+        <option value="A">Automático</option>
+      </select>
+    </p>
+    <p class="select_field">
+      <label for="seats">Plazas</label><br />
+      <select id="seats" name="gasoline" size="5">
+        <option value="1">Hasta 5 plazas</option>
+        <option value="2">De 6 ó 7 plazas</option>
+        <option value="3">Más de 7 plazas</option>
+      </select>
+    </p>
+    <p class="select_field">
+      <label for="consume">Consumo</label><br />
+      <select id="consume" name="gasoline" size="5">
+        <option value="1">Menos de 5 l/100km.</option>
+        <option value="2">Entre 5 y 6 l/100km.</option>
+        <option value="3">Entre 6 y 7 l/100km.</option>
+        <option value="4">Entre 7 y 9 l/100km.</option>
+        <option value="5">Más de 9 l/100km.</option>
+      </select>
+    </p>
+    <p class="select_field">
+      <input type="submit" value="Buscar coches" id="submit_cars" class="submit large grana awesome" />
+    </p>
   </form>
 </div>
 
-<h3>Resultados de la búsqueda</h3>
+<div id="comparator">
+  <h3>Comparador</h3>
+  <form>
+    <label for="kilometers">¿Cuantos kilómetros haces al año?</label><br />
+    <input name="kilometers" id="kilometers" value="15000" type="text" />
+    <p>Tienes 3 coches seleccionados</p>
+    <input type="submit" value="Comparar" class="submit large grana awesome" />
+  </form>
+</div>
+
+<h3>Hemos encontrado</h3>
 
 <table>
+  <summary>Resultados de la búsqueda</summary>
   <tr>
     <th>Brand</th>
     <th>Model</th>
@@ -22,22 +62,50 @@
     <th>Emission</th>
     <th>Rating</th>
   </tr>
-
-<% @cars.each do |car| %>
   <tr>
-    <td><%=h car.brand %></td>
-    <td><%=h car.model %></td>
-    <td><%=h car.diesel %></td>
-    <td><%=h car.consumption %></td>
-    <td><%=h car.emission %></td>
-    <td><%=h car.rating %></td>
-    <td><%= link_to 'Show', car %></td>
-    <td><%= link_to 'Edit', edit_car_path(car) %></td>
-    <td><%= link_to 'Destroy', car, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>Renault</td>
+    <td>Laguna</td>
+    <td>Gasolina</td>
+    <td class="number">8.9</td>
+    <td class="number">109</td>
+    <td>
+      <div class="rating_bar">
+        <div style="width:50%"></div>
+      </div>
+    </td>
   </tr>
-<% end %>
+  <tr class="even">
+    <td>Renault</td>
+    <td>Laguna</td>
+    <td>Gasolina</td>
+    <td class="number">8.9</td>
+    <td class="number">109</td>
+    <td>
+      <div class="rating_bar">
+        <div style="width:100%"></div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>Renault</td>
+    <td>Laguna</td>
+    <td>Gasolina</td>
+    <td class="number">8.9</td>
+    <td class="number">109</td>
+    <td>
+      <div class="rating_bar">
+        <div style="width:75%"></div>
+      </div>
+    </td>
+  </tr>
+  <tr class="even">
+    <td>Renault</td>
+    <td>Laguna</td>
+    <td>Gasolina</td>
+    <td class="number">8.9</td>
+    <td class="number">109</td>
+    <td><div class="rating_bar">
+      <div style="width:25%"></div>
+    </div></td>
+  </tr>
 </table>
-
-<br />
-
-<%= link_to 'New car', new_car_path %>
