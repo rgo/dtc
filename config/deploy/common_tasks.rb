@@ -144,5 +144,24 @@ namespace :deploy do
     }
 
   end
+
+  namespace :web do
+    desc <<-DESC
+      Present a maintenance page to visitors. Disables your application's web \
+      interface by writing a "maintenance.html" file to each web server. The \
+      servers must be configured to detect the presence of this file, and if \
+      it is present, always display it instead of performing the request.
+    DESC
+    task :disable, :roles => :web, :except => { :no_release => true } do
+      require 'erb'
+      on_rollback { run "rm #{shared_path}/system/maintenance.html" }
+
+      template = File.read(File.join(File.dirname(__FILE__), "templates", "maintenance.rhtml"))
+      result = ERB.new(template).result(binding)
+
+      put result, "#{shared_path}/system/maintenance.html", :mode => 0644
+    end
+  end
+
 end
 
