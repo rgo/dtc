@@ -1,0 +1,8 @@
+development:
+  enable_star: true
+  min_prefix_len: 3
+  port: 3313
+production:
+  enable_star: true
+  min_prefix_len: 3
+  port: 3315
