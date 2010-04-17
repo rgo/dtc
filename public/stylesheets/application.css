@@ -7,7 +7,6 @@ input.large.awesome.grana, input.large.awesome.grana:visited {
     padding: 8px 14px 9px;
 }
 
-
 input.shadow {
     outline: none;
     transition: all 0.25s ease-in-out;
@@ -24,4 +23,28 @@ input.shadow:focus {
     -webkit-box-shadow: 0 0 5px rgba(148, 0, 0, 1);
     -moz-box-shadow: 0 0 5px rgba(148, 0, 0, 1);
     border: 1px solid rgba(148, 0, 0, 1);
+}
+
+#footer img{
+    vertical-align:middle;
+}
+
+#footer div.footer-left {
+    display: inline;
+    float: left;
+
+    margin-left: 0;
+
+    width: 350px;
+}
+
+#footer div.footer-left span {
+    vertical-align:top;
+}
+
+#footer div.footer-right {
+    display: inline;
+    float: left;
+
+    margin-right: 0;
 }
