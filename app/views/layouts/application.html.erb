@@ -6,8 +6,8 @@
 	<meta name="description" content="<%= @meta_content || "Información sobre productos eficientes" %>"></meta>
 	<meta http-equiv="imagetoolbar" content="no" />
 	<link rel="icon" href="favicon.gif" type="image/gif" />
-	<%= stylesheet_link_tag 'screen', :media => 'screen' %>
-  <%= javascript_include_tag :defaults %>
+	<%= stylesheet_link_tag 'screen', 'awesome-buttons', 'application', :media => 'screen', :cache => 'dtc' %>
+    <%= javascript_include_tag :defaults %>
 </head>
 <body>
 

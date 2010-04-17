@@ -1,0 +1,27 @@
+input.awesome.grana, input.awesome.grana:visited {
+    background-color: #940000;
+}
+
+input.large.awesome.grana, input.large.awesome.grana:visited {
+    font-size: 14px;
+    padding: 8px 14px 9px;
+}
+
+
+input.shadow {
+    outline: none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input.shadow:focus {
+    box-shadow: 0 0 5px rgba(148, 0, 0, 1);
+    -webkit-box-shadow: 0 0 5px rgba(148, 0, 0, 1);
+    -moz-box-shadow: 0 0 5px rgba(148, 0, 0, 1);
+    border: 1px solid rgba(148, 0, 0, 1);
+}
