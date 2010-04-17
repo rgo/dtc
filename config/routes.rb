@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :worktop_gas
+
+  map.resources :worktop_inductions
+
   map.resources :fridges
 
   map.resources :fridge_freezers

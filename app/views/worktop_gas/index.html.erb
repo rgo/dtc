@@ -1,0 +1,40 @@
+<h1>Listing worktop_gas</h1>
+
+<table>
+  <tr>
+    <th>Producer</th>
+    <th>Product</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Type</th>
+    <th>Total torchs</th>
+    <th>Width ext</th>
+    <th>Deep ext</th>
+    <th>Width ins</th>
+    <th>Deep ins</th>
+    <th>Power radiant torchs</th>
+  </tr>
+
+<% @worktop_gas.each do |worktop_ga| %>
+  <tr>
+    <td><%=h worktop_ga.producer %></td>
+    <td><%=h worktop_ga.product %></td>
+    <td><%=h worktop_ga.brand %></td>
+    <td><%=h worktop_ga.model %></td>
+    <td><%=h worktop_ga.type %></td>
+    <td><%=h worktop_ga.total_torchs %></td>
+    <td><%=h worktop_ga.width_ext %></td>
+    <td><%=h worktop_ga.deep_ext %></td>
+    <td><%=h worktop_ga.width_ins %></td>
+    <td><%=h worktop_ga.deep_ins %></td>
+    <td><%=h worktop_ga.power_radiant_torchs %></td>
+    <td><%= link_to 'Show', worktop_ga %></td>
+    <td><%= link_to 'Edit', edit_worktop_ga_path(worktop_ga) %></td>
+    <td><%= link_to 'Destroy', worktop_ga, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New worktop_ga', new_worktop_ga_path %>

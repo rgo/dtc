@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  producer: MyString
+  product: MyString
+  brand: MyString
+  model: MyString
+  type: MyString
+  total_torchs: 1
+  inductio_torchs: 1
+  width_ext: 1
+  deep_ext: 1
+  width_ins: 1
+  deep_ins: 1
+  power_torchs: 1
+  power_induction_torchs: 1
+
+two:
+  producer: MyString
+  product: MyString
+  brand: MyString
+  model: MyString
+  type: MyString
+  total_torchs: 1
+  inductio_torchs: 1
+  width_ext: 1
+  deep_ext: 1
+  width_ins: 1
+  deep_ins: 1
+  power_torchs: 1
+  power_induction_torchs: 1
