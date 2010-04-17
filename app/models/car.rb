@@ -19,12 +19,5 @@ class Car < ActiveRecord::Base
     indexes model
   end
 
-  def self.brands
-     self.all(:select => "DISTINCT(brand)").map(&:brand)
-  end
-
-  def self.consumptions
-    [0..5, 5..7, 7..10, 10..100]
-  end
 end
 
