@@ -18,6 +18,7 @@
 #
 class Fridge < ActiveRecord::Base
 
+  validates_uniqueness_of :model, :scope => :brand
   include DataFetcher
   data_fetcher :uri => 'http://www.idae.es/index.php/mod.buscador/mem.fbusquedaFrigorificos/relmenu.87',
                :form => 'form_buscar_elect',
