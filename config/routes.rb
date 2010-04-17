@@ -1,4 +1,27 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.resources :cars
+
+  map.resources :worktop_gas
+
+  map.resources :worktop_inductions
+
+  map.resources :fridges
+
+  map.resources :fridge_freezers
+
+  map.resources :freezers
+
+  map.resources :washing_machines
+
+  map.resources :dishwashers
+
+  map.resources :dryers
+
+  map.resources :ovens
+
+  map.resources :washer_dryers
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -31,7 +54,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
+  map.root :controller => "public"
 
   # See how all your routes lay out with "rake routes"
 

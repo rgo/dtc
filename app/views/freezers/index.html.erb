@@ -1,0 +1,34 @@
+<h1>Listing freezers</h1>
+
+<table>
+  <tr>
+    <th>Producer</th>
+    <th>Product</th>
+    <th>Brnand</th>
+    <th>Model</th>
+    <th>Consume</th>
+    <th>Height</th>
+    <th>Width</th>
+    <th>Froost</th>
+  </tr>
+
+<% @freezers.each do |freezer| %>
+  <tr>
+    <td><%=h freezer.producer %></td>
+    <td><%=h freezer.product %></td>
+    <td><%=h freezer.brnand %></td>
+    <td><%=h freezer.model %></td>
+    <td><%=h freezer.consume %></td>
+    <td><%=h freezer.height %></td>
+    <td><%=h freezer.width %></td>
+    <td><%=h freezer.froost %></td>
+    <td><%= link_to 'Show', freezer %></td>
+    <td><%= link_to 'Edit', edit_freezer_path(freezer) %></td>
+    <td><%= link_to 'Destroy', freezer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New freezer', new_freezer_path %>

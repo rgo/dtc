@@ -1,0 +1,14 @@
+es:
+  activerecord:
+    models:
+      washer_dryer: secadora
+      oven: horno
+      dryer: secadora
+      dishwasher: lavavajillas
+      washing_machine: lavadora
+      freeze: congelador
+      fridge_freeze: frigorífico congelador
+      frige: frigorífico
+      worktop_induction: encímera de inducción
+      worktop_gas: encímera de gas
+    attributes:

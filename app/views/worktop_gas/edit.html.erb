@@ -1,0 +1,56 @@
+<h1>Editing worktop_ga</h1>
+
+<% form_for(@worktop_ga) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :producer %><br />
+    <%= f.text_field :producer %>
+  </p>
+  <p>
+    <%= f.label :product %><br />
+    <%= f.text_field :product %>
+  </p>
+  <p>
+    <%= f.label :brand %><br />
+    <%= f.text_field :brand %>
+  </p>
+  <p>
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </p>
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.label :total_torchs %><br />
+    <%= f.text_field :total_torchs %>
+  </p>
+  <p>
+    <%= f.label :width_ext %><br />
+    <%= f.text_field :width_ext %>
+  </p>
+  <p>
+    <%= f.label :deep_ext %><br />
+    <%= f.text_field :deep_ext %>
+  </p>
+  <p>
+    <%= f.label :width_ins %><br />
+    <%= f.text_field :width_ins %>
+  </p>
+  <p>
+    <%= f.label :deep_ins %><br />
+    <%= f.text_field :deep_ins %>
+  </p>
+  <p>
+    <%= f.label :power_radiant_torchs %><br />
+    <%= f.text_field :power_radiant_torchs %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @worktop_ga %> |
+<%= link_to 'Back', worktop_gas_path %>

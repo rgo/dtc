@@ -1,0 +1,44 @@
+<h1>Editing freezer</h1>
+
+<% form_for(@freezer) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :producer %><br />
+    <%= f.text_field :producer %>
+  </p>
+  <p>
+    <%= f.label :product %><br />
+    <%= f.text_field :product %>
+  </p>
+  <p>
+    <%= f.label :brnand %><br />
+    <%= f.text_field :brnand %>
+  </p>
+  <p>
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </p>
+  <p>
+    <%= f.label :consume %><br />
+    <%= f.text_field :consume %>
+  </p>
+  <p>
+    <%= f.label :height %><br />
+    <%= f.text_field :height %>
+  </p>
+  <p>
+    <%= f.label :width %><br />
+    <%= f.text_field :width %>
+  </p>
+  <p>
+    <%= f.label :froost %><br />
+    <%= f.check_box :froost %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @freezer %> |
+<%= link_to 'Back', freezers_path %>

@@ -1,0 +1,80 @@
+<h1>Editing washer_dryer</h1>
+
+<% form_for(@washer_dryer) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :producer %><br />
+    <%= f.text_field :producer %>
+  </p>
+  <p>
+    <%= f.label :product %><br />
+    <%= f.text_field :product %>
+  </p>
+  <p>
+    <%= f.label :brand %><br />
+    <%= f.text_field :brand %>
+  </p>
+  <p>
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </p>
+  <p>
+    <%= f.label :rpm %><br />
+    <%= f.text_field :rpm %>
+  </p>
+  <p>
+    <%= f.label :efficiency %><br />
+    <%= f.text_field :efficiency %>
+  </p>
+  <p>
+    <%= f.label :consume %><br />
+    <%= f.text_field :consume %>
+  </p>
+  <p>
+    <%= f.label :washing_consume %><br />
+    <%= f.text_field :washing_consume %>
+  </p>
+  <p>
+    <%= f.label :washing_efficiency %><br />
+    <%= f.text_field :washing_efficiency %>
+  </p>
+  <p>
+    <%= f.label :washing_capacity %><br />
+    <%= f.text_field :washing_capacity %>
+  </p>
+  <p>
+    <%= f.label :drying_capacity %><br />
+    <%= f.text_field :drying_capacity %>
+  </p>
+  <p>
+    <%= f.label :consume_kg %><br />
+    <%= f.text_field :consume_kg %>
+  </p>
+  <p>
+    <%= f.label :water_consume %><br />
+    <%= f.text_field :water_consume %>
+  </p>
+  <p>
+    <%= f.label :height %><br />
+    <%= f.text_field :height %>
+  </p>
+  <p>
+    <%= f.label :width %><br />
+    <%= f.text_field :width %>
+  </p>
+  <p>
+    <%= f.label :deep %><br />
+    <%= f.text_field :deep %>
+  </p>
+  <p>
+    <%= f.label :termoefficiency %><br />
+    <%= f.text_field :termoefficiency %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @washer_dryer %> |
+<%= link_to 'Back', washer_dryers_path %>

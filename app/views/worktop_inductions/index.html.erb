@@ -1,0 +1,44 @@
+<h1>Listing worktop_inductions</h1>
+
+<table>
+  <tr>
+    <th>Producer</th>
+    <th>Product</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Type</th>
+    <th>Total torchs</th>
+    <th>Inductio torchs</th>
+    <th>Width ext</th>
+    <th>Deep ext</th>
+    <th>Width ins</th>
+    <th>Deep ins</th>
+    <th>Power torchs</th>
+    <th>Power induction torchs</th>
+  </tr>
+
+<% @worktop_inductions.each do |worktop_induction| %>
+  <tr>
+    <td><%=h worktop_induction.producer %></td>
+    <td><%=h worktop_induction.product %></td>
+    <td><%=h worktop_induction.brand %></td>
+    <td><%=h worktop_induction.model %></td>
+    <td><%=h worktop_induction.type %></td>
+    <td><%=h worktop_induction.total_torchs %></td>
+    <td><%=h worktop_induction.inductio_torchs %></td>
+    <td><%=h worktop_induction.width_ext %></td>
+    <td><%=h worktop_induction.deep_ext %></td>
+    <td><%=h worktop_induction.width_ins %></td>
+    <td><%=h worktop_induction.deep_ins %></td>
+    <td><%=h worktop_induction.power_torchs %></td>
+    <td><%=h worktop_induction.power_induction_torchs %></td>
+    <td><%= link_to 'Show', worktop_induction %></td>
+    <td><%= link_to 'Edit', edit_worktop_induction_path(worktop_induction) %></td>
+    <td><%= link_to 'Destroy', worktop_induction, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New worktop_induction', new_worktop_induction_path %>
