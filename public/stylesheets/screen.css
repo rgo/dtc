@@ -92,20 +92,35 @@
 		hr{
 			display:none;
 			}	
-		table{
-			margin:1em 0;
-			width:100%;
-			border-collapse:collapse;
-			}
-		th, td{	
-			padding:2px 5px;
-			}	
-		th{	
-			text-align:left;
-			}
-		li{
-			display:list-item;
-			}	
+	table{
+		margin:1em 0;
+		width:80%;
+		border-collapse:collapse;
+		background: #fff;
+	}
+	summary {
+		display: none;
+	}
+	th, td{	
+		padding:2px 5px;
+	}	
+	td.number {
+		text-align: right;
+	}
+	th{	
+		text-align:left;
+		background: #940000;
+		color: #fff;
+		font-size: 110%;
+	}
+	tr.even {
+		background: #ddd;
+		border-bottom: solid 1px #999;
+		border-top: solid 1px #999;
+	}
+	li{
+		display:list-item;
+		}	
 	
 	/* // HTML Tags */	
 	
@@ -287,38 +302,6 @@
 			color:#fff;			
 			padding-bottom:0;
 			background:none;			
-			}
-		#intro p{
-			margin:0;
-			position:absolute;
-			left:30px;
-			top:80px;
-			color:#fff;
-			font-size:18px;
-			width:530px;
-			line-height:110%;
-			}	
-		#intro p.link{
-			left:709px;
-			top:88px;			
-			width:196px;
-			height:47px;
-			background:url(../images/bg_introLink.png) no-repeat 0 0;
-			}
-		#intro p.link a{
-			display:block;
-			margin:0 10px;
-			overflow:hidden;
-			color:#2c728a;
-			height:45px;
-			line-height:45px;
-			text-align:center;
-			font-size:22px;
-			font-weight:bold;
-			text-transform:lowercase;
-			}	
-		#intro p.link a:hover{
-			color:#940000;
 			}												
 	
 	/* // intro */		
@@ -409,12 +392,7 @@
 		textarea{
 			height:120px;
 			overflow:auto;
-			}						
-		form p{
-			clear:both;		
-			margin:0;
-			padding:8px 0;
-			}	
+			}							
 		button{
 			border:none;
 			padding:5px 15px;
@@ -431,8 +409,12 @@
 	form.top_form{
 		position: absolute;
 		margin-left: 30px;
-		margin-top: 50px;
+		margin-top: 25px;
 		background: none;
+	}
+	
+	form#main_search {
+		margin-top: 70px;
 	}
 	
 	form.top_form input.submit {
@@ -445,6 +427,16 @@
 	form.top_form label {
 		color: #fff;
 		font-size: 1.1em;
+	}
+	
+	p.select_field {
+		width: 120px;
+		float: left;
+		margin-right: 20px;
+	}
+	
+	input#submit_cars {
+		margin-left: 40px;
 	}
 	
 	/* // form */					
@@ -476,3 +468,8 @@
 				
 
 /* // footer */
+
+div#comparator {
+	width: 18%;
+	float: right;
+}

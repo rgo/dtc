@@ -1,4 +1,6 @@
 es:
   general:
     range:
-      greater: 
+      between: entre {{min}} y {{max}}
+      greater: más de {{min}}
+      less: menos de {{max}} 

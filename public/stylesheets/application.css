@@ -2,11 +2,6 @@ input.awesome.grana, input.awesome.grana:visited {
     background-color: #940000;
 }
 
-input.large.awesome.grana, input.large.awesome.grana:visited {
-    font-size: 14px;
-    padding: 8px 14px 9px;
-}
-
 input.shadow {
     outline: none;
     transition: all 0.25s ease-in-out;
@@ -29,22 +24,13 @@ input.shadow:focus {
     vertical-align:middle;
 }
 
-#footer div.footer-left {
-    display: inline;
-    float: left;
-
-    margin-left: 0;
-
-    width: 350px;
+.rating_bar {
+  width: 55px;
+  background: url(../images/star_x_grey.gif) 0 0 repeat-x;
 }
 
-#footer div.footer-left span {
-    vertical-align:top;
+.rating_bar div {
+  height: 12px;
+  background: url(../images/star_x_orange.gif) 0 0 repeat-x;
 }
 
-#footer div.footer-right {
-    display: inline;
-    float: left;
-
-    margin-right: 0;
-}
