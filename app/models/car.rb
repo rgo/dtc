@@ -17,6 +17,7 @@ class Car < ActiveRecord::Base
   include DataFetcher
 
   validates_uniqueness_of :finish, :scope => [:brand, :model]
+  before_save :calculate_consume_range
 
   data_fetcher :uri => CARS_URI
   
@@ -24,6 +25,13 @@ class Car < ActiveRecord::Base
     indexes brand
     indexes model
   end
+  
+  #<5 - 5,6 - 6,7 - 7,9 > 9
+  LESS_THAN_5     = 1
+  BETWEEN_5_AND_6 = 2
+  BETWEEN_6_AND_7 = 3
+  BETWEEN_7_AND_9 = 4
+  GREATER_THAN_9  = 5
 
 
   def self.fetch
@@ -83,6 +91,18 @@ class Car < ActiveRecord::Base
       end
     end
 
+  end
+
+  private
+
+  def calculate_consume_range
+    range = LESS_THAN_5 if (0..5).include? consume
+    range = BETWEEN_5_AND_6 if (5..6).include? consume
+    range = BETWEEN_6_AND_7 if (6..7).include? consume
+    range = BETWEEN_7_AND_9 if (7..9).include? consume
+    range = GREATER_THAN_9 if consume > 9 
+    
+    write_attribute(:consume_range, range)
   end
 
 end
