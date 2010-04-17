@@ -19,3 +19,5 @@ db/*.sqlite3
 *.tmproj
 *.sw?
 .bundle/**/*
+.bundle
+db/schema.rb

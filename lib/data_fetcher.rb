@@ -36,7 +36,7 @@ module DataFetcher
               end
             end
           end
-          inserts += 1 if object.save!
+          inserts += 1 if object.save
         end
       end while (agent.page.link_with(:text => 'Siguiente >') && doc = agent.page.link_with(:text => 'Siguiente >').click)
     end
