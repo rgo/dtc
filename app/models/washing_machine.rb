@@ -24,10 +24,34 @@
 #
 class WashingMachine < ActiveRecord::Base
 
+  include DataFetcher
+  data_fetcher :uri => 'http://www.idae.es/index.php/mod.buscador/mem.fbusquedaLavadoras/relmenu.87',
+               :form => 'form_buscar_elect',
+               :selector => 'div#dts-lst.con table.tbl-f3 tbody tr'
+
   define_indexes do
     indexes producer
     indexes product
     indexes brand
     indexes model
+  end
+
+  def self.fetch_mapping
+    {:prodtr => 'producer',
+     :prod => 'product',
+     :marc => 'brand',
+     :modelo => 'model',
+     :vel_centrif => 'rpm',
+     :clas_energ => 'efficiency',
+     :cons_kwciclo => 'consume',
+     :efic_lavado => 'washing_efficiency',
+     :efic_centrif => 'spin_efficiency',
+     :capac => 'capacity',
+     :cons_kwkg => 'consume_kg',
+     :cons_agua => 'consume_water',
+     :alto => 'height',
+     :ancho => 'width',
+     :fondo => 'deep',
+     :termoeficiente => 'termoefficiency'}
   end
 end
