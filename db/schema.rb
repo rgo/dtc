@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100416234717) do
+ActiveRecord::Schema.define(:version => 20100417002554) do
+
+  create_table "cars", :force => true do |t|
+    t.string   "brand"
+    t.string   "model"
+    t.boolean  "diesel",                                     :default => false
+    t.decimal  "consumption", :precision => 10, :scale => 2
+    t.integer  "emission",                                   :default => 0
+    t.string   "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "dishwashers", :force => true do |t|
     t.string   "producer"
@@ -145,6 +156,40 @@ ActiveRecord::Schema.define(:version => 20100416234717) do
     t.integer  "width"
     t.integer  "deep"
     t.string   "termoefficiency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "worktop_gas", :force => true do |t|
+    t.string   "producer"
+    t.string   "product"
+    t.string   "brand"
+    t.string   "model"
+    t.string   "type"
+    t.integer  "total_torchs"
+    t.integer  "width_ext"
+    t.integer  "deep_ext"
+    t.integer  "width_ins"
+    t.integer  "deep_ins"
+    t.integer  "power_radiant_torchs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "worktop_inductions", :force => true do |t|
+    t.string   "producer"
+    t.string   "product"
+    t.string   "brand"
+    t.string   "model"
+    t.string   "type"
+    t.integer  "total_torchs"
+    t.integer  "inductio_torchs"
+    t.integer  "width_ext"
+    t.integer  "deep_ext"
+    t.integer  "width_ins"
+    t.integer  "deep_ins"
+    t.integer  "power_torchs"
+    t.integer  "power_induction_torchs"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
