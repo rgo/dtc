@@ -13,5 +13,10 @@
 #  updated_at  :datetime
 #
 class Car < ActiveRecord::Base
+
+  define_index do
+    indexes brand
+    indexes model
+  end
 end
 

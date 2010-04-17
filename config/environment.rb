@@ -19,6 +19,9 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem 'will_paginate', :version => '~> 2.3.12'
+  config.gem 'thinking-sphinx', :version => '~> 1.3.16', :lib => 'thinking_sphinx'
+  config.gem 'ts-datetime-delta', :version => '1.0.2', :lib => 'thinking_sphinx/deltas/datetime_delta'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

@@ -15,5 +15,12 @@
 #  updated_at :datetime
 #
 class Freezer < ActiveRecord::Base
+
+  define_indexes do
+    indexes producer
+    indexes product
+    indexes brand
+    indexes model
+  end
 end
 

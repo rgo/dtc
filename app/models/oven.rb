@@ -19,4 +19,11 @@
 #  updated_at :datetime
 #
 class Oven < ActiveRecord::Base
+
+  define_indexes do
+    indexes producer
+    indexes product
+    indexes brand
+    indexes model
+  end
 end
