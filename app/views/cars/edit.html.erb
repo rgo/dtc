@@ -1,0 +1,36 @@
+<h1>Editing car</h1>
+
+<% form_for(@car) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :brand %><br />
+    <%= f.text_field :brand %>
+  </p>
+  <p>
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </p>
+  <p>
+    <%= f.label :diesel %><br />
+    <%= f.check_box :diesel %>
+  </p>
+  <p>
+    <%= f.label :consumption %><br />
+    <%= f.text_field :consumption %>
+  </p>
+  <p>
+    <%= f.label :emission %><br />
+    <%= f.text_field :emission %>
+  </p>
+  <p>
+    <%= f.label :rating %><br />
+    <%= f.text_field :rating %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @car %> |
+<%= link_to 'Back', cars_path %>

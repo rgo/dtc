@@ -1,0 +1,33 @@
+<p>
+  <b>Brand:</b>
+  <%=h @car.brand %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%=h @car.model %>
+</p>
+
+<p>
+  <b>Diesel:</b>
+  <%=h @car.diesel %>
+</p>
+
+<p>
+  <b>Consumption:</b>
+  <%=h @car.consumption %>
+</p>
+
+<p>
+  <b>Emission:</b>
+  <%=h @car.emission %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%=h @car.rating %>
+</p>
+
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
