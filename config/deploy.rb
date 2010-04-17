@@ -16,7 +16,7 @@ set :deploy_via, :remote_cache
 #
 set :database_server, "localhost"
 set :database_username, "dtc"
-set ( :database_password ){ Capistrano::CLI.ui.ask("Databse password: ") }
+set (:database_password){ Capistrano::CLI.password_prompt("Database password: ") }
 set :database_name_dev, "dtc_dev"
 set :database_name_test, "dtc_test"
 set :database_name_prd, "dtc_production"

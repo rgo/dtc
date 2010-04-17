@@ -116,7 +116,7 @@ namespace :deploy do
 
       desc "Create #{file} file in shared_path"
       task task_name, :roles => :app do
-        template = File.read(File.join(File.dirname(__FILE__), "deploy/templates", "#{file}.erb"))
+        template = File.read(File.join(File.dirname(__FILE__), "templates", "#{file}.erb"))
         result = ERB.new(template).result(binding)
 
         run "mkdir -p #{shared_path}/config"
