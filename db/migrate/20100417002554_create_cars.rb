@@ -6,6 +6,7 @@ class CreateCars < ActiveRecord::Migration
       t.string  :finish
       t.string  :fuel
       t.decimal :consume, :precision => 10, :scale => 2 
+      t.integer :consume_range
       t.integer :emissions, :default => 0
       t.string  :rating
       t.string  :market_segment
