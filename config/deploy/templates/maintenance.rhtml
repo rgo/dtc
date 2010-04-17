@@ -1,53 +1,45 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <title>Desenchufa tu casa - Estamos "trabajando" en ello...</title>
 
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>System down for maintenance</title>
+    <style>
+      *{
+        border: none;
+      }
 
-  <style type="text/css">
-    div.outer {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 500px;
-      height: 300px;
-      margin-left: -260px; 
-      margin-top: -150px;
-    }
+      body{
+        background-color: f0f1f5;
+      }
 
-    .DialogBody {
-      margin: 0;
-      padding: 10px;
-      text-align: left;
-      border: 1px solid #ccc;
-      border-right: 1px solid #999;
-      border-bottom: 1px solid #999;
-      background-color: #fff;
-    }
+      div{
+        margin-top: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 177px;
+      }
+      p{
+        text-align:center;
+        font-family: Arial;
+        font-size: 12px;
+        margin-top: 30px;
+      }
+      p span{
+        text-decoration: line-through;
+      }
 
-    body { background-color: #fff; }
-  </style>
-</head>
+    </style>
 
-<body>
-
-  <div class="outer">
-     <div class="DialogBody" style="text-align: center;">
-       <div style="text-align: center; width: 200px; margin: 0 auto;">
-         <p style="color: red; font-size: 16px; line-height: 20px;">
-           The system is down for <%= reason ? reason : "maintenance" %>
-           as of <%= Time.now.strftime("%H:%M %Z") %>.
-         </p>
-         <p style="color: #666;">
-           It'll be back <%= deadline ? deadline : "shortly" %>.
-         </p>
-       </div>
-     </div>
-  </div>
-
-</body>
+  </head>
+  <body>
+    <div>
+      <a href="http://live.abredatos.es/"><img 
+        src="/images/logo_abredatos.png"></a>
+      <p>Estamos <span>trabajando</span> en ello...</p>
+    </div>
+  </body>
 </html>
+
