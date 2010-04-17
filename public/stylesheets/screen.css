@@ -281,7 +281,7 @@
 			margin:0;
 			position:absolute;
 			left:30px;
-			top:40px;
+			top:10px;
 			font-size:24px;
 			line-height:40px;
 			color:#fff;			
@@ -428,19 +428,23 @@
 			margin-left:120px;
 			}										
 
-	form#main_search {
+	form.top_form{
 		position: absolute;
 		margin-left: 30px;
-		margin-top: 80px;
+		margin-top: 50px;
 		background: none;
 	}
 	
-	form#main_search input.submit {
+	form.top_form input.submit {
 		font-size: 2em;
 		width: 100px;
 	}
-	form#main_search input.text {
+	form.top_form input.text {
 		width: 550px;
+	}
+	form.top_form label {
+		color: #fff;
+		font-size: 1.1em;
 	}
 	
 	/* // form */					
