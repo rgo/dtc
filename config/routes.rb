@@ -1,9 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :cars
 
   map.resources :cars
 
-  map.resources :cars
+  map.resources :worktop_gas
+
+  map.resources :worktop_inductions
 
   map.resources :fridges
 
