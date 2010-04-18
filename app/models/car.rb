@@ -36,6 +36,7 @@ class Car < ActiveRecord::Base
   }
 
   named_scope :best_cars, :order => 'cars.rating asc, cars.emissions asc', :limit => 5
+  named_scope :best, :order => 'cars.rating asc, cars.emissions asc', :limit => 5
 
   data_fetcher :uri => CARS_URI
   
@@ -129,8 +130,7 @@ class Car < ActiveRecord::Base
   end
   
   def self.order_for_comparation(ids)
-    cars = Car.find(ids)
-    cars.sort_by{|car| car.consume}
+    find(ids).sort_by{|car| car.consume}
   end
 
   def estimate(annual_mileage)
@@ -138,6 +138,11 @@ class Car < ActiveRecord::Base
     return (annual_mileage * oil_price.to_f)
   end
 
+  def self.oil_prices
+    Rails.cache.fetch("car_oil_prices", 1.day) do
+      OilFetcher.new.average_prices
+    end
+  end
   
   private
 

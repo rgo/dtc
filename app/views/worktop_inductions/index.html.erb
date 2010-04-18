@@ -1,44 +1,61 @@
-<h1>Listing worktop_inductions</h1>
+<h1 id="slogan"><%= t('worktop_inductions.index.h1') %></h1>
+
+<div id="intro">
+  <% form_for @search, :html => {:id => "fridge_freezer_search", :class => "top_form"} do |f| %>
+      <p class="select_field">
+        <label for="search_kind_is"><%= WorktopInduction.human_attribute_name(:kind) %></label><br/>
+        <%= f.collection_select :kind_is, WorktopInduction.kind_options, :kind, :kind, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      </p>
+
+      <p class="select_field">
+        <label for="search_total_torchs_is"><%= WorktopInduction.human_attribute_name(:total_torchs) %></label><br/>
+        <%= f.collection_select :total_torchs_is, WorktopInduction.total_torchs_options, :total_torchs, :total_torchs, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      </p>
+
+      <p class="select_field">
+        <%= f.submit t('general.search', :item => WorktopInduction.human_name), :id => 'submit_worktop_induction', :class => 'submit huge grana awesome' %>
+      </p>
+  <% end -%>
+</div>
+
+<%= comparator_section(WorktopInduction) %>
+<h3><%= t('.results')%></h3>
 
 <table>
+  <caption><%= t('.caption')%></caption>
+  <thead>
   <tr>
-    <th>Producer</th>
-    <th>Product</th>
-    <th>Brand</th>
-    <th>Model</th>
-    <th>Type</th>
-    <th>Total torchs</th>
-    <th>Inductio torchs</th>
-    <th>Width ext</th>
-    <th>Deep ext</th>
-    <th>Width ins</th>
-    <th>Deep ins</th>
-    <th>Power torchs</th>
-    <th>Power induction torchs</th>
+    <th><%= order @search, :by => :brand, :as => WorktopInduction.human_attribute_name(:brand) %></th>
+    <th><%= order @search, :by => :model, :as => WorktopInduction.human_attribute_name(:model) %></th>
+    <th><%= order @search, :by => :total_torchs, :as => WorktopInduction.human_attribute_name(:total_torchs) %></th>
+    <th><%= order @search, :by => :inductio_torchs, :as => WorktopInduction.human_attribute_name(:inductio_torchs) %></th>
+    <th><%= order @search, :by => :width_ext, :as => WorktopInduction.human_attribute_name(:width_ext) %></th>
+    <th><%= order @search, :by => :deep_ext, :as => WorktopInduction.human_attribute_name(:deep_ext) %></th>
+    <th><%= order @search, :by => :width_ins, :as => WorktopInduction.human_attribute_name(:width_ins) %></th>
+    <th><%= order @search, :by => :deep_ins, :as => WorktopInduction.human_attribute_name(:deep_ins) %></th>
+    <th><%= order @search, :by => :power_torchs, :as => WorktopInduction.human_attribute_name(:power_torchs) %></th>
+    <th><%= order @search, :by => :power_induction_torchs, :as => WorktopInduction.human_attribute_name(:power_induction_torchs) %></th>
+    <th>&nbsp;</th>
   </tr>
+  </thead>
 
-<% @worktop_inductions.each do |worktop_induction| %>
-  <tr>
-    <td><%=h worktop_induction.producer %></td>
-    <td><%=h worktop_induction.product %></td>
-    <td><%=h worktop_induction.brand %></td>
-    <td><%=h worktop_induction.model %></td>
-    <td><%=h worktop_induction.type %></td>
-    <td><%=h worktop_induction.total_torchs %></td>
-    <td><%=h worktop_induction.inductio_torchs %></td>
-    <td><%=h worktop_induction.width_ext %></td>
-    <td><%=h worktop_induction.deep_ext %></td>
-    <td><%=h worktop_induction.width_ins %></td>
-    <td><%=h worktop_induction.deep_ins %></td>
-    <td><%=h worktop_induction.power_torchs %></td>
-    <td><%=h worktop_induction.power_induction_torchs %></td>
-    <td><%= link_to 'Show', worktop_induction %></td>
-    <td><%= link_to 'Edit', edit_worktop_induction_path(worktop_induction) %></td>
-    <td><%= link_to 'Destroy', worktop_induction, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @worktop_inductions.each do |worktop_induction| %>
+      <tr>
+        <td><%=h worktop_induction.brand %></td>
+        <td><%=h worktop_induction.model %></td>
+        <td><%=h worktop_induction.total_torchs %></td>
+        <td><%=h worktop_induction.inductio_torchs %></td>
+        <td><%=h worktop_induction.width_ext %></td>
+        <td><%=h worktop_induction.deep_ext %></td>
+        <td><%=h worktop_induction.width_ins %></td>
+        <td><%=h worktop_induction.deep_ins %></td>
+        <td><%=h worktop_induction.power_torchs %></td>
+        <td><%=h worktop_induction.power_induction_torchs %></td>
+        <td><%= comparator_link worktop_induction %>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New worktop_induction', new_worktop_induction_path %>
+<%= will_paginate @fridge_freezers %>

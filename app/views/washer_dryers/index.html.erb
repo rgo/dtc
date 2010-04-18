@@ -28,8 +28,8 @@
 <h3><%= t('.h3_results') %></h3>
 <%= comparator_section WasherDryer %>
 <table>
-  <summary>Resultados de la búsqueda</summary>
-  <theader>
+  <caption>Resultados de la búsqueda</caption>
+  <thead>
   <tr>
     <th><%= order @search, :by => :brand, :as => WasherDryer.human_attribute_name(:brand) %></th>
     <th><%= order @search, :by => :model, :as => WasherDryer.human_attribute_name(:model) %></th>
@@ -47,7 +47,7 @@
     <th><%= order @search, :by => :deep, :as => WasherDryer.human_attribute_name(:deep) %></th>
     <th>&nbsp;</th>
   </tr>
-  </theader>
+  </thead>
 
   <tbody>
     <% @washer_dryers.each do |washer_dryer| %>

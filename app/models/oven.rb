@@ -26,6 +26,7 @@ class Oven < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con div.cpo table.tbl-f3 tbody tr'
 
+  named_scope :best, :order => "efficiency ASC", :limit => 5
 
   named_scope :consume_range_is, lambda { |range|
     if range == '1'
@@ -68,6 +69,10 @@ class Oven < ActiveRecord::Base
     "#{id}-#{brand.to_s.parameterize}-#{model.to_s.parameterize}"
   end
 
+  def appliance_title
+    "#{brand} #{model}"
+  end
+
   def self.fetch_mapping
     {:prodtr => 'producer',
      :prod => 'product',
@@ -88,6 +93,10 @@ class Oven < ActiveRecord::Base
     Rails.cache.fetch('oven_warming_options') do
       all(:select => 'warming', :group => 'warming')
     end
+  end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|o| o.consume}
   end
 
 end

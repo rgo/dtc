@@ -38,6 +38,8 @@ class Dryer < ActiveRecord::Base
     end
   }
 
+  named_scope :best, :order => "efficiency", :limit => 5
+
   define_index do
     indexes producer
     indexes product
@@ -48,7 +50,11 @@ class Dryer < ActiveRecord::Base
   def to_param
     "#{id}-#{brand.to_s.parameterize}-#{model.to_s.parameterize}"
   end
-  
+
+  def appliance_title
+    "#{brand} #{model}"
+  end
+
   def self.fetch_mapping
     {:prodtr => 'producer',
      :prod => 'product',
@@ -73,5 +79,9 @@ class Dryer < ActiveRecord::Base
     Rails.cache.fetch('dryer_capacity_options') do
       all(:select => 'capacity', :group => 'capacity')
     end
+  end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|dryer| dryer.consume}
   end
 end

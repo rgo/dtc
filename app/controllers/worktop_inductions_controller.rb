@@ -2,7 +2,8 @@ class WorktopInductionsController < ApplicationController
   # GET /worktop_inductions
   # GET /worktop_inductions.xml
   def index
-    @worktop_inductions = WorktopInduction.all
+    @search              = WorktopInduction.searchlogic(params[:search])
+    @worktop_inductions  = @search.paginate(:page => params[:page])
     
     @meta_title       = t('worktop_inductions.index.title') 
     @meta_description = t('worktop_inductions.index.description')

@@ -1,4 +1,13 @@
 es:
   worktop_inductions:
-    title: "Busca la cocina de inducción más eficiente del mercado"
-    description: "Encuentra la cocina de inducción más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
+    index:
+      summary: Resultados de la búsqueda
+      description: "Encuentra la cocina de inducción más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
+      worktop_inductions_selected:
+        one: Tiene una cocina de inducción seleccionada
+        other: Tiene {{count}} cocinas de inducción seleccionadas
+      title: "Busca la cocina de inducción más eficiente del mercado"
+      h1: "Busca la cocina de inducción más eficiente del mercado"
+      comparator: Ir al comparador
+      h3_comparator: Comparador
+      results: Hemos encontrado

@@ -30,6 +30,8 @@ class WasherDryer < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con div.cpo table.tbl-f3 tbody tr'
 
+  named_scope :best, :order => "efficiency ASC", :limit => 5
+
   named_scope :consume_range_is, lambda { |range|
     if range == '1'
       {:conditions => ['consume <= ?', 5]}
@@ -51,6 +53,10 @@ class WasherDryer < ActiveRecord::Base
   
   def to_param
     "#{id}-#{brand.to_s.parameterize}-#{model.to_s.parameterize}"
+  end
+
+  def appliance_title
+    "#{brand} #{model}"
   end
 
   def self.fetch_mapping
@@ -89,6 +95,10 @@ class WasherDryer < ActiveRecord::Base
     Rails.cache.fetch('washer_dryers_washing_capacity_options') do 
       all(:select => 'washing_capacity', :group => 'washing_capacity')
     end
+  end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|wd| wd.consume}
   end
 end
 
