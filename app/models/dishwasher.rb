@@ -53,21 +53,21 @@ class Dishwasher < ActiveRecord::Base
   end
 
   def self.efficiency_options
-    # Rails.cache.fetch('dishwasher_drying_efficiency_options') do 
+    Rails.cache.fetch('dishwasher_drying_efficiency_options') do 
       all(:select => 'drying_efficiency', :group => 'drying_efficiency')
-    # end
+    end
   end
 
   def self.cutlery_options
-    # Rails.cache.fetch('dishwasher_cutlery_options') do 
+    Rails.cache.fetch('dishwasher_cutlery_options') do 
       all(:select => 'cutlery', :group => 'cutlery')
-    # end
+    end
   end
 
   def self.water_consume_options
-    # Rails.cache.fetch('dishwasher_water_consume_options') do 
+    Rails.cache.fetch('dishwasher_water_consume_options') do 
       all(:select => 'water_consume', :group => 'water_consume')
-    # end
+    end
   end
 end
 
