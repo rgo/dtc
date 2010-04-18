@@ -2,7 +2,8 @@ class FreezersController < ApplicationController
   # GET /freezers
   # GET /freezers.xml
   def index
-    @freezers = Freezer.all
+    @search = Freezer.searchlogic(params[:search])
+    @freezers = @search.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

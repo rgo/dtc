@@ -1,0 +1,10 @@
+es:
+  freezers:
+    index:
+      consume_range:
+        between: Entre {{min}} y {{max}} kWhl/año
+        greater: Más de {{min}} kWhl/año
+        less: Menos de {{max}} kWhl/año
+      froost_options:
+        no_froost: No frost
+        conventional: Convencional

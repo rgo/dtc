@@ -4,4 +4,15 @@ module ApplicationHelper
     value = (10/rating.to_i).to_f * 10
     number_to_percentage(value, :precision => 0)
   end
+
+  def selected_for_boolean(value)
+
+    if ['1',true].include? value
+      '1'
+    elsif ['0', false].include? value
+      '0'
+    else
+      ' '
+    end
+  end
 end
