@@ -20,6 +20,8 @@ class ComparatorController < ApplicationController
     else
       notice_sticky = t('comparator.add.already_added')
     end
+
+    redirect_to :back
   end
 
   def remove
@@ -30,6 +32,8 @@ class ComparatorController < ApplicationController
     else
       notice_sticky = t('comparator.remove.not_present')
     end
+
+    redirect_to :back
   end
 
   def compare(options={})
