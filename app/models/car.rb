@@ -18,6 +18,8 @@ class Car < ActiveRecord::Base
 
   @@oil_prices ||= OilFetcher.new.average_prices
 
+  cattr_accessor :oil_prices
+
   validates_uniqueness_of :finish, :scope => [:brand, :model]
   before_save :calculate_consume_range
 
@@ -32,7 +34,7 @@ class Car < ActiveRecord::Base
       {}
     end
   }
-  
+
   named_scope :best_cars, :order => 'cars.rating asc, cars.emissions asc', :limit => 5
 
   data_fetcher :uri => CARS_URI
