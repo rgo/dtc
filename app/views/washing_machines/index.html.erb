@@ -34,7 +34,6 @@
       <th><%= order @search, :by => :rpm, :as => WashingMachine.human_attribute_name(:rpm) %></th>
       <th><%= order @search, :by => :consume, :as => WashingMachine.human_attribute_name(:consume) %></th>
       <th><%= order @search, :by => :capacity, :as => WashingMachine.human_attribute_name(:capacity) %></th>
-      <th><%= order @search, :by => :consume_kg, :as => WashingMachine.human_attribute_name(:consume_kg) %></th>
       <th><%= order @search, :by => :consume_water, :as => WashingMachine.human_attribute_name(:consume_water) %></th>
       <th><%= order @search, :by => :heigth, :as => WashingMachine.human_attribute_name(:height) %></th>
       <th><%= order @search, :by => :width, :as => WashingMachine.human_attribute_name(:width) %></th>
@@ -55,7 +54,6 @@
         <td class="number"><%= washing_machine.rpm %></td>
         <td class="number"><%= number_with_precision(washing_machine.consume, :precision => 2) %></td>
         <td class="number"><%= washing_machine.capacity %></td>
-        <td class="number"><%= number_with_precision(washing_machine.consume_kg, :precision => 2) %></td>
         <td class="number"><%= washing_machine.consume_water %></td>
         <td class="number"><%= washing_machine.height %></td>
         <td class="number"><%= washing_machine.width %></td>
