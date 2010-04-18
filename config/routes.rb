@@ -24,7 +24,11 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :appliances, :only => [:show, :index] 
 
-  map.compare 'compare/:klass/:action/:id', :controller => :comparator
+  map.add_to_comparator 'add_to_comparator/:klass/:id', :controller => :comparator, :action => :add, :conditions => {:method => :get}
+  map.remove_from_comparator 'remove_from_comparator/:klass/:id', :controller => :comparator, :action => :remove, :conditions => {:method => :get}
+  map.comparator 'comparator/:klass', :controller => :comparator, :action => :index, :conditions => {:method => :get}
+  map.compare 'compare/:klass', :controller => :comparator, :action => :compare, :conditions => {:method => :get}
+#  map.compare 'comparator/:klass/:action/:id', :controller => :comparator, :member => {:add => :get, :remove => :get}, :collection => {:show => :get, :compare => :get}
 
   # The priority is based upon order of creation: first created -> highest priority.
 
