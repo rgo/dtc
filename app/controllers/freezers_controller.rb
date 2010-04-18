@@ -2,10 +2,10 @@ class FreezersController < ApplicationController
   # GET /freezers
   # GET /freezers.xml
   def index
-    @meta_title       = t('freezers.index.title') 
+    @search = Freezer.searchlogic(params[:search])
+    @freezers = @search.paginate(:page => params[:page])
+    @meta_title = t('freezers.index.title')
     @meta_description = t('freezers.index.description')
-    @search           = Fridge.searchlogic(params[:search])
-    @fridge           = @search.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
