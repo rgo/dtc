@@ -1,4 +1,7 @@
 $("<%= @klass %>-<%= params[:id] %>").replace('<%= comparator_link(params[:id], @klass) %>');
+
+if ($('comparator')) {
 <% message = t("cars.index.#{@klass}_selected", :count => session[@klass].try(:size) || 0 ) %>
-$('comparator').down('p').replace("<p><%= message %></p>");
-new Effect.Highlight($('comparator').down('p'));
+    $('comparator').down('p').replace("<p><%= message %></p>");
+    new Effect.Highlight($('comparator').down('p'));
+}
