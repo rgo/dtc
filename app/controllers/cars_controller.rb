@@ -2,7 +2,8 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.xml
   def index
-    @cars = Car.all
+    @search = Car.searchlogic(params[:search])
+    @cars = @search.paginate(:page => params[:page], :per_page => 15)
 
     respond_to do |format|
       format.html # index.html.erb

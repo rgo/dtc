@@ -19,6 +19,18 @@ class Car < ActiveRecord::Base
   validates_uniqueness_of :finish, :scope => [:brand, :model]
   before_save :calculate_consume_range
 
+  named_scope :seats_range_is, lambda { |range|
+    if range == '1'
+      {:conditions => ['seats <= ?', 5]}
+    elsif range == '2'
+      {:conditions => {:seats => [6,7]}}
+    elsif range == '3'
+      {:conditions => ["seats > ?", 7]}
+    else
+      {}
+    end
+  }
+
   data_fetcher :uri => CARS_URI
   
   define_index do
