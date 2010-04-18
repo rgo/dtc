@@ -66,11 +66,7 @@
             <div style="width:<%= rating_to_percentage(car.rating) %>"></div>
           </div>
         </td>
-        <% if(session['cars'].include?(car.id)) %>
-          <td><%= link_to t('.remove_from_comparator'), add_to_comparator_url(:klass => 'car', :id => car.id) %></td>
-        <% else %>
-          <td><%= link_to t('.add_to_comparator'), add_to_comparator_url(:klass => 'car', :id => car.id) %></td>
-        <% end %>
+        <td><%= comparator_link(car) %></td>
       </tr>
     <% end -%>
   </tbody>
