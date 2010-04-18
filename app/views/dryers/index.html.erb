@@ -23,6 +23,9 @@
   <% end %>
 </div>
 
+<h3><%= t('.results') %></h3>
+<%= comparator_section(Dryer) %>
+
 <table>
   <summary>Resultados de la búsqueda</summary>
   <theader>
@@ -36,6 +39,7 @@
       <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:heigth) %></th>
       <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:width) %></th>
       <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:deep) %></th>
+      <th>&nbsp;</th>
     </tr>
   </theader>
   <tbody>
@@ -49,15 +53,17 @@
             <div style="width:<%= rating_to_percentage(dryer.efficiency) %>"></div>
           </div>
         </td>
-        <td class="number"><%= number_to_precision(dryer.consume, :precision => 2) %></td>
+        <td class="number"><%= number_with_precision(dryer.consume, :precision => 2) %></td>
         <td class="number"><%= dryer.capacity %></td>
         <td class="number"><%= dryer.consume_kg %></td>
         <td class="number"><%= dryer.height %></td>
         <td class="number"><%= dryer.width %></td>
         <td class="number"><%= dryer.deep %></td>
+        <td><%= comparator_link(dryer) %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
+
 
 <%= will_paginate @dryers %>
