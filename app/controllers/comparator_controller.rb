@@ -7,6 +7,7 @@ class ComparatorController < ApplicationController
   before_filter :find_items, :only => [:index, :compare]
 
   def index
+    @items = @items.sort_by{|item| item.estimate(*params[:search][item.class.to_s.underscore])}.reverse
     #render "/comparator/#{params[:klass].tableize}/show"
   end
 
