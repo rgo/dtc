@@ -25,7 +25,7 @@ class OilFetcher < Mechanize
 #    end
 #    @oil_names.compact!
 
-    @oil_names = ["Super 95", "Super 98", "Gasóleo A", "Gasólea A Nuevo"]
+    @oil_names = ["Super 95", "Super 98", "Gasóleo A", "Gasóleo A Nuevo"]
   end
 
   def oil_options
