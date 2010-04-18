@@ -1,28 +1,37 @@
-<p id="slogan">Renault Laguna 1.1 fdksalfjda TDI</p>
+<p id="slogan"><%= @car.full_model %></p>
 
 <div id="content">
 
 	<div id="main">
 	
-		<h2>Datos Técnicos</h2>
+    <h2><%= t('.h2_main') %></h2>
 		
 		<table>
-		  <summary>Detalles técnicos del vehículo</summary>
+      <summary><%= t('.summary')%></summary>
 		  <thead>
   		  <tr>
-  		    <th>Característica</th>
-  		    <th>Valor</th>
+          <th><%= t('.column_name') %></th>
+          <th><%= t('.column_value') %></th>
   		  </tr>
   		</thead>
   		<tbody>
-  		  <tr>
+        <% Car.columns.each do |column| %>
+          <% tr_class = cycle('', ' class="even"') %>
+          <% unless ['created_at', 'updated_at'].include? column.name %>
+            <tr<%= tr_class %>>
+              <td><%= Car.human_attribute_name(column.name) %></td>
+              <td><%= @car.read_attribute(column.name) %></td>
+            <% end %>
+          <% end %>
+          <!--
   		    <td>Tipo de vehículo</td>
-  		    <td>Berlinas y Familiares grandes </td>
-  		  </tr>
+          <td>Berlinas y Familiares grandes </td>
+          </tr>
   		  <tr class="even">
   		    <td>Motorización</td>
   		    <td>Gasolina</td>
   		  </tr>
+          -->
   		</tbody>
   	</table>
 
@@ -30,14 +39,14 @@
 
   <div id="side">
 	
-  	<h2>Opciones</h2>
+    <h2><%= t('.h2_side')%></h2>
   	
-  	<h3>Volver a la búsqueda</h3>
-  	<h3>Imprimir</h3>
+    <h3><%= link_to t('.h3_back_to_search'), root_path %></h3>
+    <h3><%= link_to t('.h3_print'), '#' %></h3>
   	<a id="ck_email" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/email.gif" /></a>
     <a id="ck_facebook" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/facebook.gif" /></a>
     <a id="ck_twitter" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/twitter.gif" /></a>
-    <a id="ck_sharethis" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/sharethis.gif" /><%=t(:share_this) %></a>
+    <a id="ck_sharethis" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/sharethis.gif" /><%=t('.share_this') %></a>
     <script type="text/javascript">
     	var shared_object = SHARETHIS.addEntry({
     	title: document.title,

@@ -49,7 +49,11 @@
     <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
       <td><%= dishwasher.brand %></td>
       <td><%= dishwasher.model %></td>
-      <td><%= dishwasher.drying_efficiency %></td>
+      <td>
+        <div class="rating_bar">
+          <div style="width:<%= rating_to_percentage(dishwasher.drying_efficiency) %>"></div>
+        </div>
+      </td>
       <td class="number"><%= dishwasher.consume %></td>
       <td class="number"><%= dishwasher.cutlery %></td>
       <td class="number"><%= dishwasher.water_consume %></td>

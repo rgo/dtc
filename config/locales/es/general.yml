@@ -1,6 +1,8 @@
 es:
   general:
-    title: "Desenchufa Tú Casa | Productos energéticamente eficientes"
+    title: "Desenchufa tu casa | Productos energéticamente eficientes"
+    'yes': "Si"
+    'no': "No"
     description: "Información sobre coches y electrodomésticos energéticamente eficientes.  Encuentra productos que consumen poco y ahorran dinero."
     range:
       between: entre {{min}} y {{max}}

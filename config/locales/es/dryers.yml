@@ -2,3 +2,8 @@ es:
   dryers:
     title: "Busca la secadora más eficiente del mercado"
     description: "Encuentra la secadora más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
+    index:
+      consume_range:
+        between: Entre {{min}} y {{max}} kWh/ciclo
+        greater: Más de {{min}} kWh/ciclo
+        less: Menos de {{max}} kWh/ciclo

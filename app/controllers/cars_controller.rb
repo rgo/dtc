@@ -2,9 +2,15 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.xml
   def index
+<<<<<<< HEAD:app/controllers/cars_controller.rb
     @search           = Car.searchlogic(params[:search])
     @cars             = @search.paginate(:page => params[:page], :per_page => 15)
     @meta_title       = t('cars.index.title') 
+=======
+    @search     = Car.searchlogic(params[:search])
+    @cars       = @search.paginate(:page => params[:page])
+    @meta_title = t('cars.index.title') 
+>>>>>>> 7aacfc462bc4f85d5683789c3d28153428f2ec50:app/controllers/cars_controller.rb
     @meta_description = t('cars.index.description')
 
     respond_to do |format|

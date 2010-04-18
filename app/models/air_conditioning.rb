@@ -53,11 +53,11 @@ class AirConditioning < ActiveRecord::Base
      :cap_frio => 'cooling_capacity',
      :pot_frio => 'power_cooling',
      :coef_frio => 'efficiency_cooling',
-     :clas_frio => 'rating_cooling',
+     :clas_frio => ['rating_cooling', Proc.new {|value| value[0] - ?A + 1}],
      :cap_calor => 'heating_capacity',
      :pot_calor => 'power_heating',
      :coef_calor => 'efficiency_heating',
-     :clas_calor => 'rating_heating',
+     :clas_calor => ['rating_heating', Proc.new {|value| value[0] - ?A + 1}],
      :'colEer' => ['eurovent', Proc.new {|value| ['Sí', 'Si'].include?(value)  ?  true : false }]}
   end
 end

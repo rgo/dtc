@@ -29,16 +29,16 @@
 </div>
 
 <div id="comparator">
-  <h3>Comparador</h3>
+  <h3><%= t('.h3_comparator') %></h3>
   <form>
     <label for="kilometers">¿Cuantos kilómetros haces al año?</label><br />
     <input name="kilometers" id="kilometers" value="15000" type="text" />
-    <p>Tienes 3 coches seleccionados</p>
+    <p><%= t('.cars_selected', :count => session['cars'].try(:size) || 0 )%></p>
     <input type="submit" value="Comparar" class="submit large grana awesome" />
   </form>
 </div>
 
-<h3>Hemos encontrado</h3>
+<h3><%= t('.h3_results') %></h3>
 
 <table>
   <summary>Resultados de la búsqueda</summary>
@@ -50,6 +50,7 @@
       <th><%= order @search, :by => :consume, :as => Car.human_attribute_name(:consume) %></th>
       <th><%= order @search, :by => :emissions, :as => Car.human_attribute_name(:emissions) %></th>
       <th><%= order @search, :by => :rating, :as => Car.human_attribute_name(:rating)%></th>
+      <th>&nbsp;</th>
     </tr>
   </theader>
   <tbody>
@@ -65,6 +66,7 @@
             <div style="width:<%= rating_to_percentage(car.rating) %>"></div>
           </div>
         </td>
+        <td><%= comparator_link(car) %></td>
       </tr>
     <% end -%>
   </tbody>

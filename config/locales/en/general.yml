@@ -1,6 +1,6 @@
 en:
   general:
-    title: "Desenchufa Tú Casa"
+    title: "Desenchufa tu casa"
     description: "Información sobre productos eficientes"
     range:
       between: entre {{min}} y {{max}}

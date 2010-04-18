@@ -3,6 +3,9 @@ es:
     add:
       added: El elemento se ha añadido al comparador
       already_added: El elemento ya está añadido al comparador
+    index:
+      h2_main: Elementos seleccionados
+      slogan: Compara eficiencias y rendimiento energético
     remove:
       not_present: El elemento no se encuentra en el comparador
       removed: El elemento se ha eliminado del comparador

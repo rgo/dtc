@@ -2,14 +2,30 @@ es:
   cars:
     search_button: "Buscar coches"
     index:
-      h1: "Busca el coche más eficiente del mercado"
-      seats_range:
-        less: Menos de {{max}} plazas
-        between: De {{min}} ó {{max}} plazas
-        greater: Más de {{min}} plazas
+      add_to_comparator: Comparar
+      description: "Encuentra el vehículo más eficiente y que menos cantidad de Co2 emite a la atmósfera.  Además de ahorrar dinero, beneficiaras al medio ambiente."
+      cars_selected: 
+        one: Tienes 1 coche seleccionado
+        other: Tienes {{count}} coches seleccionados
       consume_range:
         between: Entre {{min}} y {{max}} l/100km
         greater: Más de {{min}} l/100km
         less: Menos de {{max}} l/100km
+      h1: "Busca el coche más eficiente del mercado"
+      h3_comparator: 'Comparador'
+      h3_results: Hemos encontrado
+      remove_from_comparator: No comparar
+      seats_range:
+        less: Menos de {{max}} plazas
+        between: De {{min}} ó {{max}} plazas
+        greater: Más de {{min}} plazas
       title: "Busca el coche más eficiente del mercado"
-      description: "Encuentra el vehículo más eficiente y que menos cantidad de Co2 emite a la atmósfera.  Además de ahorrar dinero, beneficiaras al medio ambiente."
+    show:
+      column_name: Característica
+      column_value: Valor
+      h2_main: Datos técnicos
+      h2_side: Opciones
+      h3_back_to_search: Volver a la búsqueda
+      h3_print: Imprimir
+      share_this: Compártelo
+      summary: Detalles técnicos del vehículo
