@@ -453,7 +453,7 @@ li {
 	}
 	
 	p.select_field {
-		width: 120px;
+/*		width: 120px;*/
 		float: left;
 		margin-right: 20px;
 	}
@@ -498,6 +498,12 @@ div#gas-prices{
 	float: right;
 }
 
+div#secondary-info div#comparator,
+div#secondary-info div#gas-prices{
+  width:100%;
+}
+
+
 div.pagination{
   width:80%;
 }
@@ -513,4 +519,19 @@ div#gas-prices p span.title{
 div#gas-prices p span.small-print{
   font-weight:lighter;
   font-size:xx-small;
+}
+
+div#secondary-info{
+  float:right;
+  width:18%;
+}
+
+/* CUSTOMIZED */
+
+p.select_field label{
+  width:100%;
+} 
+
+form#washer_dryer_search input{
+  width:100%;
 }

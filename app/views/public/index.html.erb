@@ -4,7 +4,7 @@
   <h2>Busca un coche, electrodoméstico (lavadora, frigorífico, lavavajillas...)</h2>
 	<% form_tag search_public_path, :id => 'main_search', :class => "top_form" do %>
 	  <p>
-	    <%= text_field_tag 'q', '',  :class => 'text shadow' %>
+	    <%= text_field_tag 'q', '',  :class => 'text shadow', :tabindex => 1 %>
 	    <%= submit_tag 'Buscar', :class => "submit large grana awesome" %>
 	  </p>
 	<% end %>		

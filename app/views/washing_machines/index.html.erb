@@ -4,21 +4,21 @@
   <% form_for @search, :html => {:id => "washing_machine_search", :class => "top_form"} do |f| %>
       <p class="select_field">
         <label for="search_consume_range_is"><%= WashingMachine.human_attribute_name(:consume) %></label><br/>
-        <%= f.select :consume_range_is, consume_range_options_for_washing_machine, {:include_blank => t('general.prompt')}, {:size => 5} %>
+        <%= f.select :consume_range_is, consume_range_options_for_washing_machine, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 1} %>
       </p>
 
       <p class="select_field">
         <label for="search_rpm_range_is"><%= WashingMachine.human_attribute_name(:rpm) %></label><br/>
-        <%= f.select :rpm_range_is, rpm_range_options_for_washing_machine, {:include_blank => t('general.prompt')}, {:size => 5} %>
+        <%= f.select :rpm_range_is, rpm_range_options_for_washing_machine, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 2} %>
       </p>
 
       <p class="select_field">
         <label for="search_capacity_is"><%= WashingMachine.human_attribute_name(:capacity) %></label><br/>
-        <%= f.collection_select :capacity_is, WashingMachine.capacity_options, :capacity, :capacity, {:include_blank => t('general.prompt')}, {:size => 5} %>
+        <%= f.collection_select :capacity_is, WashingMachine.capacity_options, :capacity, :capacity, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 3} %>
       </p>
 
       <p class="select_field">
-        <%= f.submit t('general.search', :item => WashingMachine.human_name), :id => 'submit_washing_machine', :class => 'submit large grana awesome' %>
+        <%= f.submit t('general.search', :item => WashingMachine.human_name), :id => 'submit_washing_machine', :class => 'submit large grana awesome', :tabindex => 4 %>
       </p>
   <% end %>
 </div>
@@ -34,7 +34,6 @@
       <th><%= order @search, :by => :rpm, :as => WashingMachine.human_attribute_name(:rpm) %></th>
       <th><%= order @search, :by => :consume, :as => WashingMachine.human_attribute_name(:consume) %></th>
       <th><%= order @search, :by => :capacity, :as => WashingMachine.human_attribute_name(:capacity) %></th>
-      <th><%= order @search, :by => :consume_kg, :as => WashingMachine.human_attribute_name(:consume_kg) %></th>
       <th><%= order @search, :by => :consume_water, :as => WashingMachine.human_attribute_name(:consume_water) %></th>
       <th><%= order @search, :by => :heigth, :as => WashingMachine.human_attribute_name(:height) %></th>
       <th><%= order @search, :by => :width, :as => WashingMachine.human_attribute_name(:width) %></th>
@@ -55,7 +54,6 @@
         <td class="number"><%= washing_machine.rpm %></td>
         <td class="number"><%= number_with_precision(washing_machine.consume, :precision => 2) %></td>
         <td class="number"><%= washing_machine.capacity %></td>
-        <td class="number"><%= number_with_precision(washing_machine.consume_kg, :precision => 2) %></td>
         <td class="number"><%= washing_machine.consume_water %></td>
         <td class="number"><%= washing_machine.height %></td>
         <td class="number"><%= washing_machine.width %></td>

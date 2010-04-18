@@ -40,7 +40,7 @@ module ApplicationHelper
     str = ''
     str << '<div id="comparator">'
     str << "<h3>#{t('.h3_comparator')}</h3>"
-    str << "<p>#{message}</p>"
+    str << "<p id=\"how_many\">#{message}</p>"
     str << link_to(t('.comparator'), comparator_path(:klass => singular))
     str << '</div>'
 
