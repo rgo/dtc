@@ -52,5 +52,17 @@ class WorktopInduction < ActiveRecord::Base
      :potencr => 'power_torchs',
      :potenci => 'power_induction_torchs'}
   end
+
+  def self.kind_options
+    Rails.cache.fetch('worktop_induction_kind_options') do 
+      all(:select => 'kind', :group => 'kind')
+    end
+  end
+
+  def self.total_torchs_options
+    Rails.cache.fetch('worktop_induction_total_torchs_options') do 
+      all(:select => 'total_torchs', :group => 'total_torchs')
+    end
+  end
 end
 
