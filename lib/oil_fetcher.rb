@@ -17,9 +17,10 @@ class OilFetcher < Mechanize
     return @average_prices if @average_prices
     @average_prices = []
     page.search("//p[@class='tabla'][not(@id)]/span").each do |span|
-      @average_prices << span.text[/(\d,\d{1,2})/]
+      
+      @average_prices << span.text[/(\d,\d{1,2})/].try(:sub, ',', '.')
     end
-    @average_prices.compact!
+    @average_prices = @average_prices.compact
   end
 
   def oil_names
