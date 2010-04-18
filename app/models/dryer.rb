@@ -36,7 +36,7 @@ class Dryer < ActiveRecord::Base
      :prod => 'product',
      :marc => 'brand',
      :modelo => 'model',
-     :clas_energ => 'efficiency',
+     :clas_energ => ['efficiency', Proc.new {|value| value[0] - ?A + 1 }],
      :cons_kwciclo => 'consume',
      :capac => 'capacity',
      :cons_kwkg => 'consume_kg',
