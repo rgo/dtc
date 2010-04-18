@@ -1,6 +1,11 @@
 es:
   ovens:
     index:
+      h3_comparator: Comparador
+      comparator: Ir al comparador
+      ovens_selected:
+        one: Tiene 1 horno seleccionado
+        other: Tiene {{count}} hornos seleccionados
       h1: "Busca el horno más eficiente del mercado"
       title: "Busca el horno más eficiente del mercado"
       description: "Encuentra el horno más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."

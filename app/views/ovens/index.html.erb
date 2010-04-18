@@ -23,6 +23,9 @@
   <% end %>
 </div>
 
+<h3><%= t '.h3_comparator' %></h3>
+
+<%= comparator_section Oven %>
 <table>
   <caption>Resultados de la búsqueda</caption>
   <thead>
@@ -36,6 +39,7 @@
       <th><%= order @search, :by => :heigth, :as => Oven.human_attribute_name(:height) %></th>
       <th><%= order @search, :by => :width, :as => Oven.human_attribute_name(:width) %></th>
       <th><%= order @search, :by => :deep, :as => Oven.human_attribute_name(:deep) %></th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -54,6 +58,7 @@
         <td class="number"><%= oven.height %></td>
         <td class="number"><%= oven.width %></td>
         <td class="number"><%= oven.deep %></td>
+        <td><%= comparator_link oven %></td>
       </tr>
   <% end %>
   </tbody>
