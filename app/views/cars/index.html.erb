@@ -33,7 +33,7 @@
   <form>
     <label for="kilometers">¿Cuantos kilómetros haces al año?</label><br />
     <input name="kilometers" id="kilometers" value="15000" type="text" />
-    <p><%= t('.cars_selected', :count => session['cars'].size) %></p>
+    <p><%= t('.cars_selected', :count => session['cars'].try(:size)) || 0 %></p>
     <input type="submit" value="Comparar" class="submit large grana awesome" />
   </form>
 </div>
