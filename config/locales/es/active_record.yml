@@ -16,25 +16,25 @@ es:
     attributes:
       car:
         brand: Marca
-        consume: Consumo
+        consume: Consumo (l/100 km)
         consume_range: Rango de consumo
         cylinders: Cilindros
-        emissions: Emisiones
-        engine: Cilindrada
+        emissions: Emisiones (gcO2/Km)
+        engine: Cilindrada (cm3)
         finish: Acabado
         fuel: Combustible
         gear: Cambio
-        height: Altura
-        length: Longitud
+        height: Altura (mm)
+        length: Longitud (mm)
         market_segment: Segmento de mercado
-        minimal_tare: Tara mínima
+        minimal_tare: Tara mínima (Kg)
         model: Modelo
-        power: Potencia
+        power: Potencia (CV)
         rating: Clasificación
         seats: Plazas
-        torque: Par
+        torque: Par (Nm)
         wheel_drive: Tracción
-        width: Anchura
+        width: Anchura (mm)
       dryer:
         brand: Marca
         model: Modelo
