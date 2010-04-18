@@ -1,14 +1,10 @@
 class ComparatorController < ApplicationController
 
-#  before_filter :underscore_klass, :only => [:add, :remove]
   before_filter :tableize_klass, :only => [:index, :add, :remove]
-#  before_filter :capitalize_klass
 
   before_filter :find_items, :only => [:index, :compare]
 
   def index
-    @items = @items.sort_by{|item| item.estimate(*params[:search][item.class.to_s.underscore])}.reverse
-    #render "/comparator/#{params[:klass].tableize}/show"
   end
 
   def add
@@ -48,7 +44,7 @@ class ComparatorController < ApplicationController
   end
 
   def find_items
-    @items = params[:klass].capitalize.constantize.find(session[params[:klass].tableize])
+    @items = params[:klass].capitalize.constantize.try :order_for_comparation, session[params[:klass].tableize]
   end
 
 end
