@@ -2,7 +2,8 @@ class FridgeFreezersController < ApplicationController
   # GET /fridge_freezers
   # GET /fridge_freezers.xml
   def index
-    @fridge_freezers = FridgeFreezer.all
+    @search = FridgeFreezer.searchlogic(params[:search])
+    @fridge_freezers = @search.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
