@@ -6,7 +6,6 @@ module ApplicationHelper
   end
 
   def selected_for_boolean(value)
-
     if ['1',true].include? value
       '1'
     elsif ['0', false].include? value
@@ -17,7 +16,6 @@ module ApplicationHelper
   end
 
   def comparator_link(item, class_name = nil)
-    debugger
     item = class_name.classify.constantize.find(item) if class_name.present?
 
     resources = item.class.to_s.tableize
