@@ -7,7 +7,7 @@ class ComparatorController < ApplicationController
   before_filter :find_items, :only => [:index, :compare]
 
   def index
-    render "/comparator/#{params[:klass].tableize}/show"
+    #render "/comparator/#{params[:klass].tableize}/show"
   end
 
   def add
@@ -47,7 +47,7 @@ class ComparatorController < ApplicationController
   end
 
   def find_items
-    @items = params[:klass].constantize.find(session[params[:klass]])
+    @items = params[:klass].capitalize.constantize.find(session[params[:klass].tableize])
   end
 
 end

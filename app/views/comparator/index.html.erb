@@ -1,0 +1,35 @@
+<p id="slogan"><%= t('.slogan') %></p>
+
+<div id="content">
+
+  <div id="main">
+    <h2><%= t('.h2_main')%></h2>
+
+    <%klass = @items.first.class %>
+    <table>
+      <summary><%= t('.summary')%></summary>
+      <thead>
+        <tr>
+        <% klass.columns.each do |column| %>
+          <% unless ['created_at', 'updated_at', 'id'].include? column.name %>
+            <th><%= klass.human_attribute_name(column.name)%></th>
+          <% end %>
+        <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <% tr_class = cycle('', ' class="even"') %>
+          <tr<%= tr_class %>>
+            <% klass.columns.each do |column| %>
+              <% unless ['created_at', 'updated_at', 'id'].include? column.name %>
+                <td><%=item.read_attribute(column.name)%></td>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
