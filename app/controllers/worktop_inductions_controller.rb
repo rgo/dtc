@@ -20,7 +20,7 @@ class WorktopInductionsController < ApplicationController
     @worktop_induction = WorktopInduction.find(params[:id])
     
     @meta_title       = "#{@worktop_induction.product} #{@worktop_induction.brand} #{@worktop_induction.model}" 
-    @meta_description = "#{@worktop_induction.product} #{@worktop_induction.brand} #{@worktop_induction.model} #{WorktopInduction.human_attribute_name(:consume)} #{@worktop_induction.consume} (kWh/Ciclo)"
+    @meta_description = "#{@worktop_induction.product} #{@worktop_induction.brand} #{@worktop_induction.model}"
     @canonical        = url_for(@worktop_induction)
 
     respond_to do |format|
