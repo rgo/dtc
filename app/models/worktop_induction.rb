@@ -26,7 +26,7 @@ class WorktopInduction < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con table.tbl-f3 tbody tr'
 
-  define_indexes do
+  define_index do
     indexes producer
     indexes product
     indexes brand

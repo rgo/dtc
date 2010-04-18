@@ -29,7 +29,7 @@ class AirConditioning < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con div.cpo table.tbl-f3 tbody tr'
 
-  define_indexes do
+  define_index do
     indexes brand
     indexes indoor_unit1
     indexes indoor_unit2
