@@ -498,6 +498,12 @@ div#gas-prices{
 	float: right;
 }
 
+div#secondary-info div#comparator,
+div#secondary-info div#gas-prices{
+  width:100%;
+}
+
+
 div.pagination{
   width:80%;
 }
@@ -513,4 +519,9 @@ div#gas-prices p span.title{
 div#gas-prices p span.small-print{
   font-weight:lighter;
   font-size:xx-small;
+}
+
+div#secondary-info{
+  float:right;
+  width:18%;
 }

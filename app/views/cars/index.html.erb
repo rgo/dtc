@@ -61,7 +61,7 @@
     <% end -%>
   </tbody>
 </table>
-
+<div id="secondary-info">
 <%= comparator_section(Car) %>
 <!--
 <div id="comparator">
@@ -79,5 +79,5 @@
 
   <p><span class="small-print"><%= t('.gas_prices_small_print', :date => I18n.l(Date.today)) %></span></p>
 </div>
-
+</div>
 <%= will_paginate @cars %>
