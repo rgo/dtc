@@ -22,9 +22,10 @@
       </p>
   <% end %>
 </div>
-
+<%= comparator_section(FridgeFreezer) %>
+<h3><%= t('.results')%></h3>
 <table>
-  <summary>Resultados de la búsqueda</summary>
+  <summary><%= t('.summary')%></summary>
   <theader>
     <tr>
       <th><%= order @search, :by => :brand, :as => FridgeFreezer.human_attribute_name(:brand) %></th>
@@ -35,6 +36,7 @@
       <th><%= order @search, :by => :width, :as => FridgeFreezer.human_attribute_name(:width) %></th>
       <th><%= order @search, :by => :deep, :as => FridgeFreezer.human_attribute_name(:deep) %></th>
       <th><%= order @search, :by => :froost, :as => FridgeFreezer.human_attribute_name(:froost) %></th>
+      <th>&nbsp;</th>
     </tr>
   </theader>
   <tbody>
@@ -52,6 +54,7 @@
         <td class="number"><%= fridge_freezer.width %></td>
         <td class="number"><%= fridge_freezer.deep %></td>
         <td><%= fridge_freezer.froost ? t('general.yes') : t('general.no') %></td>
+        <td><%= comparator_link(fridge_freezer)%></td>
       </tr>
   <% end %>
   </tbody>

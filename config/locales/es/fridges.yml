@@ -1,11 +1,16 @@
 es:
   fridges:
-    title: "Busca el frigorífico más eficiente del mercado"
-    description: "Encuentra el frigorífico más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
     search_button: "Buscar Frigorífico"
     index:
+      title: "Busca el frigorífico más eficiente del mercado"
+      description: "Encuentra el frigorífico más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
       h1: "Busca el frigorífico más eficiente del mercado"
       h3_results: Hemos encontrado
+      h3_comparator: Comparador
+      comparator: Ir al comparador
+      fridges_selected:
+        one: Tiene 1 frigorífico seleccionado
+        other: Tiene {{count}} frigoríficos seleccionados 
       froost_options:
         no_froost: No frost
         conventional: Convencional
