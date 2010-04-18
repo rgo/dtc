@@ -35,6 +35,17 @@ es:
         torque: Par
         wheel_drive: Tracción
         width: Anchura
+      dryer:
+        brand: Marca
+        model: Modelo
+        efficiency: Clasificación energética
+        consume: Consumo de energía (kWh/ciclo)
+        capacity: Capacidad (Kg)
+        consume_kg: Consumo de energía (kWh/kg)
+        heigth: Alto (mm)
+        width: Ancho (mm)
+        deep: Fondo (mm)
+        
         
         
         

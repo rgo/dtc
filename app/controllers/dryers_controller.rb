@@ -2,7 +2,10 @@ class DryersController < ApplicationController
   # GET /dryers
   # GET /dryers.xml
   def index
-    @dryers = Dryer.all
+    @search = Dryer.searchlogic(params[:search])
+    @dryers = @search.paginate(:page => params[:page])
+    @meta_title = t('dryers.index.title')
+    @meta_description = t('dryers.index.description')
 
     respond_to do |format|
       format.html # index.html.erb

@@ -24,11 +24,29 @@ class Dryer < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con div.cpo table.tbl-f3 tbody tr'
 
+  named_scope :consume_range_is, lambda { |range|
+    if range == '1'
+      {:conditions => ['consume <= ?', 2.5]}
+    elsif range == '2'
+      {:conditions => ['consume > ? AND consume <=', 2.5, 3.5]}
+    elsif range == '3'
+      {:conditions => ['consume > ? AND consume <=', 3.5, 4.5]}
+    elsif range == '4'
+      {:conditions => ["consume > ?", 4.5]}
+    else
+      {}
+    end
+  }
+
   define_indexes do
     indexes producer
     indexes product
     indexes brand
     indexes model
+  end
+
+  def to_param
+    "#{id}-#{brand.to_s.parameterize}-#{model.to_s.parameterize}"
   end
 
   def self.fetch_mapping
@@ -45,4 +63,15 @@ class Dryer < ActiveRecord::Base
      :fondo => 'deep'}
   end
 
+  def self.efficiency_options
+    Rails.cache.fetch('dryer_efficiency_options') do
+      all(:select => 'efficiency', :group => 'efficiency')
+    end
+  end
+
+  def self.capacity_options
+    Rails.cache.fetch('dryer_capacity_options') do
+      all(:select => 'capacity', :group => 'capacity')
+    end
+  end
 end

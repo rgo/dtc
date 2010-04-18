@@ -1,40 +1,63 @@
-<h1>Listing dryers</h1>
+<h1 id="slogan"><%= t('dryers.index.h1') %></h1>
+
+<div id="intro">
+  <% form_for @search, :html => {:id => "dryer_search", :class => "top_form"} do |f| %>
+      <p class="select_field">
+        <label for="search_efficiency_is"><%= Dryer.human_attribute_name(:efficiency) %></label><br/>
+        <%= f.collection_select :efficiency_is, Dryer.efficiency_options, :efficiency, :efficiency, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      </p>
+
+      <p class="select_field">
+        <label for="search_consume_range_is"><%= Dryer.human_attribute_name(:consume) %></label><br/>
+        <%= f.select :consume_range_is, consume_range_options_for_dryer, {}, :size => "5" %>
+      </p>
+
+      <p class="select_field">
+        <label for="search_capacity_is"><%= Dryer.human_attribute_name(:capacity) %></label><br/>
+        <%= f.collection_select :capacity_is, Dryer.capacity_options, :capacity, :capacity, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      </p>
+
+      <p class="select_field">
+        <%= f.submit t('general.search', :item => Dryer.human_name), :id => 'submit_dryers', :class => 'submit large grana awesome' %>
+      </p>
+  <% end %>
+</div>
 
 <table>
-  <tr>
-    <th>Producer</th>
-    <th>Product</th>
-    <th>Brand</th>
-    <th>Model</th>
-    <th>Efficiency</th>
-    <th>Consume</th>
-    <th>Capacity</th>
-    <th>Consume kg</th>
-    <th>Height</th>
-    <th>Width</th>
-    <th>Deep</th>
-  </tr>
+  <summary>Resultados de la búsqueda</summary>
+  <theader>
+    <tr>
+      <th><%= order @search, :by => :brand, :as => Dryer.human_attribute_name(:brand) %></th>
+      <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:model) %></th>
+      <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:efficiency) %></th>
+      <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:consume) %></th>
+      <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:capacity) %></th>
+      <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:consume_kg) %></th>
+      <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:heigth) %></th>
+      <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:width) %></th>
+      <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:deep) %></th>
+    </tr>
+  </theader>
+  <tbody>
 
-<% @dryers.each do |dryer| %>
-  <tr>
-    <td><%=h dryer.producer %></td>
-    <td><%=h dryer.product %></td>
-    <td><%=h dryer.brand %></td>
-    <td><%=h dryer.model %></td>
-    <td><%=h dryer.efficiency %></td>
-    <td><%=h dryer.consume %></td>
-    <td><%=h dryer.capacity %></td>
-    <td><%=h dryer.consume_kg %></td>
-    <td><%=h dryer.height %></td>
-    <td><%=h dryer.width %></td>
-    <td><%=h dryer.deep %></td>
-    <td><%= link_to 'Show', dryer %></td>
-    <td><%= link_to 'Edit', edit_dryer_path(dryer) %></td>
-    <td><%= link_to 'Destroy', dryer, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @dryers.each do |dryer| %>
+      <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
+        <td><%= dryer.brand %></td>
+        <td><%= dryer.model %></td>
+        <td>
+          <div class="rating_bar">
+            <div style="width:<%= rating_to_percentage(dryer.efficiency) %>"></div>
+          </div>
+        </td>
+        <td class="number"><%= dryer.consume %></td>
+        <td class="number"><%= dryer.capacity %></td>
+        <td class="number"><%= dryer.consume_kg %></td>
+        <td class="number"><%= dryer.height %></td>
+        <td class="number"><%= dryer.width %></td>
+        <td class="number"><%= dryer.deep %></td>
+      </tr>
+  <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New dryer', new_dryer_path %>
+<%= will_paginate @dryers %>
