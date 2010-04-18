@@ -52,6 +52,9 @@ class Car < ActiveRecord::Base
     "#{id}-#{brand.to_s.parameterize}-#{model.to_s.parameterize}"
   end
 
+  def full_model
+    "#{brand} #{model} #{finish}"
+  end
 
   def self.fetch
     agent = Mechanize.new
