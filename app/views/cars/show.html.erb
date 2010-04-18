@@ -40,8 +40,9 @@
   <div id="side">
 	
     <h2><%= t('.h2_side')%></h2>
-  	
+    	
     <h3><%= link_to t('.h3_back_to_search'), root_path %></h3>
+    <h3><%= comparator_link(@car, nil, :class =>'comparate-option') %></h3>
     <h3><%= link_to t('.h3_print'), '#' %></h3>
   	<a id="ck_email" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/email.gif" /></a>
     <a id="ck_facebook" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/facebook.gif" /></a>
