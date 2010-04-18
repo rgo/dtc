@@ -26,6 +26,20 @@ class Fridge < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con div.cpo table.tbl-f3 tbody tr'
 
+  named_scope :consume_range_is, lambda { |range|
+    if range == '1'
+      {:conditions => ['consume <= ?', 200]}
+    elsif range == '2'
+      {:conditions => {:consume => [201,350]}}
+    elsif range == '3'
+      {:conditions => {:consume => [351,500]}}
+    elsif range == '4'
+      {:conditions => ["consume > ?", 501]}
+    else
+      {}
+    end
+  }
+
   define_indexes do
     indexes producer
     indexes product
@@ -48,6 +62,19 @@ class Fridge < ActiveRecord::Base
      :ancho => 'width',
      :fondo => 'deep',
      :nofr => ['froost', Proc.new {|value| ['Sí', 'Si'].include?(value)  ?  true : false }]}
+  end
+
+  def self.efficiency_options
+    Rails.cache.fetch('fridge_efficiency_options') do 
+      all(:select => 'efficiency', :group => 'efficiency')
+    end
+  end
+
+  def self.froost_options
+    [
+     [I18n.t('fridges.index.froost_options.no_froost'), '1'], 
+     [I18n.t('fridges.index.froost_options.conventional'), '0']
+    ]
   end
 end
 

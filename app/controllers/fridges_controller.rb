@@ -2,7 +2,8 @@ class FridgesController < ApplicationController
   # GET /fridges
   # GET /fridges.xml
   def index
-    @fridges = Fridge.all
+    @search = Fridge.searchlogic(params[:search])
+    @fridges = @search.paginate(:page => params[:page])
     
     @meta_title       = t('fridges.index.title') 
     @meta_description = t('fridges.index.description')

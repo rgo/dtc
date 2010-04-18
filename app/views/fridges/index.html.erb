@@ -1,38 +1,58 @@
-<h1>Listing fridges</h1>
+<h1 id="slogan"><%= t('fridges.index.h1') %></h1>
 
+<div id="intro">
+  <% form_for @search, :html => {:id => "fridge_search", :class => "top_form"} do |f| %>
+    <p class="select_field">
+      <%= f.label :efficiency_eq, Fridge.human_attribute_name(:efficiency) %>
+      <%= f.collection_select :efficiency_eq, Fridge.efficiency_options, :efficiency, :efficiency, {:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+    <p class="select_field">
+      <%= f.label :consume_range_is, Fridge.human_attribute_name(:consume) %>
+      <%= f.select :consume_range_is, consume_range_options_for_fridge, {:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+    <p class="select_field">
+      <%= f.label :froost_eq, Fridge.human_attribute_name(:froost) %>
+      <%= f.select :froost_eq, Fridge.froost_options, { :selected => selected_for_boolean( @search.froost_eq ) ,:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+
+    <p class="select_field">
+      <%= submit_tag t('fridges.search_button'), :class => "submit large grana awesome"%>
+    </p>
+  <% end %>
+</div>
+
+<h3><%= t('.h3_results') %></h3>
 <table>
+  <summary>Resultados de la búsqueda</summary>
   <tr>
-    <th>Producer</th>
-    <th>Product</th>
-    <th>Brand</th>
-    <th>Model</th>
-    <th>Efficiency</th>
-    <th>Consume</th>
-    <th>Height</th>
-    <th>Width</th>
-    <th>Deep</th>
-    <th>Froost</th>
+    <th><%= order @search, :by => :product, :as => Fridge.human_attribute_name(:product) %></th>
+    <th><%= order @search, :by => :brand, :as => Fridge.human_attribute_name(:brand) %></th>
+    <th><%= order @search, :by => :model, :as => Fridge.human_attribute_name(:model) %></th>
+    <th><%= order @search, :by => :efficiency, :as => Fridge.human_attribute_name(:efficiency) %></th>
+    <th><%= order @search, :by => :consume, :as => Fridge.human_attribute_name(:consume) %></th>
+    <th><%= order @search, :by => :height, :as => Fridge.human_attribute_name(:height) %></th>
+    <th><%= order @search, :by => :width, :as => Fridge.human_attribute_name(:width) %></th>
+    <th><%= order @search, :by => :deep, :as => Fridge.human_attribute_name(:deep) %></th>
+    <th><%= order @search, :by => :froost, :as => Fridge.human_attribute_name(:froost) %></th>
   </tr>
 
 <% @fridges.each do |fridge| %>
-  <tr>
-    <td><%=h fridge.producer %></td>
+  <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
     <td><%=h fridge.product %></td>
     <td><%=h fridge.brand %></td>
     <td><%=h fridge.model %></td>
-    <td><%=h fridge.efficiency %></td>
+    <td>
+      <div class="rating_bar">
+        <div style="width:<%=h fridge.efficiency %>%"></div>
+      </div>
+    </td>
     <td><%=h fridge.consume %></td>
     <td><%=h fridge.height %></td>
     <td><%=h fridge.width %></td>
     <td><%=h fridge.deep %></td>
-    <td><%=h fridge.froost %></td>
-    <td><%= link_to 'Show', fridge %></td>
-    <td><%= link_to 'Edit', edit_fridge_path(fridge) %></td>
-    <td><%= link_to 'Destroy', fridge, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%=h fridge.froost ? t('general.yes') : t('general.no') %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New fridge', new_fridge_path %>
+<%= will_paginate @freezers %>
