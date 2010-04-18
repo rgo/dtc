@@ -1,7 +1,13 @@
 class PublicController < ApplicationController
   def index
     @cars = Car.best_cars
-    
+
+    @top_appliances = []
+    5.times do
+      value = rand(APPLIANCES_CLASSES.size)
+      @top_appliances << APPLIANCES_CLASSES[value].to_s.constantize.best if APPLIANCES_CLASSES[value].to_s
+    end
+    @top_appliances = @top_appliances.flatten.compact
   end
 
   def search
