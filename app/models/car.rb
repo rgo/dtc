@@ -27,7 +27,7 @@ class Car < ActiveRecord::Base
     if range == '1'
       {:conditions => ['seats <= ?', 5]}
     elsif range == '2'
-      {:conditions => {:seats => [6,7]}}
+      {:conditions => ['seats > ? AND seats >= ?',6 ,7]}
     elsif range == '3'
       {:conditions => ["seats > ?", 7]}
     else
