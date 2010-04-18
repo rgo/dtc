@@ -6,3 +6,5 @@ en:
       between: entre {{min}} y {{max}}
       greater: más de {{min}}
       less: menos de {{max}} 
+    prompt: "All"
+    search: "Search {{item}}"

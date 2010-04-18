@@ -2,7 +2,8 @@ class DishwashersController < ApplicationController
   # GET /dishwashers
   # GET /dishwashers.xml
   def index
-    @dishwashers = Dishwasher.all
+    @search = Dishwasher.search(params[:search])
+    @dishwashers = @search.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
