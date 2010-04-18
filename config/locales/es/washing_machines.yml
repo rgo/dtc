@@ -1,4 +1,14 @@
 es:
   washing_machines:
-    title: "Busca la lavadora más eficiente del mercado"
-    description: "Encuentra la lavadora más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
+    index:
+      h1: "Busca la lavadora más eficiente del mercado"    
+      title: "Busca la lavadora más eficiente del mercado"
+      description: "Encuentra la lavadora más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."          
+      consume_range:
+        between: Entre {{min}} y {{max}} kWh/ciclo
+        greater: Más de {{min}} kWh/ciclo
+        less: Menos de {{max}} kWh/ciclo
+      rpm_range:
+        between: Entre {{min}} y {{max}} rpm
+        greater: Más de {{min}} rpm
+        less: Menos de {{max}} rpm

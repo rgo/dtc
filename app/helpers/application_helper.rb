@@ -33,18 +33,19 @@ module ApplicationHelper
     end
   end
 
-  def comparator_section(message, klass)
-
+  def comparator_section(klass)
+    singular = klass.to_s.underscore
+    plural = singular.tableize
+    message = t(".#{plural}_selected", :count => session[plural].try(:size) || 0)
     str = ''
     str << '<div id="comparator">'
     str << "<h3>#{t('.h3_comparator')}</h3>"
     str << "<p>#{message}</p>"
-    str << link_to(t('.comparator'), comparator_path(:klass => klass))
+    str << link_to(t('.comparator'), comparator_path(:klass => singular))
     str << '</div>'
 
     str 
       
   end
-
 
 end

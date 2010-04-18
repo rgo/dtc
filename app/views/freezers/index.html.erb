@@ -19,18 +19,9 @@
     </p>
   <% end %>
 </div>
+<%= comparator_section(Freezer) %>
 
-<div id="comparator">
-  <h3>Comparador</h3>
-  <form>
-    <label for="kilometers">¿Cuantos kilómetros haces al año?</label><br />
-    <input name="kilometers" id="kilometers" value="15000" type="text" />
-    <p>Tienes 3 coches seleccionados</p>
-    <input type="submit" value="Comparar" class="submit large grana awesome" />
-  </form>
-</div>
-
-<h3>Hemos encontrado</h3>
+<h3><%=t('.results')%></h3>
 
 <table>
   <thead>
@@ -44,6 +35,7 @@
     <th><%= order @search, :by => :width, :as => Freezer.human_attribute_name(:width) %></th>
     <th><%= order @search, :by => :deep, :as => Freezer.human_attribute_name(:deep) %></th>
     <th><%= order @search, :by => :froost, :as => Freezer.human_attribute_name(:froost) %></th>
+    <th>&nbsp;</th>
   </tr>
   </thead>
   <tbody>
@@ -63,6 +55,7 @@
         <td><%=h freezer.width %></td>
         <td><%=h freezer.deep %></td>
         <td><%=h freezer.froost ? t('general.yes') : t('general.no') %></td>
+        <td><%= comparator_link(freezer) %></td>
       </tr>
     <% end %>
   </tbody>

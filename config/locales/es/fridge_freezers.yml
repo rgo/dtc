@@ -1,9 +1,17 @@
 es:
   fridge_freezers:
-    title: "Busca el frigorífico-congelador más eficiente del mercado"
-    description: "Encuentra el frigorífico-congelador más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
     search_button: "Buscar frigórificos-congeladores"   
     index:
+      description: "Encuentra el frigorífico-congelador más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
+      title: "Busca el frigorífico-congelador más eficiente del mercado"
+      comparator: Ir al comparador
+      fridge_freezers_selected:
+        one: Tiene 1 frigorífico-congelador seleccionado
+        other: Tiene {{count}} frigoríficos-congeladores seleccionados
+      h1: Busca el frigorífico-congelador más eficiente del mercado
+      h3_comparator: Comparador
+      results: Hemos encontrado
+      summary: Resultados de la búsqueda
       froost_options:
         conventional: 'Convencional'
         no_froost: 'No Froost'

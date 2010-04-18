@@ -3,7 +3,14 @@ es:
     title: "Busca la secadora más eficiente del mercado"
     description: "Encuentra la secadora más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
     index:
+      comparator: Ir al comparador
+      dryers_selected:
+        one: Tienes una secadora seleccionada
+        other: Tienes {{count}} secadoras seleccionadas
+      h1: Busca las secadoras más eficientes del mercado
+      h3_comparator: Comparador
       consume_range:
         between: Entre {{min}} y {{max}} kWh/ciclo
         greater: Más de {{min}} kWh/ciclo
         less: Menos de {{max}} kWh/ciclo
+      results: Hemos encontrado

@@ -62,7 +62,7 @@
   </tbody>
 </table>
 
-<%= comparator_section(t('.cars_selected', :count => session['cars'].try(:size) || 0), 'car') %>
+<%= comparator_section(Car) %>
 <!--
 <div id="comparator">
   <h3><%= t('.h3_comparator') %></h3>
