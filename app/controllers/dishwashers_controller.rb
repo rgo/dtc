@@ -2,7 +2,7 @@ class DishwashersController < ApplicationController
   # GET /dishwashers
   # GET /dishwashers.xml
   def index
-    @search = Dishwasher.search(params[:search])
+    @search = Dishwasher.searchlogic(params[:search])
     @dishwashers = @search.paginate(:page => params[:page])
 
     respond_to do |format|
