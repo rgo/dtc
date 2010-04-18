@@ -27,6 +27,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :appliances, :only => [:show, :index] 
   
   map.resources :sitemaps, :only => :index
+  
+  map.resources :public, :only => :index, :collection => {:about_us => :get}
 
   map.add_to_comparator 'add_to_comparator/:klass/:id', :controller => :comparator, :action => :add, :conditions => {:method => :get}
   map.remove_from_comparator 'remove_from_comparator/:klass/:id', :controller => :comparator, :action => :remove, :conditions => {:method => :get}
