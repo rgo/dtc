@@ -113,6 +113,15 @@
 		color: #fff;
 		font-size: 110%;
 	}
+	th a {
+		color: #fff;
+	}
+	th a:hover {
+		text-decoration: underline;
+	}
+	th a:visited {
+		color: #fff;
+	}
 	tr.even {
 		background: #ddd;
 		border-bottom: solid 1px #999;
