@@ -7,7 +7,7 @@
 		<li><%= link_to t('footer.abredatos'), ABREDATOS_URL %></li>
 	</ul>
 			
-	<span><%= t('footer.copyright')%></span>
+	<span><%= link_to t('footer.copyright'), about_us_public_path %></span>
 	<%= link_to(image_tag('badge_abredatos.png', :alt => t('footer.abredatos_participation')), 'http://abredatos.es' ) %>
 	<%= link_to image_tag('http://creativecommons.org/images/public/cc-GPL-a.png', :alt => t('footer.license.alt')), :title => t('footer.license.title') %>
 
