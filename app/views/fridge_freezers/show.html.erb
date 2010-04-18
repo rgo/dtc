@@ -1,53 +1,58 @@
-<p>
-  <b>Producer:</b>
-  <%=h @fridge_freezer.producer %>
-</p>
+<p id="slogan"><%= @fridge_freezer.appliance_title %></p>
 
-<p>
-  <b>Product:</b>
-  <%=h @fridge_freezer.product %>
-</p>
+<div id="content">
 
-<p>
-  <b>Brand:</b>
-  <%=h @fridge_freezer.brand %>
-</p>
+	<div id="main">
+	
+    <h2><%= t('.h2_main') %></h2>
+		
+		<table>
+      <caption><%= t('.summary')%></caption>
+		  <thead>
+  		  <tr>
+          <th><%= t('.column_name') %></th>
+          <th><%= t('.column_value') %></th>
+  		  </tr>
+  		</thead>
+  		<tbody>
+        <% FridgeFreezer.columns.each do |column| %>
+          <% tr_class = cycle('', ' class="even"') %>
+          <% unless ['created_at', 'updated_at'].include? column.name %>
+            <tr <%= tr_class %>>
+              <td><%= FridgeFreezer.human_attribute_name(column.name) %></td>
+              <td><%= @fridge_freezer.read_attribute(column.name) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+  		</tbody>
+  	</table>
 
-<p>
-  <b>Model:</b>
-  <%=h @fridge_freezer.model %>
-</p>
+	</div>
 
-<p>
-  <b>Efficiency:</b>
-  <%=h @fridge_freezer.efficiency %>
-</p>
+  <div id="side">
+	
+    <h2><%= t('.h2_side')%></h2>
+    	
+    <h3><%= link_to t('.h3_back_to_search'), root_path %></h3>
+    <h3><%= comparator_link(@fridge_freezer, nil, :class =>'comparate-option') %></h3>
+    <h3><%= link_to t('.h3_print'), '#' %></h3>
+  	<a id="ck_email" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/email.gif" alt="Enviar por email" /></a>
+    <a id="ck_facebook" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/facebook.gif" alt="Publicar en Facebook" /></a>
+    <a id="ck_twitter" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/twitter.gif" alt="Publicar en Twitter" /></a>
+    <a id="ck_sharethis" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/sharethis.gif" alt="Compartir esta página" /><%=t('.share_this') %></a>
+    <script type="text/javascript">
+    	var shared_object = SHARETHIS.addEntry({
+    	title: document.title,
+    	url: document.location.href
+    });
 
-<p>
-  <b>Consume:</b>
-  <%=h @fridge_freezer.consume %>
-</p>
+    shared_object.attachButton(document.getElementById("ck_sharethis"));
+    shared_object.attachChicklet("email", document.getElementById("ck_email"));
+    shared_object.attachChicklet("facebook", document.getElementById("ck_facebook"));
+    shared_object.attachChicklet("twitter", document.getElementById("ck_twitter"));
+    </script>
+    
+	
+  </div>
 
-<p>
-  <b>Height:</b>
-  <%=h @fridge_freezer.height %>
-</p>
-
-<p>
-  <b>Width:</b>
-  <%=h @fridge_freezer.width %>
-</p>
-
-<p>
-  <b>Deep:</b>
-  <%=h @fridge_freezer.deep %>
-</p>
-
-<p>
-  <b>Froost:</b>
-  <%=h @fridge_freezer.froost %>
-</p>
-
-
-<%= link_to 'Edit', edit_fridge_freezer_path(@fridge_freezer) %> |
-<%= link_to 'Back', fridge_freezers_path %>
+</div>

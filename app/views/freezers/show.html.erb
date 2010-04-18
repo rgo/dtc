@@ -1,43 +1,58 @@
-<p>
-  <b>Producer:</b>
-  <%=h @freezer.producer %>
-</p>
+<p id="slogan"><%= @freezer.appliance_title %></p>
 
-<p>
-  <b>Product:</b>
-  <%=h @freezer.product %>
-</p>
+<div id="content">
 
-<p>
-  <b>Brnand:</b>
-  <%=h @freezer.brnand %>
-</p>
+	<div id="main">
+	
+    <h2><%= t('.h2_main') %></h2>
+		
+		<table>
+      <caption><%= t('.summary')%></caption>
+		  <thead>
+  		  <tr>
+          <th><%= t('.column_name') %></th>
+          <th><%= t('.column_value') %></th>
+  		  </tr>
+  		</thead>
+  		<tbody>
+        <% Freezer.columns.each do |column| %>
+          <% tr_class = cycle('', ' class="even"') %>
+          <% unless ['created_at', 'updated_at'].include? column.name %>
+            <tr <%= tr_class %>>
+              <td><%= Freezer.human_attribute_name(column.name) %></td>
+              <td><%= @freezer.read_attribute(column.name) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+  		</tbody>
+  	</table>
 
-<p>
-  <b>Model:</b>
-  <%=h @freezer.model %>
-</p>
+	</div>
 
-<p>
-  <b>Consume:</b>
-  <%=h @freezer.consume %>
-</p>
+  <div id="side">
+	
+    <h2><%= t('.h2_side')%></h2>
+    	
+    <h3><%= link_to t('.h3_back_to_search'), root_path %></h3>
+    <h3><%= comparator_link(@freezer, nil, :class =>'comparate-option') %></h3>
+    <h3><%= link_to t('.h3_print'), '#' %></h3>
+  	<a id="ck_email" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/email.gif" alt="Enviar por email" /></a>
+    <a id="ck_facebook" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/facebook.gif" alt="Publicar en Facebook" /></a>
+    <a id="ck_twitter" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/twitter.gif" alt="Publicar en Twitter" /></a>
+    <a id="ck_sharethis" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/sharethis.gif" alt="Compartir esta página" /><%=t('.share_this') %></a>
+    <script type="text/javascript">
+    	var shared_object = SHARETHIS.addEntry({
+    	title: document.title,
+    	url: document.location.href
+    });
 
-<p>
-  <b>Height:</b>
-  <%=h @freezer.height %>
-</p>
+    shared_object.attachButton(document.getElementById("ck_sharethis"));
+    shared_object.attachChicklet("email", document.getElementById("ck_email"));
+    shared_object.attachChicklet("facebook", document.getElementById("ck_facebook"));
+    shared_object.attachChicklet("twitter", document.getElementById("ck_twitter"));
+    </script>
+    
+	
+  </div>
 
-<p>
-  <b>Width:</b>
-  <%=h @freezer.width %>
-</p>
-
-<p>
-  <b>Froost:</b>
-  <%=h @freezer.froost %>
-</p>
-
-
-<%= link_to 'Edit', edit_freezer_path(@freezer) %> |
-<%= link_to 'Back', freezers_path %>
+</div>
