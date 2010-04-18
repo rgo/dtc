@@ -4,7 +4,9 @@ es:
     index:
       add_to_comparator: Comparar
       description: "Encuentra el vehículo más eficiente y que menos cantidad de Co2 emite a la atmósfera.  Además de ahorrar dinero, beneficiaras al medio ambiente."
-      cars_selected: Tienes {{count}} coches seleccionados
+      cars_selected: 
+        one: Tienes 1 coche seleccionado
+        other: Tienes {{count}} coches seleccionados
       consume_range:
         between: Entre {{min}} y {{max}} l/100km
         greater: Más de {{min}} l/100km
