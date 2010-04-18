@@ -115,6 +115,11 @@ class Car < ActiveRecord::Base
 
   end
   
+  def self.order_for_comparation(ids)
+    cars = Car.find(ids)
+    cars.sort_by{|car| car.consume}
+  end
+
   def estimate(annual_mileage)
     oil_price = (fuel == 'Gasolina' ? @@oil_prices[OilFetcher::SUPER_95] : @@oil_prices[OilFetcher::GASOLEO_A])
     return (annual_mileage * oil_price.to_f)
