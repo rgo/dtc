@@ -26,11 +26,16 @@ input.shadow:focus {
 
 .rating_bar {
   width: 55px;
-  background: url(../images/star_x_grey.gif) 0 0 repeat-x;
+  background: url(/images/star_x_grey.gif) 0 0 repeat-x;
 }
 
 .rating_bar div {
   height: 12px;
-  background: url(../images/star_x_orange.gif) 0 0 repeat-x;
+  background: url(/images/star_x_orange.gif) 0 0 repeat-x;
+}
+
+div#gotocontent, div#gotomenu {
+	position: absolute;
+	left: -9000px;
 }
 

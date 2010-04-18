@@ -1,8 +1,11 @@
 es:
   general:
-    title: "Desenchufa Tú Casa"
-    description: "Información sobre productos eficientes"
+    title: "Desenchufa Tú Casa | Productos energéticamente eficientes"
+    description: "Información sobre coches y electrodomésticos energéticamente eficientes.  Clasificación de productos"
     range:
       between: entre {{min}} y {{max}}
       greater: más de {{min}}
-      less: menos de {{max}} 
+      less: menos de {{max}}
+    layout:
+      gotocontent: "Ir al contenido"
+      gotomenu: "Ir al menú principal"
