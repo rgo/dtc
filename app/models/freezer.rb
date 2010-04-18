@@ -27,9 +27,9 @@ class Freezer < ActiveRecord::Base
     if range == '1'
       {:conditions => ['consume <= ?', 170]}
     elsif range == '2'
-      {:conditions => {:consume => [171,240]}}
+      {:conditions => ['consume > ? AND consume <= ? ', 171,240]}
     elsif range == '3'
-      {:conditions => {:consume => [241,310]}}
+      {:conditions => ['consume > ? AND consume <= ? ', 241,310]}
     elsif range == '4'
       {:conditions => ["consume > ?", 311]}
     else
