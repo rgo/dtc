@@ -22,3 +22,4 @@ db/*.sqlite3
 .bundle
 db/schema.rb
 public/stylesheets/cache_dtc.css
+public/javascripts/cache_dtc.js
