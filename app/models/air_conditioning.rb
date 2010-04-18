@@ -29,6 +29,8 @@ class AirConditioning < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con div.cpo table.tbl-f3 tbody tr'
 
+  named_scope :best, :order => "rating_cooling ASC", :limit => 5
+
   define_index do
     indexes brand
     indexes indoor_unit1
@@ -39,6 +41,10 @@ class AirConditioning < ActiveRecord::Base
   
   def to_param
     "#{id}-#{brand.to_s.parameterize}-#{description.to_s.parameterize}"
+  end
+
+  def appliance_title
+    "#{brand.to_s} #{description}"
   end
 
   def self.fetch_mapping
