@@ -46,7 +46,7 @@
   <% @ovens.each do |oven| %>
       <tr>
         <td><%= oven.brand %></td>
-        <td><%= oven.model %></td>
+        <td><%= link_to(oven.model, oven_path(oven)) %></td>
         <td>
           <div class="rating_bar">
             <div style="width:<%= rating_to_percentage(oven.efficiency) %>"></div>

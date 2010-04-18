@@ -47,7 +47,7 @@
   <% @dryers.each do |dryer| %>
       <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
         <td><%= dryer.brand %></td>
-        <td><%= dryer.model %></td>
+        <td><%= link_to(dryer.model, dryer_path(dryer)) %></td>
         <td>
           <div class="rating_bar">
             <div style="width:<%= rating_to_percentage(dryer.efficiency) %>"></div>

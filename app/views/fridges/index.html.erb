@@ -43,7 +43,7 @@
   <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
     <td><%=h fridge.product %></td>
     <td><%=h fridge.brand %></td>
-    <td><%=h fridge.model %></td>
+    <td><%=link_to(h(fridge.model), fridge_path(fridge)) %></td>
     <td>
       <div class="rating_bar">
         <div style="width:<%=h fridge.efficiency %>%"></div>
