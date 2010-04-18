@@ -6,7 +6,6 @@ module ApplicationHelper
   end
 
   def selected_for_boolean(value)
-
     if ['1',true].include? value
       '1'
     elsif ['0', false].include? value
@@ -16,12 +15,16 @@ module ApplicationHelper
     end
   end
 
-  def comparator_link(item)
+  def comparator_link(item, class_name = nil)
+    item = class_name.classify.constantize.find(item) if class_name.present?
+
     resources = item.class.to_s.tableize
     if(session[resources].try :include?, item.id)
-      link_to t('.remove_from_comparator'), remove_from_comparator_url(:klass => item.class.to_s.underscore, :id => item.id)
+      link_to t('general.remove_from_comparator'), remove_from_comparator_url(:klass => item.class.to_s.underscore, :id => item.id),
+              :class => "comparate", :id => "#{resources}-#{item.id}"
     else
-      link_to t('.add_to_comparator'), add_to_comparator_url(:klass => item.class.to_s.underscore, :id => item.id)
+      link_to t('general.add_to_comparator'), add_to_comparator_url(:klass => item.class.to_s.underscore, :id => item.id),
+              :class => "comparate", :id => "#{resources}-#{item.id}"
     end
   end
 end
