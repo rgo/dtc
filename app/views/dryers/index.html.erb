@@ -24,8 +24,8 @@
 </div>
 
 <table>
-  <summary>Resultados de la búsqueda</summary>
-  <theader>
+  <caption>Resultados de la búsqueda</caption>
+  <thead>
     <tr>
       <th><%= order @search, :by => :brand, :as => Dryer.human_attribute_name(:brand) %></th>
       <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:model) %></th>
@@ -37,7 +37,7 @@
       <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:width) %></th>
       <th><%= order @search, :by => :model, :as => Dryer.human_attribute_name(:deep) %></th>
     </tr>
-  </theader>
+  </thead>
   <tbody>
 
   <% @dryers.each do |dryer| %>

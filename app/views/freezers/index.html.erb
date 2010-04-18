@@ -33,7 +33,7 @@
 <h3>Hemos encontrado</h3>
 
 <table>
-  <theader>
+  <thead>
   <tr>
     <th><%= order @search, :by => :product, :as => Freezer.human_attribute_name(:product) %></th>
     <th><%= order @search, :by => :brand, :as => Freezer.human_attribute_name(:brand) %></th>
@@ -45,7 +45,7 @@
     <th><%= order @search, :by => :deep, :as => Freezer.human_attribute_name(:deep) %></th>
     <th><%= order @search, :by => :froost, :as => Freezer.human_attribute_name(:froost) %></th>
   </tr>
-  </theader>
+  </thead>
   <tbody>
 
     <% @freezers.each do |freezer| %>

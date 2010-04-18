@@ -23,7 +23,7 @@
 
 <h3><%= t('.h3_results') %></h3>
 <table>
-  <summary>Resultados de la búsqueda</summary>
+  <caption>Resultados de la búsqueda</caption>
   <tr>
     <th><%= order @search, :by => :product, :as => Fridge.human_attribute_name(:product) %></th>
     <th><%= order @search, :by => :brand, :as => Fridge.human_attribute_name(:brand) %></th>

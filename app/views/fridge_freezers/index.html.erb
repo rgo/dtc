@@ -24,8 +24,8 @@
 </div>
 
 <table>
-  <summary>Resultados de la búsqueda</summary>
-  <theader>
+  <caption>Resultados de la búsqueda</caption>
+  <thead>
     <tr>
       <th><%= order @search, :by => :brand, :as => FridgeFreezer.human_attribute_name(:brand) %></th>
       <th><%= order @search, :by => :model, :as => FridgeFreezer.human_attribute_name(:model) %></th>
@@ -36,7 +36,7 @@
       <th><%= order @search, :by => :deep, :as => FridgeFreezer.human_attribute_name(:deep) %></th>
       <th><%= order @search, :by => :froost, :as => FridgeFreezer.human_attribute_name(:froost) %></th>
     </tr>
-  </theader>
+  </thead>
   <tbody>
   <% @fridge_freezers.each do |fridge_freezer| %>
       <tr>

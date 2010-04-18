@@ -3,27 +3,27 @@
 <div id="intro">
   <% form_for @search, :html => {:id => "car_search", :class => "top_form"} do |f| %>
       <p class="select_field">
-        <label for="fuel"><%= Car.human_attribute_name('fuel') %></label><br/>
-        <%= f.select :fuel_is, [['Gasolina', 'Gasolina'], ['Gasóleo/Diesel', 'Gasóleo']], {}, :size => "5" %>
+        <label for="search_fuel_is"><%= Car.human_attribute_name('fuel') %></label><br/>
+        <%= f.select :fuel_is, [['Gasolina', 'Gasolina'], ['Gasóleo/Diesel', 'Gasóleo']], {}, :size => "5", :tabindex => 1 %>
       </p>
 
       <p class="select_field">
-        <label for="gear"><%= Car.human_attribute_name('gear') %></label><br/>
-        <%= f.select :gear_is, [['Manual', 'Manual'], ['Automático', 'Automático'], ['Otros', 'Otros']], {}, :size => "5" %>
+        <label for="search_gear_is"><%= Car.human_attribute_name('gear') %></label><br/>
+        <%= f.select :gear_is, [['Manual', 'Manual'], ['Automático', 'Automático'], ['Otros', 'Otros']], {}, :size => "5", :tabindex => 2 %>
       </p>
 
       <p class="select_field">
-        <label for="seats"><%= Car.human_attribute_name('seats') %></label><br/>
-        <%= f.select :seats_range_is, seats_range_options_for_car, {}, :size => "5" %>
+        <label for="search_range_is"><%= Car.human_attribute_name('seats') %></label><br/>
+        <%= f.select :seats_range_is, seats_range_options_for_car, {}, :size => "5", :tabindex => 3 %>
       </p>
 
       <p class="select_field">
-        <label for="consume"><%= Car.human_attribute_name('consume') %></label><br />
-        <%= f.select :consume_range_is, consume_range_options_for_car, {}, :size => 5%>
+        <label for="search_consume_range_is"><%= Car.human_attribute_name('consume') %></label><br />
+        <%= f.select :consume_range_is, consume_range_options_for_car, {}, :size => 5, :tabindex => 4 %>
       </p>
 
       <p class="select_field">
-        <%= submit_tag t('cars.search_button'), :class => "submit large grana awesome"%>
+        <%= submit_tag t('cars.search_button'), :class => "submit large grana awesome", :tabindex => 5 %>
       </p>
   <% end %>
 </div>
@@ -31,8 +31,8 @@
 <h3><%= t('.h3_results') %></h3>
 
 <table id="cars-results">
-  <summary>Resultados de la búsqueda</summary>
-  <theader>
+  <caption>Resultados de la búsqueda</caption>
+  <thead>
     <tr>
       <th><%= order @search, :by => :brand, :as => Car.human_attribute_name(:brand) %></th>
       <th><%= order @search, :by => :finish, :as => Car.human_attribute_name(:finish) %></th>
@@ -42,7 +42,7 @@
       <th><%= order @search, :by => :rating, :as => Car.human_attribute_name(:rating)%></th>
       <th>&nbsp;</th>
     </tr>
-  </theader>
+  </thead>
   <tbody>
     <% @cars.each do |car| -%>
       <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
