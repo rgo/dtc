@@ -36,6 +36,7 @@ class Car < ActiveRecord::Base
   }
 
   named_scope :best_cars, :order => 'cars.rating asc, cars.emissions asc', :limit => 5
+  named_scope :best, :order => 'cars.rating asc, cars.emissions asc', :limit => 5
 
   data_fetcher :uri => CARS_URI
   

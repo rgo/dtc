@@ -2,58 +2,31 @@
 
 <div id="intro">
   <h2>Busca un electrodoméstico (lavadora, frigorífico, lavavajillas...)</h2>
-	<% form_tag '/queries/results', :id => 'main_search', :class => "top_form" do %>
-	  <p>
-	    <%= text_field_tag 'q', '',  :class => 'text shadow' %>
-	    <%= submit_tag 'Buscar', :class => "submit large grana awesome" %>
-	  </p>
+	<% form_tag search_appliances_path, :id => 'main_search', :class => "top_form" do %>
+      <p>
+	  <%= text_field_tag 'q', '',  :class => 'text shadow' %>
+	  <%= submit_tag 'Buscar', :class => "submit large grana awesome" %>
+      </p>
 	<% end %>		
 </div>
 
-<div class="col2 first">
+<% APPLIANCES_CLASSES.each do |appliance_class| %>
 
-	<h2><%= link_to "Lavadoras", appliances_path %></h2>	
-	<ul>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
-	</ul>
-	
-</div>
+    <% first = cycle("first", "") %>
 
-<div class="col2">
+    <div class="col2 <%= first %>">
 
-	<h2><%= link_to "Lavadoras", appliances_path %></h2>	
-	<ul>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
-	</ul>
-	
-</div>
-
-<div class="col2 first">
-
-	<h2><%= link_to "Lavadoras", appliances_path %></h2>	
-	<ul>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
-	</ul>
-	
-</div>
-
-
-
-<div class="col2">
-
-	<h2><%= link_to "Lavadoras", appliances_path %></h2>	
-	<ul>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
-	</ul>
-	
-</div>
-
+      <h2><%= link_to appliance_class.human_name, appliance_class, :title => t('general.search', :item => appliance_class.human_name) %></h2>
+      <ul>
+        <% logger.info appliance_class %>
+        <% if appliance_class.best.any? %>
+            <% appliance_class.best.each do |appliance_instance| %>
+                <li><%= link_to appliance_instance.appliance_title, appliance_instance %></li>
+            <% end -%>
+        <% else %>
+            <li><%= "No hemos recuperado ningún #{appliance_class.human_name}" %></li>
+        <% end -%>
+      </ul>
+    </div>
+<% end -%>
 

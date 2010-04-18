@@ -12,7 +12,8 @@ class PublicController < ApplicationController
       @search = Car.searchlogic
       render :template => "cars/index"
     else
-      @appliances = ThinkingSphinx.search(params[:q], :page => 1, :per_page => 20)
+      @appliances = ThinkingSphinx.search(params[:q], :classes => APPLIANCES_CLASSES, 
+                                          :page => 1, :per_page => 20)
       render :template => "appliances/index"
     end
   end
