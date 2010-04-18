@@ -492,7 +492,25 @@ li {
 
 /* // footer */
 
-div#comparator {
+div#comparator,
+div#gas-prices{
 	width: 18%;
 	float: right;
+}
+
+div.pagination{
+  width:80%;
+}
+
+table#cars-results{
+  float:left;
+}
+
+div#gas-prices p span.title{
+  font-weight:bold;
+}
+
+div#gas-prices p span.small-print{
+  font-weight:lighter;
+  font-size:xx-small;
 }
