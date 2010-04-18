@@ -2,6 +2,12 @@ require 'mechanize'
 
 class OilFetcher < Mechanize
 
+  #index for average_prices_array
+  SUPER_95 = 0
+  SUPER_98 = 1
+  GASOLEO_A = 2
+  GASOLEO_A_NUEVO = 3
+
   def initialize
     super
     get('http://www.gasofa.es')
