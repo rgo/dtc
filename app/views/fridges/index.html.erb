@@ -4,19 +4,19 @@
   <% form_for @search, :html => {:id => "fridge_search", :class => "top_form"} do |f| %>
     <p class="select_field">
       <%= f.label :efficiency_eq, Fridge.human_attribute_name(:efficiency) %>
-      <%= f.collection_select :efficiency_eq, Fridge.efficiency_options, :efficiency, :efficiency, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      <%= f.collection_select :efficiency_eq, Fridge.efficiency_options, :efficiency, :efficiency, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 1} %>
     </p>
     <p class="select_field">
       <%= f.label :consume_range_is, Fridge.human_attribute_name(:consume) %>
-      <%= f.select :consume_range_is, consume_range_options_for_fridge, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      <%= f.select :consume_range_is, consume_range_options_for_fridge, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 2} %>
     </p>
     <p class="select_field">
       <%= f.label :froost_eq, Fridge.human_attribute_name(:froost) %>
-      <%= f.select :froost_eq, Fridge.froost_options, { :selected => selected_for_boolean( @search.froost_eq ) ,:include_blank => t('general.prompt')}, {:size => 5} %>
+      <%= f.select :froost_eq, Fridge.froost_options, { :selected => selected_for_boolean( @search.froost_eq ) ,:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 3} %>
     </p>
 
     <p class="select_field">
-      <%= submit_tag t('fridges.search_button'), :class => "submit large grana awesome"%>
+      <%= submit_tag t('fridges.search_button'), :class => "submit large grana awesome", :tabindex => 4%>
     </p>
   <% end %>
 </div>

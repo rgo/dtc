@@ -3,19 +3,19 @@
 <div id="intro">
   <% form_for @search, :html => { :id => 'dishwasher_search', :class => 'top_form' } do |f| %>
 	  <p class="select_field">
-      <%= f.label Dishwasher.human_attribute_name(:efficiency) %>
-      <%= f.collection_select :drying_efficiency_eq, Dishwasher.efficiency_options, :drying_efficiency, :drying_efficiency, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      <%= f.label :drying_efficiency_eq, Dishwasher.human_attribute_name(:efficiency) %>
+      <%= f.collection_select :drying_efficiency_eq, Dishwasher.efficiency_options, :drying_efficiency, :drying_efficiency, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 1} %>
     </p>
     <p class="select_field">
-      <%= f.label Dishwasher.human_attribute_name(:cutlery) %>
-      <%= f.collection_select :cutlery_eq, Dishwasher.cutlery_options, :cutlery, :cutlery, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      <%= f.label :cutlery_eq, Dishwasher.human_attribute_name(:cutlery) %>
+      <%= f.collection_select :cutlery_eq, Dishwasher.cutlery_options, :cutlery, :cutlery, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 2} %>
     </p>
     <p class="select_field">
-      <%= f.label Dishwasher.human_attribute_name(:water_consume) %>
-      <%= f.collection_select :water_consume_eq, Dishwasher.water_consume_options, :water_consume, :water_consume, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      <%= f.label :water_consume_eq, Dishwasher.human_attribute_name(:water_consume) %>
+      <%= f.collection_select :water_consume_eq, Dishwasher.water_consume_options, :water_consume, :water_consume, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 3} %>
     </p>
     <p class="select_field">
-      <%= f.submit t('general.search', :item => Dishwasher.human_name), :id => 'submit_cars', :class => 'submit large grana awesome' %>
+      <%= f.submit t('general.search', :item => Dishwasher.human_name), :id => 'submit_cars', :class => 'submit large grana awesome', :tabindex => 4 %>
     </p>
   <% end %>
 </div>
