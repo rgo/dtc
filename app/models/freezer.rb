@@ -73,5 +73,10 @@ class Freezer < ActiveRecord::Base
      [I18n.t('freezers.index.froost_options.conventional'), '0']
     ]
   end
+
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|f| f.consume}
+  end
 end
 

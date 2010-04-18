@@ -120,8 +120,7 @@ class Car < ActiveRecord::Base
   end
   
   def self.order_for_comparation(ids)
-    cars = Car.find(ids)
-    cars.sort_by{|car| car.consume}
+    find(ids).sort_by{|car| car.consume}
   end
 
   def estimate(annual_mileage)

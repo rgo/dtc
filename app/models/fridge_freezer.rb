@@ -78,4 +78,8 @@ class FridgeFreezer < ActiveRecord::Base
       all(:select => 'product', :group => 'product')
     end
   end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|ff| ff.consume}
+  end
 end

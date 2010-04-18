@@ -76,5 +76,9 @@ class Fridge < ActiveRecord::Base
      [I18n.t('fridges.index.froost_options.conventional'), '0']
     ]
   end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|f| f.consume}
+  end
 end
 

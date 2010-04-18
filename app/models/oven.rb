@@ -90,4 +90,8 @@ class Oven < ActiveRecord::Base
     end
   end
 
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|o| o.consume}
+  end
+
 end
