@@ -24,6 +24,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :appliances, :only => [:show, :index] 
 
+  map.compare 'compare/:klass/:action/:id', :controller => :comparator
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
