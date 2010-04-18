@@ -6,10 +6,10 @@ class CreateWashingMachines < ActiveRecord::Migration
       t.string :brand
       t.string :model
       t.integer :rpm
-      t.string :efficiency
+      t.integer :efficiency
       t.integer :consume
-      t.string :washing_efficiency
-      t.string :spin_efficiency
+      t.integer :washing_efficiency
+      t.integer :spin_efficiency
       t.integer :capacity
       t.integer :consume_kg
       t.integer :consume_water
