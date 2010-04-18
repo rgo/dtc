@@ -16,6 +16,8 @@ class Car < ActiveRecord::Base
 
   include DataFetcher
 
+  @@oil_prices ||= OilFetcher.new.average_prices
+
   validates_uniqueness_of :finish, :scope => [:brand, :model]
   before_save :calculate_consume_range
 
@@ -76,7 +78,7 @@ class Car < ActiveRecord::Base
               car.model = model.text
               
               car.finish = link.content.split("#{brand.text} #{model.text}").last.strip
-              car.fuel = page.search('//*[@id="lblMotorizacion"]')[0].content
+              car.fuel = page.search('//*[@id="lblMotorizacion"]')[0].content == 'Gasolina' ? 'Gasolina' : 'Gasóleo'
               car.consume = columns[1].content.gsub(',', '.')
               car.emissions = columns[2].content
               car.rating = page.search('//*[@id="imgClasificacion"]')[0][:src][22] - ?A + 1
@@ -104,6 +106,12 @@ class Car < ActiveRecord::Base
     end
 
   end
+  
+  def estimate(annual_mileage, car_price = nil, oil_price = nil) 
+    oil_price ||= (fuel == 'Gasolina' ? @@oil_prices[OilFetcher::SUPER_95] : @@oil_prices[OilFetcher::GASOLEO_A])
+    return (car_price + (annual_mileage * oil_price.to_f)) rescue nil
+  end
+
 
   private
 
