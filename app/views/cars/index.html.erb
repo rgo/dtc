@@ -28,21 +28,9 @@
   <% end %>
 </div>
 
-<div id="comparator">
-  <h3><%= t('.h3_comparator') %></h3>
-  <%= form_tag comparator_path(:klass => 'car'), :method => :get %>
-    
-  <!--form-->
-  <label for="kilometers"><%= t('.comparator_mileage') %></label><br />
-  <%= text_field_tag 'search[car][mileage]', '', :id =>'kilometers' %></input>
-    <p><%= t('.cars_selected', :count => session['cars'].try(:size) || 0 )%></p>
-    <input type="submit" value="Comparar" class="submit large grana awesome" />
-  </form>
-</div>
-
 <h3><%= t('.h3_results') %></h3>
 
-<table>
+<table id="cars-results">
   <summary>Resultados de la búsqueda</summary>
   <theader>
     <tr>
@@ -73,5 +61,22 @@
     <% end -%>
   </tbody>
 </table>
+
+
+<div id="comparator">
+  <h3><%= t('.h3_comparator') %></h3>
+    <p><%= t('.cars_selected', :count => session['cars'].try(:size) || 0 )%></p>
+    <%= link_to t('.comparator'), comparator_path(:klass => 'car'), :method => :get %>
+</div>
+
+<div id="gas-prices">
+  <h3><%= t('.h3_gas_prices') %></h3>
+
+  <p><span class="title"><%= t('general.gas.super_95') %>:</span> <%= number_to_currency Car.oil_prices[OilFetcher::SUPER_95] %></p>
+  <p><span class="title"><%= t('general.gas.super_98') %>:</span> <%= number_to_currency Car.oil_prices[OilFetcher::SUPER_98] %></p>
+  <p><span class="title"><%= t('general.gas.gasoil_a') %>:</span> <%= number_to_currency Car.oil_prices[OilFetcher::GASOLEO_A] %></p>
+
+  <p><span class="small-print"><%= t('.gas_prices_small_print', :date => I18n.l(Date.today)) %></span></p>
+</div>
 
 <%= will_paginate @cars %>
