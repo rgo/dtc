@@ -98,30 +98,38 @@
 		border-collapse:collapse;
 		background: #fff;
 	}
+	
 	summary {
 		display: none;
 	}
+	
 	th, td{	
 		padding:2px 5px;
-	}	
+	}
+		
 	td.number {
 		text-align: right;
 	}
+	
 	th{	
 		text-align:left;
 		background: #940000;
 		color: #fff;
 		font-size: 110%;
 	}
+	
 	th a {
 		color: #fff;
 	}
+	
 	th a:hover {
 		text-decoration: underline;
 	}
+	
 	th a:visited {
 		color: #fff;
 	}
+	
 	tr.even {
 		background: #ddd;
 		border-bottom: solid 1px #999;
@@ -132,9 +140,10 @@
 		color: #940000;
 		text-decoration: underline;
 	}
-	li{
-		display:list-item;
-		}	
+	
+li {
+	display:list-item;
+}	
 	
 	/* // HTML Tags */	
 	
@@ -143,10 +152,10 @@
 /* page setup */
 
 	#container{	
-		margin:0 auto;
-		width:934px;
-		text-align:left;
-		position:relative;
+		margin: 0 auto;
+		width: 934px;
+		text-align: left;
+		position: relative;
 		}
 	#header{
 		height:88px;

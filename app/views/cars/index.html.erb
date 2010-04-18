@@ -43,15 +43,18 @@
 
 <table>
   <summary>Resultados de la búsqueda</summary>
-  <tr>
-    <th><%= order @search, :by => :brand, :as => Car.human_attribute_name(:brand) %></th>
-    <th><%= order @search, :by => :finish, :as => Car.human_attribute_name(:finish) %></th>
-    <th><%= order @search, :by => :fuel, :as => Car.human_attribute_name(:fuel) %></th>
-    <th><%= order @search, :by => :consume, :as => Car.human_attribute_name(:consume) %></th>
-    <th><%= order @search, :by => :emissions, :as => Car.human_attribute_name(:emissions) %></th>
-    <th><%= order @search, :by => :rating, :as => Car.human_attribute_name(:rating)%></th>
-  </tr>
-  <% @cars.each do |car| -%>
+  <theader>
+    <tr>
+      <th><%= order @search, :by => :brand, :as => Car.human_attribute_name(:brand) %></th>
+      <th><%= order @search, :by => :finish, :as => Car.human_attribute_name(:finish) %></th>
+      <th><%= order @search, :by => :fuel, :as => Car.human_attribute_name(:fuel) %></th>
+      <th><%= order @search, :by => :consume, :as => Car.human_attribute_name(:consume) %></th>
+      <th><%= order @search, :by => :emissions, :as => Car.human_attribute_name(:emissions) %></th>
+      <th><%= order @search, :by => :rating, :as => Car.human_attribute_name(:rating)%></th>
+    </tr>
+  </theader>
+  <tbody>
+    <% @cars.each do |car| -%>
       <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
         <td><%= car.brand %></td>
         <td><%= link_to [car.model,car.finish].join(' '), car %></td>
@@ -64,5 +67,6 @@
           </div>
         </td>
       </tr>
-  <% end -%>
+    <% end -%>
+  </tbody>
 </table>
