@@ -40,7 +40,7 @@
   <% @dishwashers.each do |dishwasher| %>
     <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
       <td><%= dishwasher.brand %></td>
-      <td><%= dishwasher.model %></td>
+      <td><%= link_to(dishwasher.model, dishwasher_path(dishwasher)) %></td>
       <td>
         <div class="rating_bar">
           <div style="width:<%= rating_to_percentage(dishwasher.drying_efficiency) %>"></div>

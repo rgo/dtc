@@ -1,58 +1,57 @@
-<p>
-  <b>Producer:</b>
-  <%=h @dryer.producer %>
-</p>
+<p id="slogan"><%= @dryer.appliance_title %></p>
 
-<p>
-  <b>Product:</b>
-  <%=h @dryer.product %>
-</p>
+<div id="content">
 
-<p>
-  <b>Brand:</b>
-  <%=h @dryer.brand %>
-</p>
+	<div id="main">
+	
+    <h2>Datos técnicos</h2>
+		
+		<table>
+      <caption><%= t('.summary')%></caption>
+		  <thead>
+  		  <tr>
+          <th><%= t('.column_name') %></th>
+          <th><%= t('.column_value') %></th>
+  		  </tr>
+  		</thead>
+  		<tbody>
+        <% Dryer.columns.each do |column| %>
+          <% tr_class = cycle('', ' class="even"') %>
+          <% unless ['created_at', 'updated_at'].include? column.name %>
+            <tr <%= tr_class %>>
+              <td><%= Dryer.human_attribute_name(column.name) %></td>
+              <td><%= @dryer.read_attribute(column.name) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+  		</tbody>
+  	</table>
+	</div>
 
-<p>
-  <b>Model:</b>
-  <%=h @dryer.model %>
-</p>
+  <div id="side">
+	
+    <h2>Opciones</h2>
+    	
+    <h3><%= link_to "Volver a la búsqueda", root_path %></h3>
+    <h3><%= comparator_link(@dryer, nil, :class =>'comparate-option') %></h3>
+    <h3><%= link_to "Imprimir", '#' %></h3>
+  	<a id="ck_email" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/email.gif" alt="Enviar por email" /></a>
+    <a id="ck_facebook" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/facebook.gif" alt="Publicar en Facebook" /></a>
+    <a id="ck_twitter" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/twitter.gif" alt="Publicar en Twitter" /></a>
+    <a id="ck_sharethis" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/sharethis.gif" alt="Compartir esta página" />Compartir</a>
+    <script type="text/javascript">
+    	var shared_object = SHARETHIS.addEntry({
+    	title: document.title,
+    	url: document.location.href
+    });
 
-<p>
-  <b>Efficiency:</b>
-  <%=h @dryer.efficiency %>
-</p>
+    shared_object.attachButton(document.getElementById("ck_sharethis"));
+    shared_object.attachChicklet("email", document.getElementById("ck_email"));
+    shared_object.attachChicklet("facebook", document.getElementById("ck_facebook"));
+    shared_object.attachChicklet("twitter", document.getElementById("ck_twitter"));
+    </script>
+    
+	
+  </div>
 
-<p>
-  <b>Consume:</b>
-  <%=h @dryer.consume %>
-</p>
-
-<p>
-  <b>Capacity:</b>
-  <%=h @dryer.capacity %>
-</p>
-
-<p>
-  <b>Consume kg:</b>
-  <%=h @dryer.consume_kg %>
-</p>
-
-<p>
-  <b>Height:</b>
-  <%=h @dryer.height %>
-</p>
-
-<p>
-  <b>Width:</b>
-  <%=h @dryer.width %>
-</p>
-
-<p>
-  <b>Deep:</b>
-  <%=h @dryer.deep %>
-</p>
-
-
-<%= link_to 'Edit', edit_dryer_path(@dryer) %> |
-<%= link_to 'Back', dryers_path %>
+</div>

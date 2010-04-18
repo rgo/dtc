@@ -45,7 +45,7 @@
   <% @washing_machines.each do |washing_machine| %>
       <tr>
         <td><%= washing_machine.brand %></td>
-        <td><%= washing_machine.model %></td>
+        <td><%= link_to(washing_machine.model, washing_machine_path(washing_machine)) %></td>
         <td>
           <div class="rating_bar">
             <div style="width:<%= rating_to_percentage(washing_machine.efficiency) %>"></div>

@@ -12,12 +12,12 @@
 
 <div class="col2 first">
 
-	<h2><%= link_to "Top Electrodomésticos", appliances_path %></h2>	
-	<ul>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
-	</ul>
+	<h2><%= link_to "Top Electrodomésticos", appliances_path %></h2>
+  <ul>
+    <% @top_appliances.each do |appliance| %>
+        <li><%= appliance.class.human_name %> <%= link_to appliance.appliance_title, appliance %></li>
+    <% end %>
+  </ul>
 	
 </div>
 

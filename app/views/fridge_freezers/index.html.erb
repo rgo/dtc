@@ -43,7 +43,7 @@
   <% @fridge_freezers.each do |fridge_freezer| %>
       <tr>
         <td><%= fridge_freezer.brand %></td>
-        <td><%= fridge_freezer.model %></td>
+        <td><%= link_to(fridge_freezer.model, fridge_freezer_path(fridge_freezer)) %></td>
         <td>
           <div class="rating_bar">
             <div style="width:<%= rating_to_percentage(fridge_freezer.efficiency) %>"></div>

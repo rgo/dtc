@@ -53,7 +53,7 @@
     <% @washer_dryers.each do |washer_dryer| %>
       <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
         <td><%=h washer_dryer.brand %></td>
-        <td><%=h washer_dryer.model %></td>
+        <td><%=link_to(h(washer_dryer.model), washer_dryer_path(washer_dryer)) %></td>
         <td><%=h washer_dryer.rpm %></td>
         <td><%=h washer_dryer.efficiency %></td>
         <td><%=h washer_dryer.consume %></td>
