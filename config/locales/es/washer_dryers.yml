@@ -4,6 +4,11 @@ es:
     description: "Encuentra la lavadora-secadora más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
     search_button: "Buscar lavadora-secadora"
     index:
+      comparator: Ir al comparador
       h1: "Busca la lavadora-secadora más eficiente del mercado"
       h3_results: "Hemos encontrado"
+      h3_comparator: Comparador
+      washer_dryers_selected:
+        one: Tiene una lavadora-secadora seleccionada
+        other: Tiene {{count}} lavadoras-secadoras seleccionadas
       

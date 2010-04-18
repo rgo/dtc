@@ -24,26 +24,28 @@
   <% end %>
 </div>
 
-<h3><%= t('.h3_results') %></h3>
 
+<h3><%= t('.h3_results') %></h3>
+<%= comparator_section WasherDryer %>
 <table>
   <summary>Resultados de la búsqueda</summary>
   <theader>
   <tr>
-    <th><%= order @search, :by => :brand, :as => Dishwasher.human_attribute_name(:brand) %></th>
-    <th><%= order @search, :by => :model, :as => Dishwasher.human_attribute_name(:model) %></th>
-    <th><%= order @search, :by => :rpm, :as => Dishwasher.human_attribute_name(:rpm) %></th>
-    <th><%= order @search, :by => :efficiency, :as => Dishwasher.human_attribute_name(:efficiency) %></th>
-    <th><%= order @search, :by => :consume, :as => Dishwasher.human_attribute_name(:consume) %></th>
-    <th><%= order @search, :by => :washing_consume, :as => Dishwasher.human_attribute_name(:washing_consume) %></th>
-    <th><%= order @search, :by => :washing_efficiency, :as => Dishwasher.human_attribute_name(:washing_efficiency) %></th>
-    <th><%= order @search, :by => :washing_capacity, :as => Dishwasher.human_attribute_name(:washing_capacity) %></th>
-    <th><%= order @search, :by => :drying_capacity, :as => Dishwasher.human_attribute_name(:drying_capacity) %></th>
-    <th><%= order @search, :by => :consume_kg, :as => Dishwasher.human_attribute_name(:consume_kg) %></th>
-    <th><%= order @search, :by => :water_consume, :as => Dishwasher.human_attribute_name(:water_consume) %></th>
-    <th><%= order @search, :by => :height, :as => Dishwasher.human_attribute_name(:height) %></th>
-    <th><%= order @search, :by => :width, :as => Dishwasher.human_attribute_name(:width) %></th>
-    <th><%= order @search, :by => :deep, :as => Dishwasher.human_attribute_name(:deep) %></th>
+    <th><%= order @search, :by => :brand, :as => WasherDryer.human_attribute_name(:brand) %></th>
+    <th><%= order @search, :by => :model, :as => WasherDryer.human_attribute_name(:model) %></th>
+    <th><%= order @search, :by => :rpm, :as => WasherDryer.human_attribute_name(:rpm) %></th>
+    <th><%= order @search, :by => :efficiency, :as => WasherDryer.human_attribute_name(:efficiency) %></th>
+    <th><%= order @search, :by => :consume, :as => WasherDryer.human_attribute_name(:consume) %></th>
+    <th><%= order @search, :by => :washing_consume, :as => WasherDryer.human_attribute_name(:washing_consume) %></th>
+    <th><%= order @search, :by => :washing_efficiency, :as => WasherDryer.human_attribute_name(:washing_efficiency) %></th>
+    <th><%= order @search, :by => :washing_capacity, :as => WasherDryer.human_attribute_name(:washing_capacity) %></th>
+    <th><%= order @search, :by => :drying_capacity, :as => WasherDryer.human_attribute_name(:drying_capacity) %></th>
+    <th><%= order @search, :by => :consume_kg, :as => WasherDryer.human_attribute_name(:consume_kg) %></th>
+    <th><%= order @search, :by => :water_consume, :as => WasherDryer.human_attribute_name(:water_consume) %></th>
+    <th><%= order @search, :by => :height, :as => WasherDryer.human_attribute_name(:height) %></th>
+    <th><%= order @search, :by => :width, :as => WasherDryer.human_attribute_name(:width) %></th>
+    <th><%= order @search, :by => :deep, :as => WasherDryer.human_attribute_name(:deep) %></th>
+    <th>&nbsp;</th>
   </tr>
   </theader>
 
@@ -64,6 +66,7 @@
         <td><%=h washer_dryer.height %></td>
         <td><%=h washer_dryer.width %></td>
         <td><%=h washer_dryer.deep %></td>
+        <td><%= comparator_link washer_dryer %></td>
       </tr>
     <% end %>
   </tbody>
