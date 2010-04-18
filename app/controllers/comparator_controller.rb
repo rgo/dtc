@@ -24,8 +24,8 @@ class ComparatorController < ApplicationController
 
   def remove
 
-    if session[@klass].include? params[:id]
-      session[@klass].delete params[:id]
+    if session[@klass].include? params[:id].to_i
+      session[@klass].delete params[:id].to_i
       notice_sticky = t('comparator.remove.removed')
     else
       notice_sticky = t('comparator.remove.not_present')
