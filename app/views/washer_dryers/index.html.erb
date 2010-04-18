@@ -1,52 +1,72 @@
-<h1>Listing washer_dryers</h1>
+<h1 id="slogan"><%= t('washer_dryers.index.h1') %></h1>
+
+<div id="intro">
+  <% form_for @search, :html => {:id => "washer_dryer_search", :class => "top_form"} do |f| %>
+    <p class="select_field">
+      <%= f.label WasherDryer.human_attribute_name(:efficiency) %>
+      <%= f.collection_select :efficiency_eq, WasherDryer.efficiency_options, :efficiency, :efficiency, {:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+    <p class="select_field">
+      <%= f.label WasherDryer.human_attribute_name(:consume) %>
+      <%= f.select :consume_range_is, consume_range_options_for_washer_dryer, {:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+    <p class="select_field">
+      <%= f.label WasherDryer.human_attribute_name(:rpm) %>
+      <%= f.collection_select :rpm_eq, WasherDryer.rpm_options,:rpm, :rpm, {:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+    <p class="select_field">
+      <%= f.label WasherDryer.human_attribute_name(:washing_capacity) %>
+      <%= f.collection_select :washing_capacity_eq, WasherDryer.washing_capacity_options, :washing_capacity, :washing_capacity, {:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+    <p class="select_field">
+      <%= submit_tag t('washer_dryers.search_button'), :class => "submit huge grana awesome"%>
+    </p>
+  <% end %>
+</div>
+
+<h3><%= t('.h3_results') %></h3>
 
 <table>
+  <summary>Resultados de la búsqueda</summary>
+  <theader>
   <tr>
-    <th>Producer</th>
-    <th>Product</th>
-    <th>Brand</th>
-    <th>Model</th>
-    <th>Rpm</th>
-    <th>Efficiency</th>
-    <th>Consume</th>
-    <th>Washing consume</th>
-    <th>Washing efficiency</th>
-    <th>Washing capacity</th>
-    <th>Drying capacity</th>
-    <th>Consume kg</th>
-    <th>Water consume</th>
-    <th>Height</th>
-    <th>Width</th>
-    <th>Deep</th>
-    <th>Termoefficiency</th>
+    <th><%= order @search, :by => :brand, :as => Dishwasher.human_attribute_name(:brand) %></th>
+    <th><%= order @search, :by => :model, :as => Dishwasher.human_attribute_name(:model) %></th>
+    <th><%= order @search, :by => :rpm, :as => Dishwasher.human_attribute_name(:rpm) %></th>
+    <th><%= order @search, :by => :efficiency, :as => Dishwasher.human_attribute_name(:efficiency) %></th>
+    <th><%= order @search, :by => :consume, :as => Dishwasher.human_attribute_name(:consume) %></th>
+    <th><%= order @search, :by => :washing_consume, :as => Dishwasher.human_attribute_name(:washing_consume) %></th>
+    <th><%= order @search, :by => :washing_efficiency, :as => Dishwasher.human_attribute_name(:washing_efficiency) %></th>
+    <th><%= order @search, :by => :washing_capacity, :as => Dishwasher.human_attribute_name(:washing_capacity) %></th>
+    <th><%= order @search, :by => :drying_capacity, :as => Dishwasher.human_attribute_name(:drying_capacity) %></th>
+    <th><%= order @search, :by => :consume_kg, :as => Dishwasher.human_attribute_name(:consume_kg) %></th>
+    <th><%= order @search, :by => :water_consume, :as => Dishwasher.human_attribute_name(:water_consume) %></th>
+    <th><%= order @search, :by => :height, :as => Dishwasher.human_attribute_name(:height) %></th>
+    <th><%= order @search, :by => :width, :as => Dishwasher.human_attribute_name(:width) %></th>
+    <th><%= order @search, :by => :deep, :as => Dishwasher.human_attribute_name(:deep) %></th>
   </tr>
+  </theader>
 
-<% @washer_dryers.each do |washer_dryer| %>
-  <tr>
-    <td><%=h washer_dryer.producer %></td>
-    <td><%=h washer_dryer.product %></td>
-    <td><%=h washer_dryer.brand %></td>
-    <td><%=h washer_dryer.model %></td>
-    <td><%=h washer_dryer.rpm %></td>
-    <td><%=h washer_dryer.efficiency %></td>
-    <td><%=h washer_dryer.consume %></td>
-    <td><%=h washer_dryer.washing_consume %></td>
-    <td><%=h washer_dryer.washing_efficiency %></td>
-    <td><%=h washer_dryer.washing_capacity %></td>
-    <td><%=h washer_dryer.drying_capacity %></td>
-    <td><%=h washer_dryer.consume_kg %></td>
-    <td><%=h washer_dryer.water_consume %></td>
-    <td><%=h washer_dryer.height %></td>
-    <td><%=h washer_dryer.width %></td>
-    <td><%=h washer_dryer.deep %></td>
-    <td><%=h washer_dryer.termoefficiency %></td>
-    <td><%= link_to 'Show', washer_dryer %></td>
-    <td><%= link_to 'Edit', edit_washer_dryer_path(washer_dryer) %></td>
-    <td><%= link_to 'Destroy', washer_dryer, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @washer_dryers.each do |washer_dryer| %>
+      <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
+        <td><%=h washer_dryer.brand %></td>
+        <td><%=h washer_dryer.model %></td>
+        <td><%=h washer_dryer.rpm %></td>
+        <td><%=h washer_dryer.efficiency %></td>
+        <td><%=h washer_dryer.consume %></td>
+        <td><%=h washer_dryer.washing_consume %></td>
+        <td><%=h washer_dryer.washing_efficiency %></td>
+        <td><%=h washer_dryer.washing_capacity %></td>
+        <td><%=h washer_dryer.drying_capacity %></td>
+        <td><%=h washer_dryer.consume_kg %></td>
+        <td><%=h washer_dryer.consume %></td>
+        <td><%=h washer_dryer.height %></td>
+        <td><%=h washer_dryer.width %></td>
+        <td><%=h washer_dryer.deep %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New washer_dryer', new_washer_dryer_path %>
+<%= will_paginate @cars %>
