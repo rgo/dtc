@@ -22,8 +22,8 @@
 <h3><%= t('.results')%></h3>
 
 <table>
-  <summary><%= t('.summary')%></summary>
-  <theader>
+  <caption><%= t('.caption')%></caption>
+  <thead>
   <tr>
     <th><%= order @search, :by => :brand, :as => WorktopInduction.human_attribute_name(:brand) %></th>
     <th><%= order @search, :by => :model, :as => WorktopInduction.human_attribute_name(:model) %></th>
@@ -37,7 +37,7 @@
     <th><%= order @search, :by => :power_induction_torchs, :as => WorktopInduction.human_attribute_name(:power_induction_torchs) %></th>
     <th>&nbsp;</th>
   </tr>
-  </theader>
+  </thead>
 
   <tbody>
     <% @worktop_inductions.each do |worktop_induction| %>

@@ -137,6 +137,11 @@ class Car < ActiveRecord::Base
     return (annual_mileage * oil_price.to_f)
   end
 
+  def self.oil_prices
+    Rails.cache.fetch("car_oil_prices", 1.day) do
+      OilFetcher.new.average_prices
+    end
+  end
   
   private
 

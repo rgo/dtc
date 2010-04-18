@@ -1,10 +1,11 @@
 es:
   dishwashers:
-    title: "Busca el lavavajillas más eficiente del mercado"
-    description: "Encuentra el lavavajillas más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
     index:
+      title: "Busca el lavavajillas más eficiente del mercado"
+      description: "Encuentra el lavavajillas más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
       comparator: Ir al comparador
       h3_comparator: Comparador
+      h3_results: Hemos encontrado
       dishwashers_selected:
         one: Tienes 1 lavavajillas para comparar
         other: Tienes {{count}} lavavajillas para comparar
