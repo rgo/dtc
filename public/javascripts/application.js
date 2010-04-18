@@ -7,7 +7,7 @@ Event.onReady(function() {
         'a.comparate': Remote.Link({
             onComplete: function(){
                 //$('sound_bazinga_track_url')
-                Sound.play('http://localhost:3000/bazinga_sin_risas.mp3',{replace:true});                
+                Sound.play('bazinga_sin_risas.mp3',{replace:true});                
             }
         })
     });
