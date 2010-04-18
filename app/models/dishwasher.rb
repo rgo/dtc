@@ -73,5 +73,9 @@ class Dishwasher < ActiveRecord::Base
       all(:select => 'water_consume', :group => 'water_consume')
     end
   end
+
+  def self.order_for_comparation(ids)
+    Dishwasher.find(ids).sort_by{|dw| dw.consume}
+  end
 end
 

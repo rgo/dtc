@@ -28,4 +28,19 @@ module ApplicationHelper
               :class => options[:class], :id => "#{resources}-#{item.id}"
     end
   end
+
+  def comparator_section(message, klass)
+
+    str = ''
+    str << '<div id="comparator">'
+    str << "<h3>#{t('.h3_comparator')}</h3>"
+    str << "<p>#{message}</p>"
+    str << link_to(t('.comparator'), comparator_path(:klass => klass))
+    str << '</div>'
+
+    str 
+      
+  end
+
+
 end

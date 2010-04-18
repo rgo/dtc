@@ -62,13 +62,14 @@
   </tbody>
 </table>
 
-
+<%= comparator_section(t('.cars_selected', :count => session['cars'].try(:size) || 0), 'car') %>
+<!--
 <div id="comparator">
   <h3><%= t('.h3_comparator') %></h3>
     <p><%= t('.cars_selected', :count => session['cars'].try(:size) || 0 )%></p>
-    <%= link_to t('.comparator'), comparator_path(:klass => 'car'), :method => :get %>
+    <%= link_to t('.comparator'), comparator_path(:klass => 'car') %>
 </div>
-
+-->
 <div id="gas-prices">
   <h3><%= t('.h3_gas_prices') %></h3>
 

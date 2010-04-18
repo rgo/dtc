@@ -19,16 +19,7 @@
     </p>
   <% end %>
 </div>
-
-<div id="comparator">
-  <h3>Comparador</h3>
-  <form>
-    <label for="kilometers">¿Cuantos kilómetros haces al año?</label><br />
-    <input name="kilometers" id="kilometers" value="15000" type="text" />
-    <p>Tienes 3 coches seleccionados</p>
-    <input type="submit" value="Comparar" class="submit large grana awesome" />
-  </form>
-</div>
+<%= comparator_section(t('.dishwashers_selected', :count => session['dishwashers'].try(:size) || 0), 'dishwasher') %>
 
 <h3>Hemos encontrado</h3>
 
@@ -44,6 +35,7 @@
     <th><%= order @search, :by => :height, :as => Dishwasher.human_attribute_name(:height) %></th>
     <th><%= order @search, :by => :width, :as => Dishwasher.human_attribute_name(:width) %></th>
     <th><%= order @search, :by => :deep, :as => Dishwasher.human_attribute_name(:deep) %></th>
+    <th>&nbsp;</th>
   </tr>
   <% @dishwashers.each do |dishwasher| %>
     <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
@@ -60,6 +52,7 @@
       <td class="number"><%= dishwasher.height %></td>
       <td class="number"><%= dishwasher.width %></td>
       <td class="number"><%= dishwasher.deep %></td>
+      <td><%= comparator_link(dishwasher) %></td>
     </tr>
   <% end -%>
 </table>
