@@ -23,10 +23,10 @@
   <% end %>
 </div>
 <%= comparator_section(FridgeFreezer) %>
-<h3><%= t('.results')%></h3>
+<h3><%= t('.results') %></h3>
 <table>
-  <summary><%= t('.summary')%></summary>
-  <theader>
+  <caption><%= t('.summary') %></caption>
+  <thead>
     <tr>
       <th><%= order @search, :by => :brand, :as => FridgeFreezer.human_attribute_name(:brand) %></th>
       <th><%= order @search, :by => :model, :as => FridgeFreezer.human_attribute_name(:model) %></th>
@@ -38,7 +38,7 @@
       <th><%= order @search, :by => :froost, :as => FridgeFreezer.human_attribute_name(:froost) %></th>
       <th>&nbsp;</th>
     </tr>
-  </theader>
+  </thead>
   <tbody>
   <% @fridge_freezers.each do |fridge_freezer| %>
       <tr>

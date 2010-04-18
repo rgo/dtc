@@ -30,9 +30,9 @@ class Fridge < ActiveRecord::Base
     if range == '1'
       {:conditions => ['consume <= ?', 200]}
     elsif range == '2'
-      {:conditions => {:consume => [201,350]}}
+      {:conditions => ['consume > ? AND consume <= ? ',201,350]}
     elsif range == '3'
-      {:conditions => {:consume => [351,500]}}
+      {:conditions => ['consume > ? AND consume <= ? ', 351, 500]}
     elsif range == '4'
       {:conditions => ["consume > ?", 501]}
     else
@@ -40,7 +40,7 @@ class Fridge < ActiveRecord::Base
     end
   }
 
-  define_indexes do
+  define_index do
     indexes producer
     indexes product
     indexes brand

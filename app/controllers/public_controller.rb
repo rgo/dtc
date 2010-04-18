@@ -3,6 +3,19 @@ class PublicController < ApplicationController
     @cars = Car.best_cars
     
   end
+
+  def search
+    @cars = Car.search(params[:q], :order => :rating,
+                       :page => 1, :per_page => 20)
+
+    unless @cars.empty?
+      @search = Car.searchlogic
+      render :template => "cars/index"
+    else
+      @appliances = ThinkingSphinx.search(params[:q], :page => 1, :per_page => 20)
+      render :template => "appliances/index"
+    end
+  end
   
   def about_us
     @meta_title       = "El equipo Abredatos que ha creado Desenchufa tu Casa"

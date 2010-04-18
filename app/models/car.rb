@@ -27,7 +27,7 @@ class Car < ActiveRecord::Base
     if range == '1'
       {:conditions => ['seats <= ?', 5]}
     elsif range == '2'
-      {:conditions => {:seats => [6,7]}}
+      {:conditions => ['seats > ? AND seats >= ?',6 ,7]}
     elsif range == '3'
       {:conditions => ["seats > ?", 7]}
     else
@@ -42,6 +42,15 @@ class Car < ActiveRecord::Base
   define_index do
     indexes brand
     indexes model
+    indexes finish
+    indexes fuel
+    indexes market_segment
+    indexes engine
+    indexees cilinders
+    indexes wheel_drive
+    indexes gear
+
+    has rating
   end
   
   #<5 - 5,6 - 6,7 - 7,9 > 9
