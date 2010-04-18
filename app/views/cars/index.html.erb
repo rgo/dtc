@@ -23,9 +23,8 @@
       </p>
 
       <p class="select_field">
-        <input type="submit" value="Buscar coches" id="submit_cars" class="submit large grana awesome"/>
+        <%= submit_tag t('cars.search_button'), :class => "submit large grana awesome"%>
       </p>
-
   <% end %>
 </div>
 
@@ -70,3 +69,5 @@
     <% end -%>
   </tbody>
 </table>
+
+<%= will_paginate @cars %>
