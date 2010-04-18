@@ -7,7 +7,7 @@
 #  product    :string(255)
 #  brand      :string(255)
 #  model      :string(255)
-#  type       :string(255)
+#  kind       :string(255)
 #  efficiency :string(255)
 #  consume    :decimal(10, 3)
 #  volume     :integer(4)
@@ -26,6 +26,37 @@ class Oven < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con div.cpo table.tbl-f3 tbody tr'
 
+
+  named_scope :consume_range_is, lambda { |range|
+    if range == '1'
+      {:conditions => ['consume <= ?', 1]}
+    elsif range == '2'
+      {:conditions => ['consume > ? AND consume <= ?', 2, 3]}
+    elsif range == '3'
+      {:conditions => ['consume > ? AND consume <= ?', 3, 4]}
+    elsif range == '4'
+      {:conditions => ["consume > ?", 3]}
+    else
+      {}
+    end
+  }
+
+  named_scope :volume_range_is, lambda { |range|
+    if range == '1'
+      {:conditions => ['volume <= 30', 1]}
+    elsif range == '2'
+      {:conditions => ['volume > 30 AND volume <= 40', 2, 3]}
+    elsif range == '3'
+      {:conditions => ['volume > 40 AND volume <= 55', 2, 3]}
+    elsif range == '4'
+      {:conditions => ['volume > 55 AND volume <= 70', 3, 4]}
+    elsif range == '5'
+      {:conditions => ["volume > ?", 70]}
+    else
+      {}
+    end
+  }
+
   define_indexes do
     indexes producer
     indexes product
@@ -42,7 +73,8 @@ class Oven < ActiveRecord::Base
      :prod => 'product',
      :marc => 'brand',
      :modelo => 'model',
-     :tip => 'type',
+     :tip => 'kind',
+     :clas_energ => ['efficiency', Proc.new {|value| value[0] - ?A + 1 }],
      :cons_kwhora => 'consume',
      :vol_neto => 'volume',
      :calent => 'warming',
@@ -51,4 +83,11 @@ class Oven < ActiveRecord::Base
      :fondo => 'deep',
      :termoeficiente => 'termoefficiency'}
   end
+
+  def self.warming_options
+    Rails.cache.fetch('oven_warming_options') do
+      all(:select => 'warming', :group => 'warming')
+    end
+  end
+
 end

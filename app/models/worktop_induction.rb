@@ -42,7 +42,7 @@ class WorktopInduction < ActiveRecord::Base
      :prod => 'product',
      :marc => 'brand',
      :model => 'model',
-     :tip => 'type',
+     :tip => 'kind',
      :numfoct => 'total_torchs',
      :numfoci => 'inductio_torchs',
      :anche => 'width_ext',
