@@ -1,5 +1,10 @@
 es:
   general:
+    gas:
+      super_95: Súper 95
+      super_98: Súper 98
+      gasoil_a: Gasóleo A
+      gasoil_a_new: Gasóleo A nuevo
     title: "Desenchufa tu casa | Productos energéticamente eficientes"
     'yes': "Si"
     'no': "No"
