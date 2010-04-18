@@ -1,6 +1,13 @@
 es:
   fridge_freezers:
     search_button: "Buscar frigórificos-congeladores"   
+    show:
+      h2_main: Datos técnicos
+      h2_side: Opciones
+      h3_back_to_search: Volver a la búsqueda
+      h3_print: Imprimir
+      column_name: Característica
+      column_value: Valor
     index:
       description: "Encuentra el frigorífico-congelador más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
       title: "Busca el frigorífico-congelador más eficiente del mercado"
