@@ -29,16 +29,16 @@
 </div>
 
 <div id="comparator">
-  <h3>Comparador</h3>
+  <h3><%= t('.h3_comparator') %></h3>
   <form>
     <label for="kilometers">¿Cuantos kilómetros haces al año?</label><br />
     <input name="kilometers" id="kilometers" value="15000" type="text" />
-    <p>Tienes 3 coches seleccionados</p>
+    <p><%= t('.cars_selected', :count => session['cars'].size) %></p>
     <input type="submit" value="Comparar" class="submit large grana awesome" />
   </form>
 </div>
 
-<h3>Hemos encontrado</h3>
+<h3><%= t('.h3_results') %></h3>
 
 <table>
   <summary>Resultados de la búsqueda</summary>
