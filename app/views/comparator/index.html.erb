@@ -3,35 +3,39 @@
 <div id="content">
 
   <div id="main">
-    <h2><%= t('.h2_main')%></h2>
+    <% unless @items.empty? %>
+      <h2><%= t('.h2_main')%></h2>
 
-    <%klass = @items.first.class %>
-    <table>
-      <summary><%= t('.summary')%></summary>
-      <thead>
-        <tr>
-        <% klass.columns.each do |column| %>
-          <% unless ['created_at', 'updated_at', 'id'].include? column.name %>
-            <th><%= klass.human_attribute_name(column.name)%></th>
-          <% end %>
-        <% end %>
-          <th>&nbsp;</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @items.each do |item| %>
-          <% tr_class = cycle('', ' class="even"') %>
-          <tr<%= tr_class %>>
-            <% klass.columns.each do |column| %>
-              <% unless ['created_at', 'updated_at', 'id'].include? column.name %>
-                <td><%=item.read_attribute(column.name)%></td>
-              <% end %>
+      <%klass = @items.first.class %>
+      <table>
+        <summary><%= t('.summary')%></summary>
+        <thead>
+          <tr>
+          <% klass.columns.each do |column| %>
+            <% unless ['created_at', 'updated_at', 'id'].include? column.name %>
+              <th><%= klass.human_attribute_name(column.name)%></th>
             <% end %>
-            <td><%= comparator_link(item, nil, :class => 'comparate-erase')%></td>
+          <% end %>
+            <th>&nbsp;</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <% tr_class = cycle('', ' class="even"') %>
+            <tr<%= tr_class %>>
+              <% klass.columns.each do |column| %>
+                <% unless ['created_at', 'updated_at', 'id'].include? column.name %>
+                  <td><%=item.read_attribute(column.name)%></td>
+                <% end %>
+              <% end %>
+              <td><%= comparator_link(item, nil, :class => 'comparate-erase')%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <h2><%= t('h2_no_items')%></h2>
+    <% end %>
   </div>
 </div>
 
