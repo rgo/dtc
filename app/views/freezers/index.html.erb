@@ -49,7 +49,7 @@
   <tbody>
 
     <% @freezers.each do |freezer| %>
-      <tr>
+      <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
         <td><%=h freezer.product %></td>
         <td><%=h freezer.brand %></td>
         <td><%=h freezer.model %></td>
