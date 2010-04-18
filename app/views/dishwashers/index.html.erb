@@ -19,7 +19,7 @@
     </p>
   <% end %>
 </div>
-<%= comparator_section(t('.dishwashers_selected', :count => session['dishwashers'].try(:size) || 0), 'dishwasher') %>
+<%= comparator_section(Dishwasher) %>
 
 <h3><%= t('.h3_results') %></h3>
 

@@ -7,4 +7,4 @@ es:
       h3_comparator: Comparador
       dishwashers_selected:
         one: Tienes 1 lavavajillas para comparar
-        other: Tienes {{count}} lavavajilla para comparar
+        other: Tienes {{count}} lavavajillas para comparar
