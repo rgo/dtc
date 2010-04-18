@@ -2,3 +2,11 @@ es:
   cars:
     index:
       h1: Busca el coche más eficiente del mercado
+      seats_range:
+        less: Menos de {{max}} plazas
+        between: De {{min}} ó {{max}} plazas
+        greater: Más de {{min}} plazas
+      consume_range:
+        between: Entre {{min}} y {{max}} l/100km
+        greater: Más de {{min}} l/100km
+        less: Menos de {{max}} l/100km

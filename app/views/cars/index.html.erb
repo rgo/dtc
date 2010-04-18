@@ -1,43 +1,32 @@
 <h1 id="slogan">Busca el coche más eficiente del mercado</h1>
 
 <div id="intro">
-	<form id="car_search" class="top_form">
-	  <p class="select_field">
-      <label for="gasoline">Combustible</label><br />
-      <select id="gasoline" name="gasoline" size="5">
-        <option value="G">Gasolina</option>
-        <option value="D">Gasóleo/Diesel</option>
-      </select>
-    </p>
-    <p class="select_field">
-      <label for="transmission">Cambio</label><br />
-      <select id="transmission" name="transmission" size="5">
-        <option value="M">Manual</option>
-        <option value="A">Automático</option>
-      </select>
-    </p>
-    <p class="select_field">
-      <label for="seats">Plazas</label><br />
-      <select id="seats" name="gasoline" size="5">
-        <option value="1">Hasta 5 plazas</option>
-        <option value="2">De 6 ó 7 plazas</option>
-        <option value="3">Más de 7 plazas</option>
-      </select>
-    </p>
-    <p class="select_field">
-      <label for="consume">Consumo</label><br />
-      <select id="consume" name="gasoline" size="5">
-        <option value="1">Menos de 5 l/100km.</option>
-        <option value="2">Entre 5 y 6 l/100km.</option>
-        <option value="3">Entre 6 y 7 l/100km.</option>
-        <option value="4">Entre 7 y 9 l/100km.</option>
-        <option value="5">Más de 9 l/100km.</option>
-      </select>
-    </p>
-    <p class="select_field">
-      <input type="submit" value="Buscar coches" id="submit_cars" class="submit large grana awesome" />
-    </p>
-  </form>
+  <% form_for @search, :html => {:id => "car_search", :class => "top_form"} do |f| %>
+      <p class="select_field">
+        <label for="fuel"><%= Car.human_attribute_name('fuel') %></label><br/>
+        <%= f.select :fuel_is, [['Gasolina', 'Gasolina'], ['Gasóleo/Diesel', 'Gasóleo']], {}, :size => "5" %>
+      </p>
+
+      <p class="select_field">
+        <label for="gear"><%= Car.human_attribute_name('gear') %></label><br/>
+        <%= f.select :gear_is, [['Manual', 'Manual'], ['Automático', 'Automático'], ['Otros', 'Otros']], {}, :size => "5" %>
+      </p>
+
+      <p class="select_field">
+        <label for="seats"><%= Car.human_attribute_name('seats') %></label><br/>
+        <%= f.select :seats_range_is, seats_range_options_for_car, {}, :size => "5" %>
+      </p>
+
+      <p class="select_field">
+        <label for="consume"><%= Car.human_attribute_name('consume') %></label><br />
+        <%= f.select :consume_range_is, consume_range_options_for_car, {}, :size => 5%>
+      </p>
+
+      <p class="select_field">
+        <input type="submit" value="Buscar coches" id="submit_cars" class="submit large grana awesome"/>
+      </p>
+
+  <% end %>
 </div>
 
 <div id="comparator">
@@ -55,57 +44,25 @@
 <table>
   <summary>Resultados de la búsqueda</summary>
   <tr>
-    <th>Brand</th>
-    <th>Model</th>
-    <th>Diesel</th>
-    <th>Consumption</th>
-    <th>Emission</th>
-    <th>Rating</th>
+    <th><%= order @search, :by => :brand, :as => Car.human_attribute_name(:brand) %></th>
+    <th><%= order @search, :by => :finish, :as => Car.human_attribute_name(:finish) %></th>
+    <th><%= order @search, :by => :fuel, :as => Car.human_attribute_name(:fuel) %></th>
+    <th><%= order @search, :by => :consume, :as => Car.human_attribute_name(:consume) %></th>
+    <th><%= order @search, :by => :emissions, :as => Car.human_attribute_name(:emissions) %></th>
+    <th><%= order @search, :by => :rating, :as => Car.human_attribute_name(:rating)%></th>
   </tr>
-  <tr>
-    <td>Renault</td>
-    <td><%= link_to "Laguna", car_path(1) %></a></td>
-    <td>Gasolina</td>
-    <td class="number">8.9</td>
-    <td class="number">109</td>
-    <td>
-      <div class="rating_bar">
-        <div style="width:50%"></div>
-      </div>
-    </td>
-  </tr>
-  <tr class="even">
-    <td>Renault</td>
-    <td>Laguna</td>
-    <td>Gasolina</td>
-    <td class="number">8.9</td>
-    <td class="number">109</td>
-    <td>
-      <div class="rating_bar">
-        <div style="width:100%"></div>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td>Renault</td>
-    <td>Laguna</td>
-    <td>Gasolina</td>
-    <td class="number">8.9</td>
-    <td class="number">109</td>
-    <td>
-      <div class="rating_bar">
-        <div style="width:75%"></div>
-      </div>
-    </td>
-  </tr>
-  <tr class="even">
-    <td>Renault</td>
-    <td>Laguna</td>
-    <td>Gasolina</td>
-    <td class="number">8.9</td>
-    <td class="number">109</td>
-    <td><div class="rating_bar">
-      <div style="width:25%"></div>
-    </div></td>
-  </tr>
+  <% @cars.each do |car| -%>
+      <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
+        <td><%= car.brand %></td>
+        <td><%= link_to [car.model,car.finish].join(' '), car %></td>
+        <td><%= car.fuel %></td>
+        <td class="number"><%= number_with_precision(car.consume, :precision => 2) %></td>
+        <td class="number"><%= number_with_precision(car.emissions, :precision => 0) %></td>
+        <td>
+          <div class="rating_bar">
+            <div style="width:<%= rating_to_percentage(car.rating) %>"></div>
+          </div>
+        </td>
+      </tr>
+  <% end -%>
 </table>
