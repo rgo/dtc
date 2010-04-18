@@ -1,58 +1,57 @@
-<p>
-  <b>Producer:</b>
-  <%=h @oven.producer %>
-</p>
+<p id="slogan"><%= @oven.appliance_title %></p>
 
-<p>
-  <b>Product:</b>
-  <%=h @oven.product %>
-</p>
+<div id="content">
 
-<p>
-  <b>Brand:</b>
-  <%=h @oven.brand %>
-</p>
+	<div id="main">
+	
+    <h2>Datos técnicos</h2>
+		
+		<table>
+      <caption><%= t('.summary')%></caption>
+		  <thead>
+  		  <tr>
+          <th>Característica</th>
+          <th>Valor</th>
+  		  </tr>
+  		</thead>
+  		<tbody>
+        <% Oven.columns.each do |column| %>
+          <% tr_class = cycle('', ' class="even"') %>
+          <% unless ['created_at', 'updated_at'].include? column.name %>
+            <tr <%= tr_class %>>
+              <td><%= Oven.human_attribute_name(column.name) %></td>
+              <td><%= @oven.read_attribute(column.name) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+  		</tbody>
+  	</table>
+	</div>
 
-<p>
-  <b>Type:</b>
-  <%=h @oven.type %>
-</p>
+  <div id="side">
+	
+    <h2>Opciones</h2>
+    	
+    <h3><%= link_to "Volver a la búsqueda", root_path %></h3>
+    <h3><%= comparator_link(@oven, nil, :class =>'comparate-option') %></h3>
+    <h3><%= link_to "Imprimir", '#' %></h3>
+  	<a id="ck_email" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/email.gif" alt="Enviar por email" /></a>
+    <a id="ck_facebook" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/facebook.gif" alt="Publicar en Facebook" /></a>
+    <a id="ck_twitter" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/twitter.gif" alt="Publicar en Twitter" /></a>
+    <a id="ck_sharethis" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/sharethis.gif" alt="Compartir esta página" />Compartir</a>
+    <script type="text/javascript">
+    	var shared_object = SHARETHIS.addEntry({
+    	title: document.title,
+    	url: document.location.href
+    });
 
-<p>
-  <b>Efficiency:</b>
-  <%=h @oven.efficiency %>
-</p>
+    shared_object.attachButton(document.getElementById("ck_sharethis"));
+    shared_object.attachChicklet("email", document.getElementById("ck_email"));
+    shared_object.attachChicklet("facebook", document.getElementById("ck_facebook"));
+    shared_object.attachChicklet("twitter", document.getElementById("ck_twitter"));
+    </script>
+    
+	
+  </div>
 
-<p>
-  <b>Consume:</b>
-  <%=h @oven.consume %>
-</p>
-
-<p>
-  <b>Volume:</b>
-  <%=h @oven.volume %>
-</p>
-
-<p>
-  <b>Warming:</b>
-  <%=h @oven.warming %>
-</p>
-
-<p>
-  <b>Height:</b>
-  <%=h @oven.height %>
-</p>
-
-<p>
-  <b>Width:</b>
-  <%=h @oven.width %>
-</p>
-
-<p>
-  <b>Deep:</b>
-  <%=h @oven.deep %>
-</p>
-
-
-<%= link_to 'Edit', edit_oven_path(@oven) %> |
-<%= link_to 'Back', ovens_path %>
+</div>

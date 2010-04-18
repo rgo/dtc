@@ -43,7 +43,7 @@
     <% @worktop_inductions.each do |worktop_induction| %>
       <tr>
         <td><%=h worktop_induction.brand %></td>
-        <td><%=h worktop_induction.model %></td>
+        <td><%=link_to h(worktop_induction.model), worktop_induction_path(worktop_induction) %></td>
         <td><%=h worktop_induction.total_torchs %></td>
         <td><%=h worktop_induction.inductio_torchs %></td>
         <td><%=h worktop_induction.width_ext %></td>
