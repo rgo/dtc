@@ -30,6 +30,18 @@ class WasherDryer < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con div.cpo table.tbl-f3 tbody tr'
 
+  named_scope :consume_range_is, lambda { |range|
+    if range == '1'
+      {:conditions => ['consume <= ?', 5]}
+    elsif range == '2'
+      {:conditions => [ 'consume > ? AND consume <= ?',6 ,8 ]}
+    elsif range == '3'
+      {:conditions => ["consume > ?", 9]}
+    else
+      {}
+    end
+  }
+
   define_indexes do
     indexes producer
     indexes product
@@ -48,17 +60,35 @@ class WasherDryer < ActiveRecord::Base
      :modelo => 'model',
      :vel_centrif => 'rpm',
      :clas_energ => ['efficiency', Proc.new { |value| value[0] - ?A + 1}],
-     :cons_kwcyclo => 'consume',
+     :cons_kwciclo => 'consume',
      :cons_lavado => 'washing_consume',
      :efic_lavado => ['washing_efficiency', Proc.new { |value| value[0] - ?A + 1}],
-     :cap_lavado => 'washing_capcity',
-     :cap_secado => 'drying_capacity',
+     :capac_lavado => 'washing_capacity',
+     :capac_secado => 'drying_capacity',
      :cons_kwkg => 'consume_kg',
      :cons_agua => 'water_consume',
      :alto => 'height',
      :ancho => 'width',
      :fondo => 'deep',
      :termoeficiente => 'termoefficiency'}
+  end
+
+  def self.efficiency_options
+    Rails.cache.fetch('washer_dryers_efficiency_options') do 
+      all(:select => 'efficiency', :group => 'efficiency')
+    end
+  end
+
+  def self.rpm_options
+    Rails.cache.fetch('washer_dryers_rpm_options') do 
+      all(:select => 'rpm', :group => 'rpm')
+    end
+  end
+
+  def self.washing_capacity_options
+    Rails.cache.fetch('washer_dryers_washing_capacity_options') do 
+      all(:select => 'washing_capacity', :group => 'washing_capacity')
+    end
   end
 end
 

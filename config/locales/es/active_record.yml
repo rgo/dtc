@@ -64,6 +64,19 @@ es:
         height: Alto (mm)
         width: Ancho (mm)
         deep: Fondo (mm)
+      washing_machine:
+        brand: Marca
+        model: Modelo
+        efficiency: Clasificación energética
+        rpm: Velocidad de centrífugado (rpm)
+        consume: Consumo de energía (kWh(ciclo)
+        capacity: Capacidad (Kg)
+        consume_kg: Consumo de energía (kWh/Kg)
+        consume_water: Consumo de agua (l) 
+        height: Alto (mm)
+        width: Ancho (mm)
+        deep: Fondo (mm)
+        termoefficiency: Termoeficiencia (mm)
         
         
         

@@ -2,7 +2,8 @@ class WasherDryersController < ApplicationController
   # GET /washer_dryers
   # GET /washer_dryers.xml
   def index
-    @washer_dryers = WasherDryer.all
+    @search = WasherDryer.searchlogic(params[:search])
+    @washer_dryers = @search.paginate(:page => params[:page])
     
     @meta_title       = t('washer_dryers.index.title') 
     @meta_description = t('washer_dryers.index.description')

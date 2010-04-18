@@ -29,6 +29,34 @@ class WashingMachine < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con table.tbl-f3 tbody tr'
 
+   named_scope :consume_range_is, lambda { |range|
+    if range == '1'
+      {:conditions => ['consume < ?', 1]}
+    elsif range == '2'
+      {:conditions => ['consume >= ? AND consume < ?', 1, 2]}
+    elsif range == '3'
+      {:conditions => ['consume >= ? AND consume < ?', 2, 3]}
+    elsif range == '4'
+      {:conditions => ["consume > ?", 3]}
+    else
+      {}
+    end
+  }
+
+  named_scope :rpm_range_is, lambda { |range|
+    if range == '1'
+      {:conditions => ['consume < ?', 700]}
+    elsif range == '2'
+      {:conditions => ['consume >= ? AND consume < ?', 700, 900]}
+    elsif range == '3'
+      {:conditions => ['consume >= ? AND consume < ?', 900, 1200]}
+    elsif range == '4'
+      {:conditions => ["consume > ?", 1200]}
+    else
+      {}
+    end
+  }
+
   define_indexes do
     indexes producer
     indexes product
@@ -58,4 +86,11 @@ class WashingMachine < ActiveRecord::Base
      :fondo => 'deep',
      :termoeficiente => 'termoefficiency'}
   end
+
+  def self.capacity_options
+    Rails.cache.fetch('washing_machine_capacity_options') do
+      all(:select => 'capacity', :group => 'capacity')
+    end
+  end
+  
 end
