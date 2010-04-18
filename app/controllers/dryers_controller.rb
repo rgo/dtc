@@ -2,15 +2,9 @@ class DryersController < ApplicationController
   # GET /dryers
   # GET /dryers.xml
   def index
-<<<<<<< HEAD:app/controllers/dryers_controller.rb
-    @dryers = Dryer.all
-    
-    @meta_title       = t('dryers.index.title') 
-=======
     @search = Dryer.searchlogic(params[:search])
     @dryers = @search.paginate(:page => params[:page])
     @meta_title = t('dryers.index.title')
->>>>>>> 7aacfc462bc4f85d5683789c3d28153428f2ec50:app/controllers/dryers_controller.rb
     @meta_description = t('dryers.index.description')
 
     respond_to do |format|
