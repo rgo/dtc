@@ -10,6 +10,8 @@ es:
       less: menos de {{max}}
     prompt: "Todos"
     search: "Buscar {{item}}"
+    remove_from_comparator: No comparar
+    add_to_comparator: Comparar
     layout:
       gotocontent: "Ir al contenido"
       gotomenu: "Ir al menú principal"

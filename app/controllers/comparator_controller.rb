@@ -6,6 +6,8 @@ class ComparatorController < ApplicationController
 
   before_filter :find_items, :only => [:index, :compare]
 
+  after_filter :store_location, :only => [:add, :remove]
+
   def index
     render "/comparator/#{params[:klass].tableize}/show"
   end
@@ -15,13 +17,15 @@ class ComparatorController < ApplicationController
 
     unless session[@klass].include? params[:id].to_i
       session[@klass] << params[:id].to_i
-
       notice_sticky = t('comparator.add.added')
     else
       notice_sticky = t('comparator.add.already_added')
     end
 
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to request.referer }
+      format.js
+    end
   end
 
   def remove
@@ -33,7 +37,10 @@ class ComparatorController < ApplicationController
       notice_sticky = t('comparator.remove.not_present')
     end
 
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to request.referer }
+      format.js
+    end
   end
 
   def compare(options={})
