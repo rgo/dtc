@@ -1,40 +1,62 @@
-<h1>Listing ovens</h1>
+<h1 id="slogan"><%= t('ovens.index.h1') %></h1>
+
+<div id="intro">
+  <% form_for @search, :html => {:id => "oven_search", :class => "top_form"} do |f| %>
+      <p class="select_field">
+        <label for="search_froost_is"><%= Oven.human_attribute_name(:consume) %></label><br/>
+        <%= f.select :consume_range_is, consume_range_options_for_oven, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      </p>
+
+      <p class="select_field">
+        <label for="search_product_is"><%= Oven.human_attribute_name(:volumne) %></label><br/>
+        <%= f.select :volume_range_is, volume_range_options_for_oven, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      </p>
+
+      <p class="select_field">
+        <label for="search_consume_range_is"><%= Oven.human_attribute_name(:warming) %></label><br/>
+        <%= f.collection_select :warming_is, Oven.warming_options, :warming, :warming, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      </p>
+
+      <p class="select_field">
+        <%= f.submit t('general.search', :item => Oven.human_name), :id => 'submit_oven', :class => 'submit large grana awesome' %>
+      </p>
+  <% end %>
+</div>
 
 <table>
-  <tr>
-    <th>Producer</th>
-    <th>Product</th>
-    <th>Brand</th>
-    <th>Type</th>
-    <th>Efficiency</th>
-    <th>Consume</th>
-    <th>Volume</th>
-    <th>Warming</th>
-    <th>Height</th>
-    <th>Width</th>
-    <th>Deep</th>
-  </tr>
-
-<% @ovens.each do |oven| %>
-  <tr>
-    <td><%=h oven.producer %></td>
-    <td><%=h oven.product %></td>
-    <td><%=h oven.brand %></td>
-    <td><%=h oven.type %></td>
-    <td><%=h oven.efficiency %></td>
-    <td><%=h oven.consume %></td>
-    <td><%=h oven.volume %></td>
-    <td><%=h oven.warming %></td>
-    <td><%=h oven.height %></td>
-    <td><%=h oven.width %></td>
-    <td><%=h oven.deep %></td>
-    <td><%= link_to 'Show', oven %></td>
-    <td><%= link_to 'Edit', edit_oven_path(oven) %></td>
-    <td><%= link_to 'Destroy', oven, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <summary>Resultados de la búsqueda</summary>
+  <theader>
+    <tr>
+      <th><%= order @search, :by => :brand, :as => Oven.human_attribute_name(:brand) %></th>
+      <th><%= order @search, :by => :model, :as => Oven.human_attribute_name(:model) %></th>
+      <th><%= order @search, :by => :efficiency, :as => Oven.human_attribute_name(:efficiency) %></th>
+      <th><%= order @search, :by => :consume, :as => Oven.human_attribute_name(:consume) %></th>
+      <th><%= order @search, :by => :volume, :as => Oven.human_attribute_name(:volume) %></th>
+      <th><%= order @search, :by => :warming, :as => Oven.human_attribute_name(:warming) %></th>
+      <th><%= order @search, :by => :heigth, :as => Oven.human_attribute_name(:height) %></th>
+      <th><%= order @search, :by => :width, :as => Oven.human_attribute_name(:width) %></th>
+      <th><%= order @search, :by => :deep, :as => Oven.human_attribute_name(:deep) %></th>
+    </tr>
+  </theader>
+  <tbody>
+  <% @ovens.each do |oven| %>
+      <tr>
+        <td><%= oven.brand %></td>
+        <td><%= oven.model %></td>
+        <td>
+          <div class="rating_bar">
+            <div style="width:<%= rating_to_percentage(oven.efficiency) %>"></div>
+          </div>
+        </td>
+        <td class="number"><%= number_with_precision(oven.consume, :precision => 2) %></td>
+        <td class="number"><%= number_with_precision(oven.volume, :precision => 2) %></td>
+        <td><%= oven.warming %></td>
+        <td class="number"><%= oven.height %></td>
+        <td class="number"><%= oven.width %></td>
+        <td class="number"><%= oven.deep %></td>
+      </tr>
+  <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New oven', new_oven_path %>
+<%= will_paginate @ovens %>

@@ -1,4 +1,14 @@
 es:
   ovens:
-    title: "Busca el horno más eficiente del mercado"
-    description: "Encuentra el horno más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
+    index:
+      h1: "Busca el horno más eficiente del mercado"
+      title: "Busca el horno más eficiente del mercado"
+      description: "Encuentra el horno más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
+      consume_range:
+        between: Entre {{min}} y {{max}} kWh
+        greater: Más de {{min}} kWh
+        less: Menos de {{max}} kWh
+      volume_range:
+        between: Entre {{min}} y {{max}} l
+        greater: Más de {{min}} l
+        less: Menos de {{max}} l

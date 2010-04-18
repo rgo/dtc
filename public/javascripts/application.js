@@ -9,7 +9,13 @@ Event.onReady(function() {
                 //$('sound_bazinga_track_url')
                 Sound.play('bazinga_sin_risas.mp3',{replace:true});                
             }
-        })
+        })//,
+//        'a.comparate-erase': Remote.Link({
+//            onComplete: function() {
+//                //$('sound_bazinga_track_url')
+//                $(this).up('tr').remove();
+//            }
+//        })
     });
     Event.addBehavior.reassignAfterAjax = true;
 });

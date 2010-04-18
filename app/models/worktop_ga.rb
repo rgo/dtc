@@ -40,7 +40,7 @@ class WorktopGa < ActiveRecord::Base
      :prod => 'product',
      :marc => 'brand',
      :model => 'model',
-     :tip => 'type',
+     :tip => 'kind',
      :numfoct => 'total_torchs',
      :anche => 'width_ext',
      :fonde => 'deep_ext',

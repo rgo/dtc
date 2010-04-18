@@ -2,7 +2,8 @@ class OvensController < ApplicationController
   # GET /ovens
   # GET /ovens.xml
   def index
-    @ovens = Oven.all
+    @search = Oven.searchlogic(params[:search])
+    @ovens = @search.paginate(:page => params[:page])
     
     @meta_title       = t('ovens.index.title') 
     @meta_description = t('ovens.index.description')
