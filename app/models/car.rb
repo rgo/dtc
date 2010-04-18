@@ -112,8 +112,13 @@ class Car < ActiveRecord::Base
 
   end
   
-  def estimate(annual_mileage, car_price = nil, oil_price = nil) 
+  def estimate(options = {})
+    annual_mileage = options[:annual_mileage]
+    car_price = options[:car_price]
+    oil_price = options[:oil_price] 
+    car_price ||= 0
     oil_price ||= (fuel == 'Gasolina' ? @@oil_prices[OilFetcher::SUPER_95] : @@oil_prices[OilFetcher::GASOLEO_A])
+    puts "oil: #{oil_price} car: #{car_price} mileage: #{annual_mileage}"
     return (car_price + (annual_mileage * oil_price.to_f)) rescue nil
   end
 
