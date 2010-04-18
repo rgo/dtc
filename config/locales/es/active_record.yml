@@ -50,11 +50,20 @@ es:
         model: Modelo
         efficiency: Clasificación energética
         consume: Consumo de energía (kWh/Año)
-        height: Alto(mm)
+        height: Alto (mm)
         width: Ancho (mm)
         deep: Fondo (mm)
         froots: No Froost
-
+      oven:
+        brand: Marca
+        model: Modelo
+        efficiency: Clasificación energética
+        consume: Consumo de energia (kWh)
+        volume: Volumen neto (l)
+        warming: Calentamiento
+        height: Alto (mm)
+        width: Ancho (mm)
+        deep: Fondo (mm)
         
         
         
