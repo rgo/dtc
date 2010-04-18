@@ -92,5 +92,9 @@ class WashingMachine < ActiveRecord::Base
       all(:select => 'capacity', :group => 'capacity')
     end
   end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|wm| wm.consume}
+  end
   
 end

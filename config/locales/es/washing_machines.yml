@@ -1,6 +1,12 @@
 es:
   washing_machines:
     index:
+      comparator: Ir al comparador
+      h3_comparator: Comparador
+      h3_results: Hemos encontrado
+      washing_machines_selected:
+        one: Tiene 1 lavadora seleccionada
+        other: Tiene {{count}} lavadoras seleccionadas
       h1: "Busca la lavadora más eficiente del mercado"    
       title: "Busca la lavadora más eficiente del mercado"
       description: "Encuentra la lavadora más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."          

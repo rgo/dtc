@@ -25,16 +25,17 @@
   <summary><%= t('.summary')%></summary>
   <theader>
   <tr>
-    <th><%= order @search, :by => :brand, :as => FridgeFreezer.human_attribute_name(:brand) %></th>
-    <th><%= order @search, :by => :model, :as => FridgeFreezer.human_attribute_name(:model) %></th>
-    <th><%= order @search, :by => :total_torchs, :as => FridgeFreezer.human_attribute_name(:total_torchs) %></th>
-    <th><%= order @search, :by => :inductio_torchs, :as => FridgeFreezer.human_attribute_name(:inductio_torchs) %></th>
-    <th><%= order @search, :by => :width_ext, :as => FridgeFreezer.human_attribute_name(:width_ext) %></th>
-    <th><%= order @search, :by => :deep_ext, :as => FridgeFreezer.human_attribute_name(:deep_ext) %></th>
-    <th><%= order @search, :by => :width_ins, :as => FridgeFreezer.human_attribute_name(:width_ins) %></th>
-    <th><%= order @search, :by => :deep_ins, :as => FridgeFreezer.human_attribute_name(:deep_ins) %></th>
-    <th><%= order @search, :by => :power_torchs, :as => FridgeFreezer.human_attribute_name(:power_torchs) %></th>
-    <th><%= order @search, :by => :power_induction_torchs, :as => FridgeFreezer.human_attribute_name(:power_induction_torchs) %></th>
+    <th><%= order @search, :by => :brand, :as => WorktopInduction.human_attribute_name(:brand) %></th>
+    <th><%= order @search, :by => :model, :as => WorktopInduction.human_attribute_name(:model) %></th>
+    <th><%= order @search, :by => :total_torchs, :as => WorktopInduction.human_attribute_name(:total_torchs) %></th>
+    <th><%= order @search, :by => :inductio_torchs, :as => WorktopInduction.human_attribute_name(:inductio_torchs) %></th>
+    <th><%= order @search, :by => :width_ext, :as => WorktopInduction.human_attribute_name(:width_ext) %></th>
+    <th><%= order @search, :by => :deep_ext, :as => WorktopInduction.human_attribute_name(:deep_ext) %></th>
+    <th><%= order @search, :by => :width_ins, :as => WorktopInduction.human_attribute_name(:width_ins) %></th>
+    <th><%= order @search, :by => :deep_ins, :as => WorktopInduction.human_attribute_name(:deep_ins) %></th>
+    <th><%= order @search, :by => :power_torchs, :as => WorktopInduction.human_attribute_name(:power_torchs) %></th>
+    <th><%= order @search, :by => :power_induction_torchs, :as => WorktopInduction.human_attribute_name(:power_induction_torchs) %></th>
+    <th>&nbsp;</th>
   </tr>
   </theader>
 
@@ -51,6 +52,7 @@
         <td><%=h worktop_induction.deep_ins %></td>
         <td><%=h worktop_induction.power_torchs %></td>
         <td><%=h worktop_induction.power_induction_torchs %></td>
+        <td><%= comparator_link worktop_induction %>
       </tr>
     <% end %>
   </tbody>

@@ -64,5 +64,9 @@ class WorktopInduction < ActiveRecord::Base
       all(:select => 'total_torchs', :group => 'total_torchs')
     end
   end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|wi| wi.brand.downcase + wi.model.downcase}
+  end
 end
 

@@ -7,11 +7,16 @@ class ComparatorController < ApplicationController
   after_filter :store_location, :only => [:add, :remove]
 
   def index
+    logger.info @klass
+    logger.info session[@klass]
   end
 
   def add
+    logger.info("add #{@klass}")
+    
     session[@klass] = [] if session[@klass].blank?
 
+    logger.info("session: #{session[@klass]}")
     unless session[@klass].include? params[:id].to_i
       session[@klass] << params[:id].to_i
       notice_sticky = t('comparator.add.added')
@@ -51,6 +56,9 @@ class ComparatorController < ApplicationController
   end
 
   def find_items
+    logger.info(params[:klass].tableize)
+    logger.info(session[params[:klass].tableize])
+    logger.info(session[params[:klass].tableize].size)
     @items = params[:klass].camelize.constantize.try :order_for_comparation, session[params[:klass].tableize]
   end
 

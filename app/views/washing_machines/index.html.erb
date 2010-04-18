@@ -22,7 +22,8 @@
       </p>
   <% end %>
 </div>
-
+<h3><%= t'.h3_results'%></h3>
+<%= comparator_section WashingMachine %>
 <table>
   <summary>Resultados de la búsqueda</summary>
   <theader>
@@ -38,7 +39,7 @@
       <th><%= order @search, :by => :heigth, :as => WashingMachine.human_attribute_name(:height) %></th>
       <th><%= order @search, :by => :width, :as => WashingMachine.human_attribute_name(:width) %></th>
       <th><%= order @search, :by => :deep, :as => WashingMachine.human_attribute_name(:deep) %></th>
-      <th><%= order @search, :by => :termoefficiency, :as => WashingMachine.human_attribute_name(:termoefficiency) %></th>
+      <th>&nbsp;</th>
     </tr>
   </theader>
   <tbody>
@@ -59,6 +60,7 @@
         <td class="number"><%= washing_machine.height %></td>
         <td class="number"><%= washing_machine.width %></td>
         <td class="number"><%= washing_machine.deep %></td>
+        <td><%= comparator_link washing_machine %></td>
       </tr>
   <% end %>
   </tbody>
