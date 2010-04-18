@@ -9,3 +9,10 @@ es:
       dishwashers_selected:
         one: Tienes 1 lavavajillas para comparar
         other: Tienes {{count}} lavavajillas para comparar
+    show:
+      h2_main: Datos técnicos
+      h2_side: Opciones
+      h3_back_to_search: Volver a la búsqueda
+      h3_print: Imprimir
+      column_name: Característica
+      column_value: Valor
