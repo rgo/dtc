@@ -44,6 +44,11 @@ class Car < ActiveRecord::Base
   BETWEEN_6_AND_7 = 3
   BETWEEN_7_AND_9 = 4
   GREATER_THAN_9  = 5
+  
+  
+  def to_param
+    "#{id}-#{brand.to_s.parameterize}-#{model.to_s.parameterize}"
+  end
 
 
   def self.fetch

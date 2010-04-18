@@ -1,7 +1,7 @@
 es:
   cars:
     index:
-      h1: Busca el coche más eficiente del mercado
+      h1: "Busca el coche más eficiente del mercado"
       seats_range:
         less: Menos de {{max}} plazas
         between: De {{min}} ó {{max}} plazas
@@ -10,3 +10,5 @@ es:
         between: Entre {{min}} y {{max}} l/100km
         greater: Más de {{min}} l/100km
         less: Menos de {{max}} l/100km
+      title: "Busca el coche más eficiente del mercado"
+      description: "Encuentra el vehículo más eficiente y que menos cantidad de Co2 emite a la atmósfera.  Además de ahorrar dinero, beneficiaras al medio ambiente."

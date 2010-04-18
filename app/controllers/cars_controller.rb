@@ -2,8 +2,10 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.xml
   def index
-    @search = Car.searchlogic(params[:search])
-    @cars = @search.paginate(:page => params[:page], :per_page => 15)
+    @search     = Car.searchlogic(params[:search])
+    @cars       = @search.paginate(:page => params[:page], :per_page => 15)
+    @meta_title = t('cars.index.title') 
+    @meta_description = t('cars.index.description')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +17,10 @@ class CarsController < ApplicationController
   # GET /cars/1.xml
   def show
     @car = Car.find(params[:id])
+    
+    @meta_title       = "#{@car.brand} #{@car.model}" 
+    @meta_description = "#{@car.brand} #{@car.model} #{@car.finish} #{Car.human_attribute_name(:consume)}: #{@car.consume} l/100Km. #{Car.human_attribute_name(:emissions)} #{@car.emissions} gCo2/Km."
+    @canonical        = url_for(@car)
 
     respond_to do |format|
       format.html # show.html.erb
