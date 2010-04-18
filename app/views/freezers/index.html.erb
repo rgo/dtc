@@ -53,7 +53,11 @@
         <td><%=h freezer.product %></td>
         <td><%=h freezer.brand %></td>
         <td><%=h freezer.model %></td>
-        <td><%=h freezer.efficiency %></td>
+        <td>
+          <div class="rating_bar">
+            <div style="width:<%= freezer.efficiency %>%"></div>
+          </div>
+        </td>
         <td><%=h freezer.consume %></td>
         <td><%=h freezer.height %></td>
         <td><%=h freezer.width %></td>
