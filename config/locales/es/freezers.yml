@@ -1,6 +1,11 @@
 es:
   freezers:
     index:
+      comparator: Ir al comparador
+      h3_comparator: Comparador
+      freezers_selected:
+        one: Tiene 1 congelador seleccionado
+        other: Tiene {{count}} congeladores seleccionados
       title: "Busca el congelador más eficiente del mercado"
       description: "Encuentra el congelador más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
       consume_range:
@@ -10,3 +15,4 @@ es:
       froost_options:
         no_froost: No frost
         conventional: Convencional
+      results: Hemos encontrado
