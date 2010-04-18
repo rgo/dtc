@@ -29,7 +29,9 @@ class WashingMachine < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con table.tbl-f3 tbody tr'
 
-   named_scope :consume_range_is, lambda { |range|
+  named_scope :best, :order => "efficiency ASC", :limit => 5
+
+  named_scope :consume_range_is, lambda { |range|
     if range == '1'
       {:conditions => ['consume < ?', 1]}
     elsif range == '2'
@@ -66,6 +68,10 @@ class WashingMachine < ActiveRecord::Base
   
   def to_param
     "#{id}-#{brand.to_s.parameterize}-#{model.to_s.parameterize}"
+  end
+
+  def appliance_title
+    "#{brand} #{model}"
   end
 
   def self.fetch_mapping

@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.resources :air_conditionings
+
   map.resources :cars
 
   map.resources :worktop_gas
@@ -24,7 +26,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :washer_dryers
   
-  map.resources :appliances, :only => [:show, :index] 
+  map.resources :appliances, :only => [:show, :index], :collection => {:search => :get} 
   
   map.resources :sitemaps, :only => :index
   

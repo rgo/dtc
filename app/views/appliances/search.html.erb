@@ -1,0 +1,40 @@
+<h1 id="slogan">Encuentra electrodomésticos energéticamente eficientes y ahorra dinero</h1>
+
+<div id="intro">
+  <h2>Busca un electrodoméstico (lavadora, frigorífico, lavavajillas...)</h2>
+	<% form_tag search_appliances_path, :id => 'main_search', :class => "top_form" do %>
+	  <%= text_field_tag 'q', '',  :class => 'text shadow' %>
+	  <%= submit_tag 'Buscar', :class => "submit large grana awesome" %>
+	<% end %>
+</div>
+
+<% APPLIANCES_CLASSES.each do |appliance_class| %>
+
+    <% first = cycle("first", "") %>
+
+    <% if @appliances_by_class && @appliances_by_class.keys.include?(appliance_class) %>
+        <% appliances = @appliances_by_class[appliance_class] %>
+        <div class="col2 <%= first %>">
+
+          <h2><%= link_to appliance_class.human_name, appliance_class %></h2>
+          <ul>
+            <% if appliances.any? %>
+                <% appliances.each do |appliance| -%>
+                    <li><%= appliance.appliance_title %></li>
+                <% end -%>
+            <% else %>
+                <li><%= link_to(t('general.search', :item => appliance_class.human_name), appliance_class) %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% else %>
+        <div class="col2 <%= first %>">
+
+          <h2><%= link_to appliance_class.human_name, appliance_class %></h2>
+          <ul>
+            <li><%= link_to(t('general.search', :item => appliance_class.human_name), appliance_class) %></li>
+          </ul>
+        </div>
+    <% end %>
+<% end -%>
+
