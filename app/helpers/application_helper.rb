@@ -15,4 +15,13 @@ module ApplicationHelper
       ' '
     end
   end
+
+  def comparator_link(item)
+    resources = item.class.to_s.tableize
+    if(session[resources].try :include?, item.id)
+      link_to t('.remove_from_comparator'), remove_from_comparator_url(:klass => item.class.to_s.underscore, :id => item.id)
+    else
+      link_to t('.add_to_comparator'), add_to_comparator_url(:klass => item.class.to_s.underscore, :id => item.id)
+    end
+  end
 end

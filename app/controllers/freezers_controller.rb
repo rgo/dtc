@@ -4,6 +4,8 @@ class FreezersController < ApplicationController
   def index
     @search = Freezer.searchlogic(params[:search])
     @freezers = @search.paginate(:page => params[:page])
+    @meta_title = t('freezers.index.title')
+    @meta_description = t('freezers.index.description')
 
     respond_to do |format|
       format.html # index.html.erb

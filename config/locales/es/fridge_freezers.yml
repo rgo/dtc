@@ -1,0 +1,14 @@
+es:
+  fridge_freezers:
+    search_button: "Buscar frigórificos-congeladores"   
+    index:
+      h1: "Busca el frigórifico congelador más eficiente del mercado"
+      title: "Busca el frigórifico congelador más eficiente del mercado"
+      description: "Encuentra el frigorífico congelador más eficiente.  Además de ahorrar dinero, beneficiaras al medio ambiente."
+      froost_options:
+        conventional: 'Convencional'
+        no_froost: 'No Froost'
+      consume_range:
+        between: Entre {{min}} y {{max}} kWh/año
+        greater: Más de {{min}} kWh/año
+        less: Menos de {{max}} kWh/año        

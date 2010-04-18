@@ -24,6 +24,10 @@ form.top_form input.large {
   width: 150px;
 }
 
+form.top_form input.huge {
+  width: 250px;
+}
+
 #footer img{
     vertical-align:middle;
 }

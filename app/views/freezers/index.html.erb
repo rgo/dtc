@@ -58,7 +58,7 @@
         <td><%=h freezer.height %></td>
         <td><%=h freezer.width %></td>
         <td><%=h freezer.deep %></td>
-        <td><%=h freezer.froost %></td>
+        <td><%=h freezer.froost ? t('general.yes') : t('general.no') %></td>
       </tr>
     <% end %>
   </tbody>

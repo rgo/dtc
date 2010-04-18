@@ -26,6 +26,20 @@ class FridgeFreezer < ActiveRecord::Base
                :form => 'form_buscar_elect',
                :selector => 'div#dts-lst.con div.cpo table.tbl-f3 tbody tr'
 
+  named_scope :consume_range_is, lambda { |range|
+    if range == '1'
+      {:conditions => ['consume <= ?', 300]}
+    elsif range == '2'
+      {:conditions => ['consume > ? AND consume <=', 300, 400]}
+    elsif range == '3'
+      {:conditions => ['consume > ? AND consume <=', 400, 500]}
+    elsif range == '4'
+      {:conditions => ["consume > ?", 500]}
+    else
+      {}
+    end
+  }
+
   define_indexes do
     indexes producer
     indexes product
@@ -44,5 +58,18 @@ class FridgeFreezer < ActiveRecord::Base
      :ancho => 'width',
      :fondo => 'deep',
      :nofr => ['froost', Proc.new {|value| ['Sí', 'Si'].include?(value)  ?  true : false }]}
+  end
+
+  def self.froost_options
+    [
+     [I18n.t('fridge_freezers.index.froost_options.no_froost'),'1'], 
+     [I18n.t('fridge_freezers.index.froost_options.conventional'),'0']
+    ]
+  end
+
+  def self.product_options
+    Rails.cache.fetch('fridge_freezer_product_options') do
+      all(:select => 'product', :group => 'product')
+    end
   end
 end

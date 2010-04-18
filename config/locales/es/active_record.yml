@@ -7,7 +7,7 @@ es:
       dryer: Secadora
       freezer: Congelador
       fridge: Frigorífico
-      fridge_freeze: Frigorífico congelador
+      fridge_freezer: Frigorífico congelador
       oven: Horno
       washer_dryer: Secadora
       washing_machine: Lavadora
@@ -35,6 +35,27 @@ es:
         torque: Par
         wheel_drive: Tracción
         width: Anchura
+      dryer:
+        brand: Marca
+        model: Modelo
+        efficiency: Clasificación energética
+        consume: Consumo de energía (kWh/ciclo)
+        capacity: Capacidad (Kg)
+        consume_kg: Consumo de energía (kWh/kg)
+        heigth: Alto (mm)
+        width: Ancho (mm)
+        deep: Fondo (mm)
+      fridge_freezer:
+        brand: Marca
+        model: Modelo
+        efficiency: Clasificación energética
+        consume: Consumo de energía (kWh/Año)
+        height: Alto(mm)
+        width: Ancho (mm)
+        deep: Fondo (mm)
+        froots: No Froost
+
+        
         
         
         

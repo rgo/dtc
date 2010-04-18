@@ -1,37 +1,53 @@
 class ComparatorController < ApplicationController
 
-  before_filter :capitalize_class
+#  before_filter :underscore_klass, :only => [:add, :remove]
+  before_filter :tableize_klass, :only => [:index, :add, :remove]
+#  before_filter :capitalize_klass
 
-  def show
-    @items = params[:klass].capitalize.constantize.find(session[params[:klass]])
-    render "/comparator/#{params[:klass].downcase}/show"
+  before_filter :find_items, :only => [:index, :compare]
+
+  def index
+    render "/comparator/#{params[:klass].tableize}/show"
   end
 
   def add
-    session[params[:klass]] ||= []
+    session[@klass] = [] if session[@klass].blank?
 
-    unless session[params[:klass]].include? params[:id]
-      session[params[:klass]] << params[:id]    
+    unless session[@klass].include? params[:id].to_i
+      session[@klass] << params[:id].to_i
+
       notice_sticky = t('comparator.add.added')
     else
       notice_sticky = t('comparator.add.already_added')
     end
+
+    redirect_to :back
   end
 
   def remove
 
-    if session[params[:klass]].include? params[:id]
-      session[params[:klass]].delete params[:id]
+    if session[@klass].include? params[:id].to_i
+      session[@klass].delete params[:id].to_i
       notice_sticky = t('comparator.remove.removed')
     else
       notice_sticky = t('comparator.remove.not_present')
     end
+
+    redirect_to :back
+  end
+
+  def compare(options={})
+    @items.sort_by{|item| item.estimate(options)}
   end
 
   private
   
-  def capitalize_class
-    params[:klass].capitalize!
+  def tableize_klass
+    @klass = params[:klass].tableize
+  end
+
+  def find_items
+    @items = params[:klass].constantize.find(session[params[:klass]])
   end
 
 end
