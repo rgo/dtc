@@ -1,5 +1,6 @@
 es:
   cars:
+    search_button: "Buscar coches"
     index:
       h1: "Busca el coche más eficiente del mercado"
       seats_range:

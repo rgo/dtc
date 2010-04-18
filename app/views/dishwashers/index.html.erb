@@ -1,46 +1,62 @@
-<h1>Listing dishwashers</h1>
+<h1 id="slogan">Busca el lavavajillas más eficiente del mercado</h1>
+
+<div id="intro">
+  <% form_for @search, :html => { :id => 'dishwasher_search', :class => 'top_form' } do |f| %>
+	  <p class="select_field">
+      <%= f.label Dishwasher.human_attribute_name(:efficiency) %>
+      <%= f.collection_select :drying_efficiency_eq, Dishwasher.efficiency_options, :drying_efficiency, :drying_efficiency, {:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+    <p class="select_field">
+      <%= f.label Dishwasher.human_attribute_name(:cutlery) %>
+      <%= f.collection_select :cutlery_eq, Dishwasher.cutlery_options, :cutlery, :cutlery, {:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+    <p class="select_field">
+      <%= f.label Dishwasher.human_attribute_name(:water_consume) %>
+      <%= f.collection_select :water_consume_eq, Dishwasher.water_consume_options, :water_consume, :water_consume, {:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+    <p class="select_field">
+      <%= f.submit t('general.search', :item => Dishwasher.human_name), :id => 'submit_cars', :class => 'submit large grana awesome' %>
+    </p>
+  <% end %>
+</div>
+
+<div id="comparator">
+  <h3>Comparador</h3>
+  <form>
+    <label for="kilometers">¿Cuantos kilómetros haces al año?</label><br />
+    <input name="kilometers" id="kilometers" value="15000" type="text" />
+    <p>Tienes 3 coches seleccionados</p>
+    <input type="submit" value="Comparar" class="submit large grana awesome" />
+  </form>
+</div>
+
+<h3>Hemos encontrado</h3>
 
 <table>
+  <summary>Resultados de la búsqueda</summary>
   <tr>
-    <th>Producer</th>
-    <th>Product</th>
-    <th>Brand</th>
-    <th>Model</th>
-    <th>Efficiency</th>
-    <th>Consume</th>
-    <th>Washing efficiency</th>
-    <th>Drying efficiency</th>
-    <th>Cutlery</th>
-    <th>Water consume</th>
-    <th>Height</th>
-    <th>Width</th>
-    <th>Deep</th>
-    <th>Termoefficiency</th>
+    <th><%= order @search, :by => :brand, :as => Dishwasher.human_attribute_name(:brand) %></th>
+    <th><%= order @search, :by => :model, :as => Dishwasher.human_attribute_name(:model) %></th>
+    <th><%= order @search, :by => :drying_efficiency, :as => Dishwasher.human_attribute_name(:efficiency) %></th>
+    <th><%= order @search, :by => :consume, :as => Dishwasher.human_attribute_name(:consume) %></th>
+    <th><%= order @search, :by => :cutlery, :as => Dishwasher.human_attribute_name(:cutlery) %></th>
+    <th><%= order @search, :by => :water_consume, :as => Dishwasher.human_attribute_name(:water_consume) %></th>
+    <th><%= order @search, :by => :height, :as => Dishwasher.human_attribute_name(:height) %></th>
+    <th><%= order @search, :by => :width, :as => Dishwasher.human_attribute_name(:width) %></th>
+    <th><%= order @search, :by => :deep, :as => Dishwasher.human_attribute_name(:deep) %></th>
   </tr>
-
-<% @dishwashers.each do |dishwasher| %>
-  <tr>
-    <td><%=h dishwasher.producer %></td>
-    <td><%=h dishwasher.product %></td>
-    <td><%=h dishwasher.brand %></td>
-    <td><%=h dishwasher.model %></td>
-    <td><%=h dishwasher.efficiency %></td>
-    <td><%=h dishwasher.consume %></td>
-    <td><%=h dishwasher.washing_efficiency %></td>
-    <td><%=h dishwasher.drying_efficiency %></td>
-    <td><%=h dishwasher.cutlery %></td>
-    <td><%=h dishwasher.water_consume %></td>
-    <td><%=h dishwasher.height %></td>
-    <td><%=h dishwasher.width %></td>
-    <td><%=h dishwasher.deep %></td>
-    <td><%=h dishwasher.termoefficiency %></td>
-    <td><%= link_to 'Show', dishwasher %></td>
-    <td><%= link_to 'Edit', edit_dishwasher_path(dishwasher) %></td>
-    <td><%= link_to 'Destroy', dishwasher, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @dishwashers.each do |dishwasher| %>
+    <tr class="<%= cycle("even", "odd", :name => "row_class") %>">
+      <td><%= dishwasher.brand %></td>
+      <td><%= dishwasher.model %></td>
+      <td><%= dishwasher.drying_efficiency %></td>
+      <td class="number"><%= dishwasher.consume %></td>
+      <td class="number"><%= dishwasher.cutlery %></td>
+      <td class="number"><%= dishwasher.water_consume %></td>
+      <td class="number"><%= dishwasher.height %></td>
+      <td class="number"><%= dishwasher.width %></td>
+      <td class="number"><%= dishwasher.deep %></td>
+    </tr>
+  <% end -%>
 </table>
-
-<br />
-
-<%= link_to 'New dishwasher', new_dishwasher_path %>
+<%= will_paginate @dishwashers %>

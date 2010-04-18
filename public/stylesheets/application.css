@@ -20,6 +20,10 @@ input.shadow:focus {
     border: 1px solid rgba(148, 0, 0, 1);
 }
 
+form.top_form input.large { 
+  width: 150px;
+}
+
 #footer img{
     vertical-align:middle;
 }
