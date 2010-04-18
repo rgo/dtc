@@ -42,6 +42,15 @@ class Car < ActiveRecord::Base
   define_index do
     indexes brand
     indexes model
+    indexes finish
+    indexes fuel
+    indexes market_segment
+    indexes engine
+    indexees cilinders
+    indexes wheel_drive
+    indexes gear
+
+    has rating
   end
   
   #<5 - 5,6 - 6,7 - 7,9 > 9

@@ -23,9 +23,9 @@
   <% end %>
 </div>
 <%= comparator_section(FridgeFreezer) %>
-<h3><%= t('.results')%></h3>
+<h3><%= t('.results') %></h3>
 <table>
-  <caption><%= t('.summary')%></caption>
+  <caption><%= t('.summary') %></caption>
   <thead>
     <tr>
       <th><%= order @search, :by => :brand, :as => FridgeFreezer.human_attribute_name(:brand) %></th>
