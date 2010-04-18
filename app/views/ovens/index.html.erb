@@ -3,17 +3,17 @@
 <div id="intro">
   <% form_for @search, :html => {:id => "oven_search", :class => "top_form"} do |f| %>
       <p class="select_field">
-        <label for="search_froost_is"><%= Oven.human_attribute_name(:consume) %></label><br/>
+        <label for="search_consume_range_is"><%= Oven.human_attribute_name(:consume) %></label><br/>
         <%= f.select :consume_range_is, consume_range_options_for_oven, {:include_blank => t('general.prompt')}, {:size => 5} %>
       </p>
 
       <p class="select_field">
-        <label for="search_product_is"><%= Oven.human_attribute_name(:volumne) %></label><br/>
+        <label for="search_volume_range_is"><%= Oven.human_attribute_name(:volumne) %></label><br/>
         <%= f.select :volume_range_is, volume_range_options_for_oven, {:include_blank => t('general.prompt')}, {:size => 5} %>
       </p>
 
       <p class="select_field">
-        <label for="search_consume_range_is"><%= Oven.human_attribute_name(:warming) %></label><br/>
+        <label for="search_warming_is"><%= Oven.human_attribute_name(:warming) %></label><br/>
         <%= f.collection_select :warming_is, Oven.warming_options, :warming, :warming, {:include_blank => t('general.prompt')}, {:size => 5} %>
       </p>
 
