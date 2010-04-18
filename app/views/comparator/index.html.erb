@@ -15,6 +15,7 @@
             <th><%= klass.human_attribute_name(column.name)%></th>
           <% end %>
         <% end %>
+          <th>&nbsp;</th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +27,7 @@
                 <td><%=item.read_attribute(column.name)%></td>
               <% end %>
             <% end %>
+            <td><%= comparator_link(item)%></td>
           </tr>
         <% end %>
       </tbody>

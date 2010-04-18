@@ -6,6 +6,7 @@ es:
     index:
       h2_main: Elementos seleccionados
       slogan: Compara eficiencias y rendimiento energético
+      remove_from_comparator: Eliminar
     remove:
       not_present: El elemento no se encuentra en el comparador
       removed: El elemento se ha eliminado del comparador
