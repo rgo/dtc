@@ -1,0 +1,12 @@
+es:
+  freezers:
+    index:
+      title: "Busca el congelador más eficiente del mercado"
+      description: "Encuentra el congelador más eficiente y con mejores prestaciones.  Además de ahorrar dinero, beneficiaras al medio ambiente."
+      consume_range:
+        between: Entre {{min}} y {{max}} kWhl/año
+        greater: Más de {{min}} kWhl/año
+        less: Menos de {{max}} kWhl/año
+      froost_options:
+        no_froost: No frost
+        conventional: Convencional

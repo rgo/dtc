@@ -3,6 +3,9 @@ class OvensController < ApplicationController
   # GET /ovens.xml
   def index
     @ovens = Oven.all
+    
+    @meta_title       = t('ovens.index.title') 
+    @meta_description = t('ovens.index.description')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +17,10 @@ class OvensController < ApplicationController
   # GET /ovens/1.xml
   def show
     @oven = Oven.find(params[:id])
+    
+    @meta_title       = "#{@oven.product} #{@oven.brand} #{@oven.model}" 
+    @meta_description = "#{@oven.product} #{@oven.brand} #{@oven.model} #{Oven.human_attribute_name(:consume)} #{@oven.consume} (kWh/Ciclo)"
+    @canonical        = url_for(@oven)
 
     respond_to do |format|
       format.html # show.html.erb

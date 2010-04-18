@@ -44,6 +44,10 @@ class Dryer < ActiveRecord::Base
     indexes brand
     indexes model
   end
+  
+  def to_param
+    "#{id}-#{brand.to_s.parameterize}-#{model.to_s.parameterize}"
+  end
 
   def to_param
     "#{id}-#{brand.to_s.parameterize}-#{model.to_s.parameterize}"

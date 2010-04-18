@@ -2,10 +2,10 @@ class FreezersController < ApplicationController
   # GET /freezers
   # GET /freezers.xml
   def index
-    @search = FridgeFreezer.searchlogic(params[:search])
-    @fridge_freezers = @search.paginate(:page => params[:page])
-    @meta_title = t('fridge_freezers.index.title')
-    @meta_description = t('fridge_freezers.index.description')
+    @search = Freezer.searchlogic(params[:search])
+    @freezers = @search.paginate(:page => params[:page])
+    @meta_title = t('freezers.index.title')
+    @meta_description = t('freezers.index.description')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,6 +17,10 @@ class FreezersController < ApplicationController
   # GET /freezers/1.xml
   def show
     @freezer = Freezer.find(params[:id])
+    
+    @meta_title       = "#{@freezer.product} #{@freezer.brand} #{@freezer.model}" 
+    @meta_description = "#{@freezer.product} #{@freezer.brand} #{@freezer.model} #{Freezer.human_attribute_name(:consume)} #{@freezer.consume} (kWh/Ciclo)"
+    @canonical        = url_for(@freezer)
 
     respond_to do |format|
       format.html # show.html.erb

@@ -5,6 +5,17 @@ module ApplicationHelper
     number_to_percentage(value, :precision => 0)
   end
 
+  def selected_for_boolean(value)
+
+    if ['1',true].include? value
+      '1'
+    elsif ['0', false].include? value
+      '0'
+    else
+      ' '
+    end
+  end
+
   def comparator_link(item)
     resources = item.class.to_s.tableize
     if(session[resources].try :include?, item.id)

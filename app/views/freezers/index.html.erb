@@ -1,34 +1,71 @@
-<h1>Listing freezers</h1>
+<h1 id="slogan">Busca el congelador más eficiente del mercado</h1>
+
+<div id="intro">
+  <% form_for @search, :html => { :id => 'freezer_search', :class => 'top_form' } do |f| %>
+	  <p class="select_field">
+      <%= f.label :efficiency_eq, Freezer.human_attribute_name(:efficiency) %>
+      <%= f.collection_select :efficiency_eq, Freezer.efficiency_options, :efficiency, :efficiency, {:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+	  <p class="select_field">
+      <%= f.label :consume_range_is, Freezer.human_attribute_name(:consume) %>
+      <%= f.select :consume_range_is, consume_range_options_for_freezer, {:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+	  <p class="select_field">
+      <%= f.label :froost_eq, Freezer.human_attribute_name(:froost) %>
+      <%= f.select :froost_eq, Freezer.froost_options, { :selected => selected_for_boolean( @search.froost_eq ) ,:include_blank => t('general.prompt')}, {:size => 5} %>
+    </p>
+    <p class="select_field">
+      <%= f.submit t('general.search', :item => Freezer.human_name), :id => 'submit_cars', :class => 'submit large grana awesome' %>
+    </p>
+  <% end %>
+</div>
+
+<div id="comparator">
+  <h3>Comparador</h3>
+  <form>
+    <label for="kilometers">¿Cuantos kilómetros haces al año?</label><br />
+    <input name="kilometers" id="kilometers" value="15000" type="text" />
+    <p>Tienes 3 coches seleccionados</p>
+    <input type="submit" value="Comparar" class="submit large grana awesome" />
+  </form>
+</div>
+
+<h3>Hemos encontrado</h3>
 
 <table>
+  <theader>
   <tr>
-    <th>Producer</th>
-    <th>Product</th>
-    <th>Brnand</th>
-    <th>Model</th>
-    <th>Consume</th>
-    <th>Height</th>
-    <th>Width</th>
-    <th>Froost</th>
+    <th><%= order @search, :by => :product, :as => Freezer.human_attribute_name(:product) %></th>
+    <th><%= order @search, :by => :brand, :as => Freezer.human_attribute_name(:brand) %></th>
+    <th><%= order @search, :by => :model, :as => Freezer.human_attribute_name(:model) %></th>
+    <th><%= order @search, :by => :efficiency, :as => Freezer.human_attribute_name(:efficiency) %></th>
+    <th><%= order @search, :by => :consume, :as => Freezer.human_attribute_name(:consume) %></th>
+    <th><%= order @search, :by => :height, :as => Freezer.human_attribute_name(:height) %></th>
+    <th><%= order @search, :by => :width, :as => Freezer.human_attribute_name(:width) %></th>
+    <th><%= order @search, :by => :deep, :as => Freezer.human_attribute_name(:deep) %></th>
+    <th><%= order @search, :by => :froost, :as => Freezer.human_attribute_name(:froost) %></th>
   </tr>
+  </theader>
+  <tbody>
 
-<% @freezers.each do |freezer| %>
-  <tr>
-    <td><%=h freezer.producer %></td>
-    <td><%=h freezer.product %></td>
-    <td><%=h freezer.brnand %></td>
-    <td><%=h freezer.model %></td>
-    <td><%=h freezer.consume %></td>
-    <td><%=h freezer.height %></td>
-    <td><%=h freezer.width %></td>
-    <td><%=h freezer.froost %></td>
-    <td><%= link_to 'Show', freezer %></td>
-    <td><%= link_to 'Edit', edit_freezer_path(freezer) %></td>
-    <td><%= link_to 'Destroy', freezer, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+    <% @freezers.each do |freezer| %>
+      <tr>
+        <td><%=h freezer.product %></td>
+        <td><%=h freezer.brand %></td>
+        <td><%=h freezer.model %></td>
+        <td>
+          <div class="rating_bar">
+            <div style="width:<%= freezer.efficiency %>%"></div>
+          </div>
+        </td>
+        <td><%=h freezer.consume %></td>
+        <td><%=h freezer.height %></td>
+        <td><%=h freezer.width %></td>
+        <td><%=h freezer.deep %></td>
+        <td><%=h freezer.froost ? t('general.yes') : t('general.no') %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New freezer', new_freezer_path %>
+<%= will_paginate @freezers %>

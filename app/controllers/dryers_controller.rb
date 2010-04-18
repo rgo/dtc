@@ -17,6 +17,10 @@ class DryersController < ApplicationController
   # GET /dryers/1.xml
   def show
     @dryer = Dryer.find(params[:id])
+    
+    @meta_title       = "#{@dryer.product} #{@dryer.brand} #{@dryer.model}" 
+    @meta_description = "#{@dryer.product} #{@dryer.brand} #{@dryer.model} #{Dryer.human_attribute_name(:consume)} #{@dryer.consume} (kWh/Ciclo)"
+    @canonical        = url_for(@dryer)
 
     respond_to do |format|
       format.html # show.html.erb

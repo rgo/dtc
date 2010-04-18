@@ -3,6 +3,9 @@ class WorktopGasController < ApplicationController
   # GET /worktop_gas.xml
   def index
     @worktop_gas = WorktopGa.all
+    
+    @meta_title       = t('worktop_gas.index.title') 
+    @meta_description = t('worktop_gas.index.description')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +17,10 @@ class WorktopGasController < ApplicationController
   # GET /worktop_gas/1.xml
   def show
     @worktop_ga = WorktopGa.find(params[:id])
+    
+    @meta_title       = "#{@worktop_ga.product} #{@worktop_ga.brand} #{@worktop_ga.model}" 
+    @meta_description = "#{@worktop_ga.product} #{@worktop_ga.brand} #{@worktop_ga.model} #{WorktopGa.human_attribute_name(:consume)} #{@worktop_ga.consume} (kWh/Ciclo)"
+    @canonical        = url_for(@worktop_ga)
 
     respond_to do |format|
       format.html # show.html.erb

@@ -2,8 +2,8 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.xml
   def index
-    @search     = Car.searchlogic(params[:search])
-    @cars       = @search.paginate(:page => params[:page])
+    @search           = Car.searchlogic(params[:search])
+    @cars             = @search.paginate(:page => params[:page], :per_page => 15)
     @meta_title = t('cars.index.title') 
     @meta_description = t('cars.index.description')
 

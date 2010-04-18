@@ -3,6 +3,9 @@ class WorktopInductionsController < ApplicationController
   # GET /worktop_inductions.xml
   def index
     @worktop_inductions = WorktopInduction.all
+    
+    @meta_title       = t('worktop_inductions.index.title') 
+    @meta_description = t('worktop_inductions.index.description')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +17,10 @@ class WorktopInductionsController < ApplicationController
   # GET /worktop_inductions/1.xml
   def show
     @worktop_induction = WorktopInduction.find(params[:id])
+    
+    @meta_title       = "#{@worktop_induction.product} #{@worktop_induction.brand} #{@worktop_induction.model}" 
+    @meta_description = "#{@worktop_induction.product} #{@worktop_induction.brand} #{@worktop_induction.model} #{WorktopInduction.human_attribute_name(:consume)} #{@worktop_induction.consume} (kWh/Ciclo)"
+    @canonical        = url_for(@worktop_induction)
 
     respond_to do |format|
       format.html # show.html.erb

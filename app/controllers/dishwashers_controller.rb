@@ -4,6 +4,9 @@ class DishwashersController < ApplicationController
   def index
     @search = Dishwasher.searchlogic(params[:search])
     @dishwashers = @search.paginate(:page => params[:page])
+    
+    @meta_title       = t('dishwashers.index.title') 
+    @meta_description = t('dishwashers.index.description')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +18,10 @@ class DishwashersController < ApplicationController
   # GET /dishwashers/1.xml
   def show
     @dishwasher = Dishwasher.find(params[:id])
+    
+    @meta_title       = "#{@dishwasher.product} #{@dishwasher.brand} #{@dishwasher.model}" 
+    @meta_description = "#{@dishwasher.product} #{@dishwasher.brand} #{@dishwasher.model} #{Dishwasher.human_attribute_name(:consume)} #{@dishwasher.consume} (kWh/Ciclo)"
+    @canonical        = url_for(@dishwasher)
 
     respond_to do |format|
       format.html # show.html.erb

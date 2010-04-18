@@ -32,6 +32,10 @@ class WorktopInduction < ActiveRecord::Base
     indexes brand
     indexes model
   end
+  
+  def to_param
+    "#{id}-#{brand.to_s.parameterize}-#{model.to_s.parameterize}"
+  end
 
   def self.fetch_mapping
     {:prodtr => 'producer',
