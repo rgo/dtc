@@ -3,6 +3,9 @@ class WasherDryersController < ApplicationController
   # GET /washer_dryers.xml
   def index
     @washer_dryers = WasherDryer.all
+    
+    @meta_title       = t('washer_dryers.index.title') 
+    @meta_description = t('washer_dryers.index.description')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +17,10 @@ class WasherDryersController < ApplicationController
   # GET /washer_dryers/1.xml
   def show
     @washer_dryer = WasherDryer.find(params[:id])
+    
+    @meta_title       = "#{@washer_dryer.product} #{@washer_dryer.brand} #{@washer_dryer.model}" 
+    @meta_description = "#{@washer_dryer.product} #{@washer_dryer.brand} #{@washer_dryer.model} #{WasherDryer.human_attribute_name(:consume)} #{@washer_dryer.consume} (kWh/Ciclo)"
+    @canonical        = url_for(@washer_dryer)
 
     respond_to do |format|
       format.html # show.html.erb

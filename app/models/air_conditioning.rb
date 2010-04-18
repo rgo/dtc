@@ -36,6 +36,10 @@ class AirConditioning < ActiveRecord::Base
     indexes outdoor_unit
     indexes description
   end
+  
+  def to_param
+    "#{id}-#{brand.to_s.parameterize}-#{description.to_s.parameterize}"
+  end
 
   def self.fetch_mapping
     {:marc => [ 'brand', Proc.new {|value| value.delete("\n")} ],

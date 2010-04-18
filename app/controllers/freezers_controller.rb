@@ -3,6 +3,9 @@ class FreezersController < ApplicationController
   # GET /freezers.xml
   def index
     @freezers = Freezer.all
+    
+    @meta_title       = t('freezers.index.title') 
+    @meta_description = t('freezers.index.description')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +17,10 @@ class FreezersController < ApplicationController
   # GET /freezers/1.xml
   def show
     @freezer = Freezer.find(params[:id])
+    
+    @meta_title       = "#{@freezer.product} #{@freezer.brand} #{@freezer.model}" 
+    @meta_description = "#{@freezer.product} #{@freezer.brand} #{@freezer.model} #{Freezer.human_attribute_name(:consume)} #{@freezer.consume} (kWh/Ciclo)"
+    @canonical        = url_for(@freezer)
 
     respond_to do |format|
       format.html # show.html.erb

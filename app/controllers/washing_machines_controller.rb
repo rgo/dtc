@@ -3,6 +3,9 @@ class WashingMachinesController < ApplicationController
   # GET /washing_machines.xml
   def index
     @washing_machines = WashingMachine.all
+    
+    @meta_title       = t('washing_machines.index.title') 
+    @meta_description = t('washing_machines.index.description')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +17,10 @@ class WashingMachinesController < ApplicationController
   # GET /washing_machines/1.xml
   def show
     @washing_machine = WashingMachine.find(params[:id])
+    
+    @meta_title       = "#{@washing_machine.product} #{@washing_machine.brand} #{@washing_machine.model}" 
+    @meta_description = "#{@washing_machine.product} #{@washing_machine.brand} #{@washing_machine.model} #{WashingMachine.human_attribute_name(:consume)} #{@washing_machine.consume} (kWh/Ciclo)"
+    @canonical        = url_for(@washing_machine)
 
     respond_to do |format|
       format.html # show.html.erb

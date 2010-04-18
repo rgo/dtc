@@ -13,6 +13,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :freezers
 
   map.resources :washing_machines
+  
+  map.resources :air_cons
 
   map.resources :dishwashers
 
@@ -23,6 +25,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :washer_dryers
   
   map.resources :appliances, :only => [:show, :index] 
+  
+  map.resources :sitemaps, :only => :index
 
   map.compare 'compare/:klass/:action/:id', :controller => :comparator
 
