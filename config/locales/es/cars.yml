@@ -3,6 +3,7 @@ es:
     search_button: "Buscar coches"
     index:
       add_to_comparator: Comparar
+      comparator_mileage: ¿Cuántos kilómetros haces al año?
       description: "Encuentra el vehículo más eficiente y que menos cantidad de Co2 emite a la atmósfera.  Además de ahorrar dinero, beneficiaras al medio ambiente."
       cars_selected: 
         one: Tienes 1 coche seleccionado
