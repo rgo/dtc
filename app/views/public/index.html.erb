@@ -23,9 +23,9 @@
 
 	<h2><%= link_to "Top Coches", cars_path %></h2>	
 	<ul>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
-	  <li>electrodoméstico 1</li>
+	  <% @cars.each do |car| %>
+	    <li><%= link_to "#{car.brand} #{car.model} #{car.finish}", car_path(car) %></li>
+	  <% end %>
 	</ul>
 	
 </div>

@@ -18,6 +18,8 @@
 #
 class Fridge < ActiveRecord::Base
 
+  RATINGS={'A' => 33, 'A+' => '66', 'A++' => '100'}
+
   validates_uniqueness_of :model, :scope => :brand
   include DataFetcher
   data_fetcher :uri => 'http://www.idae.es/index.php/mod.buscador/mem.fbusquedaFrigorificos/relmenu.87',
@@ -40,7 +42,7 @@ class Fridge < ActiveRecord::Base
      :prod => 'product',
      :marc => 'brand',
      :modelo => 'model',
-     :clas_energ => ['efficiency', Proc.new { |value| value[0] - ?A + 1}],
+     :clas_energ => ['efficiency', Proc.new { |value| RATINGS[value] }],
      :cons_kwano => 'consume',
      :alto => 'height',
      :ancho => 'width',
