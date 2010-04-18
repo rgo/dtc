@@ -5,6 +5,7 @@ es:
       already_added: El elemento ya está añadido al comparador
     index:
       h2_main: Elementos seleccionados
+      h2_no_items: No hay elementos seleccionados
       slogan: Compara eficiencias y rendimiento energético
       remove_from_comparator: Eliminar
     remove:
