@@ -4,21 +4,21 @@
   <% form_for @search, :html => {:id => "fridge_freezer_search", :class => "top_form"} do |f| %>
       <p class="select_field">
         <label for="search_froost_is"><%= FridgeFreezer.human_attribute_name(:froost) %></label><br/>
-        <%= f.select :froost_is, FridgeFreezer.froost_options, {:include_blank => t('general.prompt')}, {:size => 5} %>
+        <%= f.select :froost_is, FridgeFreezer.froost_options, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 1} %>
       </p>
 
       <p class="select_field">
         <label for="search_product_is"><%= FridgeFreezer.human_attribute_name(:product) %></label><br/>
-        <%= f.collection_select :product_is, FridgeFreezer.product_options, :product, :product, {:include_blank => t('general.prompt')}, {:size => 5} %>
+        <%= f.collection_select :product_is, FridgeFreezer.product_options, :product, :product, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 2} %>
       </p>
 
       <p class="select_field">
         <label for="search_consume_range_is"><%= FridgeFreezer.human_attribute_name(:consume) %></label><br/>
-        <%= f.select :consume_range_is, consume_range_options_for_fridge_freezer, {}, :size => "5" %>
+        <%= f.select :consume_range_is, consume_range_options_for_fridge_freezer, {}, :size => "5", :tabindex => 3 %>
       </p>
 
       <p class="select_field">
-        <%= f.submit t('general.search', :item => FridgeFreezer.human_name), :id => 'submit_fridge_freezer', :class => 'submit huge grana awesome' %>
+        <%= f.submit t('general.search', :item => FridgeFreezer.human_name), :id => 'submit_fridge_freezer', :class => 'submit huge grana awesome', :tabindex => 4 %>
       </p>
   <% end %>
 </div>

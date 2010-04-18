@@ -4,21 +4,21 @@
   <% form_for @search, :html => {:id => "dryer_search", :class => "top_form"} do |f| %>
       <p class="select_field">
         <label for="search_efficiency_is"><%= Dryer.human_attribute_name(:efficiency) %></label><br/>
-        <%= f.collection_select :efficiency_is, Dryer.efficiency_options, :efficiency, :efficiency, {:include_blank => t('general.prompt')}, {:size => 5} %>
+        <%= f.collection_select :efficiency_is, Dryer.efficiency_options, :efficiency, :efficiency, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 1} %>
       </p>
 
       <p class="select_field">
         <label for="search_consume_range_is"><%= Dryer.human_attribute_name(:consume) %></label><br/>
-        <%= f.select :consume_range_is, consume_range_options_for_dryer, {}, :size => "5" %>
+        <%= f.select :consume_range_is, consume_range_options_for_dryer, {}, :size => "5", :tabindex => 2 %>
       </p>
 
       <p class="select_field">
         <label for="search_capacity_is"><%= Dryer.human_attribute_name(:capacity) %></label><br/>
-        <%= f.collection_select :capacity_is, Dryer.capacity_options, :capacity, :capacity, {:include_blank => t('general.prompt')}, {:size => 5} %>
+        <%= f.collection_select :capacity_is, Dryer.capacity_options, :capacity, :capacity, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 3} %>
       </p>
 
       <p class="select_field">
-        <%= f.submit t('general.search', :item => Dryer.human_name), :id => 'submit_dryers', :class => 'submit large grana awesome' %>
+        <%= f.submit t('general.search', :item => Dryer.human_name), :id => 'submit_dryers', :class => 'submit large grana awesome', :tabindex => 4 %>
       </p>
   <% end %>
 </div>

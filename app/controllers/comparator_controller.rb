@@ -26,7 +26,13 @@ class ComparatorController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to request.referer }
-      format.js
+      format.js {
+        render :update do |page|
+          page.replace_html "dishwashers-#{params[:id]}", :partial => 'comparator_link'
+          page.replace_html "how_many", :text => t("cars.index.#{@klass}_selected", :count => session[@klass].try(:size) || 0 )
+          page.visual_effect :highlight, "comparator"
+        end
+      }
     end
   end
 
@@ -41,7 +47,13 @@ class ComparatorController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to request.referer }
-      format.js
+      format.js {
+        render :update do |page|
+          page.replace_html "dishwashers-#{params[:id]}", :partial => 'comparator_link'
+          page.replace_html "how_many", :text => t("cars.index.#{@klass}_selected", :count => session[@klass].try(:size) || 0 )
+          page.visual_effect :highlight, "comparator"
+        end
+      }
     end
   end
 

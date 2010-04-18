@@ -3,23 +3,23 @@
 <div id="intro">
   <% form_for @search, :html => {:id => "washer_dryer_search", :class => "top_form"} do |f| %>
     <p class="select_field">
-      <%= f.label WasherDryer.human_attribute_name(:efficiency) %>
-      <%= f.collection_select :efficiency_eq, WasherDryer.efficiency_options, :efficiency, :efficiency, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      <%= f.label :efficiency_eq, WasherDryer.human_attribute_name(:efficiency) %>
+      <%= f.collection_select :efficiency_eq, WasherDryer.efficiency_options, :efficiency, :efficiency, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 1} %>
     </p>
     <p class="select_field">
-      <%= f.label WasherDryer.human_attribute_name(:consume) %>
-      <%= f.select :consume_range_is, consume_range_options_for_washer_dryer, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      <%= f.label :consume_range_is, WasherDryer.human_attribute_name(:consume) %>
+      <%= f.select :consume_range_is, consume_range_options_for_washer_dryer, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 2} %>
     </p>
     <p class="select_field">
-      <%= f.label WasherDryer.human_attribute_name(:rpm) %>
-      <%= f.collection_select :rpm_eq, WasherDryer.rpm_options,:rpm, :rpm, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      <%= f.label :rpm_eq, WasherDryer.human_attribute_name(:rpm) %>
+      <%= f.collection_select :rpm_eq, WasherDryer.rpm_options,:rpm, :rpm, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 3} %>
     </p>
     <p class="select_field">
-      <%= f.label WasherDryer.human_attribute_name(:washing_capacity) %>
-      <%= f.collection_select :washing_capacity_eq, WasherDryer.washing_capacity_options, :washing_capacity, :washing_capacity, {:include_blank => t('general.prompt')}, {:size => 5} %>
+      <%= f.label :washing_capacity_eq, WasherDryer.human_attribute_name(:washing_capacity) %>
+      <%= f.collection_select :washing_capacity_eq, WasherDryer.washing_capacity_options, :washing_capacity, :washing_capacity, {:include_blank => t('general.prompt')}, {:size => 5, :tabindex => 4} %>
     </p>
     <p class="select_field">
-      <%= submit_tag t('washer_dryers.search_button'), :class => "submit huge grana awesome"%>
+      <%= submit_tag t('washer_dryers.search_button'), :class => "submit huge grana awesome", :tabindex => 5%>
     </p>
   <% end %>
 </div>
