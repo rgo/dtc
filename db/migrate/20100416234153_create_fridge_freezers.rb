@@ -5,7 +5,7 @@ class CreateFridgeFreezers < ActiveRecord::Migration
       t.string :product
       t.string :brand
       t.string :model
-      t.string :efficiency
+      t.integer :efficiency
       t.decimal :consume, :precision => 10, :scale => 3
       t.integer :height
       t.integer :width
