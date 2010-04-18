@@ -1,0 +1,10 @@
+es:
+  dryers:
+    index:
+      h1: "Busca la secadora más eficiente del mercado"
+      title: "Busca la secadora más eficiente del mercado"
+      description: "Encuentra la secadora más eficiente y ahorrarás dinero"
+      consume_range:
+        between: Entre {{min}} y {{max}} kWh/ciclo
+        greater: Más de {{min}} kWh/ciclo
+        less: Menos de {{max}} kWh/ciclo
