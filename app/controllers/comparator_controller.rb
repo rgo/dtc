@@ -51,7 +51,7 @@ class ComparatorController < ApplicationController
   end
 
   def find_items
-    @items = params[:klass].capitalize.constantize.try :order_for_comparation, session[params[:klass].tableize]
+    @items = params[:klass].camelize.constantize.try :order_for_comparation, session[params[:klass].tableize]
   end
 
 end

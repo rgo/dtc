@@ -40,7 +40,7 @@ class Fridge < ActiveRecord::Base
     end
   }
 
-  define_indexes do
+  define_index do
     indexes producer
     indexes product
     indexes brand
@@ -75,6 +75,10 @@ class Fridge < ActiveRecord::Base
      [I18n.t('fridges.index.froost_options.no_froost'), '1'], 
      [I18n.t('fridges.index.froost_options.conventional'), '0']
     ]
+  end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|f| f.consume}
   end
 end
 

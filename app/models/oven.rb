@@ -57,7 +57,7 @@ class Oven < ActiveRecord::Base
     end
   }
 
-  define_indexes do
+  define_index do
     indexes producer
     indexes product
     indexes brand
@@ -88,6 +88,10 @@ class Oven < ActiveRecord::Base
     Rails.cache.fetch('oven_warming_options') do
       all(:select => 'warming', :group => 'warming')
     end
+  end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|o| o.consume}
   end
 
 end

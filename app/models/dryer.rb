@@ -38,7 +38,7 @@ class Dryer < ActiveRecord::Base
     end
   }
 
-  define_indexes do
+  define_index do
     indexes producer
     indexes product
     indexes brand
@@ -73,5 +73,9 @@ class Dryer < ActiveRecord::Base
     Rails.cache.fetch('dryer_capacity_options') do
       all(:select => 'capacity', :group => 'capacity')
     end
+  end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|dryer| dryer.consume}
   end
 end

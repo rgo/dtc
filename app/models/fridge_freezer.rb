@@ -42,7 +42,7 @@ class FridgeFreezer < ActiveRecord::Base
     end
   }
 
-  define_indexes do
+  define_index do
     indexes producer
     indexes product
     indexes brand
@@ -77,5 +77,9 @@ class FridgeFreezer < ActiveRecord::Base
     Rails.cache.fetch('fridge_freezer_product_options') do
       all(:select => 'product', :group => 'product')
     end
+  end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|ff| ff.consume}
   end
 end

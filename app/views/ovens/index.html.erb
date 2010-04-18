@@ -27,8 +27,8 @@
 
 <%= comparator_section Oven %>
 <table>
-  <summary>Resultados de la búsqueda</summary>
-  <theader>
+  <caption>Resultados de la búsqueda</caption>
+  <thead>
     <tr>
       <th><%= order @search, :by => :brand, :as => Oven.human_attribute_name(:brand) %></th>
       <th><%= order @search, :by => :model, :as => Oven.human_attribute_name(:model) %></th>
@@ -41,7 +41,7 @@
       <th><%= order @search, :by => :deep, :as => Oven.human_attribute_name(:deep) %></th>
       <th>&nbsp;</th>
     </tr>
-  </theader>
+  </thead>
   <tbody>
   <% @ovens.each do |oven| %>
       <tr>

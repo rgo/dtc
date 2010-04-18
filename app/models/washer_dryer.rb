@@ -42,7 +42,7 @@ class WasherDryer < ActiveRecord::Base
     end
   }
 
-  define_indexes do
+  define_index do
     indexes producer
     indexes product
     indexes brand
@@ -89,6 +89,10 @@ class WasherDryer < ActiveRecord::Base
     Rails.cache.fetch('washer_dryers_washing_capacity_options') do 
       all(:select => 'washing_capacity', :group => 'washing_capacity')
     end
+  end
+
+  def self.order_for_comparation(ids)
+    find(ids).sort_by{|wd| wd.consume}
   end
 end
 
