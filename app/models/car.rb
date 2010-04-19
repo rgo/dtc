@@ -37,21 +37,18 @@ class Car < ActiveRecord::Base
 
   named_scope :best_cars, :order => 'cars.rating asc, cars.emissions asc', :limit => 25
   named_scope :best, :order => 'cars.rating asc, cars.emissions asc', :limit => 5
-
-  data_fetcher :uri => CARS_URI
   
   define_index do
+
     indexes brand
     indexes model
     indexes finish
     indexes fuel
     indexes market_segment
     indexes engine
-    indexees cilinders
+    indexes cylinders
     indexes wheel_drive
     indexes gear
-
-    has rating
   end
   
   #<5 - 5,6 - 6,7 - 7,9 > 9
@@ -69,6 +66,9 @@ class Car < ActiveRecord::Base
   def full_model
     "#{brand} #{model} #{finish}"
   end
+
+  cattr_accessor :uri_data_fetcher
+  self.uri_data_fetcher = CARS_URI
 
   def self.fetch
     agent = Mechanize.new

@@ -11,15 +11,30 @@ class PublicController < ApplicationController
   end
 
   def search
-    @cars = Car.search(params[:q], :order => :rating,
-                       :page => 1, :per_page => 20)
+    #@cars = Car.brand_or_model_or_finish_or_fuel_like(params[:q]).paginate(:page => 1, :per_page => 20)
+    @cars = Car.search(params[:q]).paginate(:page => 1, :per_page => 20)
 
     unless @cars.empty?
       @search = Car.searchlogic
       render :template => "cars/index"
     else
-      @appliances = ThinkingSphinx.search(params[:q], :classes => APPLIANCES_CLASSES, 
-                                          :page => 1, :per_page => 20)
+#      @dishwashers = Dishwasher.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#      @dryers = Dryer.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#      @freezers = Freezer.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#      @fridges = Fridge.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#      @fridge_freezers = FridgeFreezer.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#      @ovens = Oven.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#      @washer_dryers = WasherDryer.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#      @washing_machines = WashingMachine.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+
+      @dishwashers = Dishwasher.search(params[:q], :page => 1, :per_page => 20)
+      @dryers = Dryer.search(params[:q], :page => 1, :per_page => 20)
+      @freezers = Freezer.search(params[:q], :page => 1, :per_page => 20)
+      @fridges = Fridge.search(params[:q], :page => 1, :per_page => 20)
+      @fridge_freezers = FridgeFreezer.search(params[:q], :page => 1, :per_page => 20)
+      @ovens = Oven.search(params[:q], :page => 1, :per_page => 20)
+      @washer_dryers = WasherDryer.search(params[:q], :page => 1, :per_page => 20)
+      @washing_machines = WashingMachine.search(params[:q], :page => 1, :per_page => 20)
       render :template => "appliances/index"
     end
   end

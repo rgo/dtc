@@ -12,6 +12,15 @@ class AppliancesController < ApplicationController
   end
 
   def search
+#    @dishwashers = Dishwasher.search(params[:q]).paginate(:page => 1, :per_page => 20)
+#    @dryers = Dryer.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#    @freezers = Freezer.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#    @fridges = Fridge.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#    @fridge_freezers = FridgeFreezer.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#    @ovens = Oven.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#    @washer_dryers = WasherDryer.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+#    @washing_machines = WashingMachine.brand_or_model_like(params[:q]).paginate(:page => 1, :per_page => 20)
+
     @dishwashers = Dishwasher.search(params[:q], :page => 1, :per_page => 20)
     @dryers = Dryer.search(params[:q], :page => 1, :per_page => 20)
     @freezers = Freezer.search(params[:q], :page => 1, :per_page => 20)
