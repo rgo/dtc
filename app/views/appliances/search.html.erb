@@ -8,33 +8,116 @@
 	<% end %>
 </div>
 
-<% APPLIANCES_CLASSES.each do |appliance_class| %>
+<div class="col2 first">
 
-    <% first = cycle("first", "") %>
-
-    <% if @appliances_by_class && @appliances_by_class.keys.include?(appliance_class) %>
-        <% appliances = @appliances_by_class[appliance_class] %>
-        <div class="col2 <%= first %>">
-
-          <h2><%= link_to appliance_class.human_name, appliance_class %></h2>
-          <ul>
-            <% if appliances.any? %>
-                <% appliances.each do |appliance| -%>
-                    <li><%= appliance.appliance_title %></li>
-                <% end -%>
-            <% else %>
-                <li><%= link_to(t('general.search', :item => appliance_class.human_name), appliance_class) %></li>
-            <% end %>
-          </ul>
-        </div>
+  <h2><%= link_to Dishwasher.human_name, dishwashers_path, :title => t('general.search', :item => Dishwasher.human_name) %></h2>
+  <ul>
+    <% if @dishwashers.any? %>
+        <% @dishwashers.each do |appliance_instance| %>
+            <li><%= link_to appliance_instance.appliance_title, appliance_instance %></li>
+        <% end -%>
     <% else %>
-        <div class="col2 <%= first %>">
+        <li><%= "No hemos recuperado ningún #{Dishwasher.human_name}" %></li>
+    <% end -%>
+  </ul>
+</div>
 
-          <h2><%= link_to appliance_class.human_name, appliance_class %></h2>
-          <ul>
-            <li><%= link_to(t('general.search', :item => appliance_class.human_name), appliance_class) %></li>
-          </ul>
-        </div>
-    <% end %>
-<% end -%>
+<div class="col2">
+
+  <h2><%= link_to Dryer.human_name, dryers_path, :title => t('general.search', :item => Dryer.human_name) %></h2>
+  <ul>
+    <% if @dryers.any? %>
+        <% @dryers.each do |appliance_instance| %>
+            <li><%= link_to appliance_instance.appliance_title, appliance_instance %></li>
+        <% end -%>
+    <% else %>
+        <li><%= "No hemos recuperado ningún #{Dryer.human_name}" %></li>
+    <% end -%>
+  </ul>
+</div>
+
+<div class="col2 first">
+
+  <h2><%= link_to Freezer.human_name, freezers_path, :title => t('general.search', :item => Freezer.human_name) %></h2>
+  <ul>
+    <% if @freezers.any? %>
+        <% @freezers.each do |appliance_instance| %>
+            <li><%= link_to appliance_instance.appliance_title, appliance_instance %></li>
+        <% end -%>
+    <% else %>
+        <li><%= "No hemos recuperado ningún #{Freezer.human_name}" %></li>
+    <% end -%>
+  </ul>
+</div>
+
+<div class="col2">
+
+  <h2><%= link_to Fridge.human_name, fridges_path, :title => t('general.search', :item => Fridge.human_name) %></h2>
+  <ul>
+    <% if @fridges.any? %>
+        <% @fridges.each do |appliance_instance| %>
+            <li><%= link_to appliance_instance.appliance_title, appliance_instance %></li>
+        <% end -%>
+    <% else %>
+        <li><%= "No hemos recuperado ningún #{Fridge.human_name}" %></li>
+    <% end -%>
+  </ul>
+</div>
+
+<div class="col2 first">
+
+  <h2><%= link_to FridgeFreezer.human_name, fridge_freezers_path, :title => t('general.search', :item => FridgeFreezer.human_name) %></h2>
+  <ul>
+    <% if @fridge_freezers.any? %>
+        <% @fridge_freezers.each do |appliance_instance| %>
+            <li><%= link_to appliance_instance.appliance_title, appliance_instance %></li>
+        <% end -%>
+    <% else %>
+        <li><%= "No hemos recuperado ningún #{FridgeFreezer.human_name}" %></li>
+    <% end -%>
+  </ul>
+</div>
+
+
+<div class="col2">
+
+  <h2><%= link_to Oven.human_name, ovens_path, :title => t('general.search', :item => Oven.human_name) %></h2>
+  <ul>
+    <% if @ovens.any? %>
+        <% @ovens.each do |appliance_instance| %>
+            <li><%= link_to appliance_instance.appliance_title, appliance_instance %></li>
+        <% end -%>
+    <% else %>
+        <li><%= "No hemos recuperado ningún #{Oven.human_name}" %></li>
+    <% end -%>
+  </ul>
+</div>
+
+<div class="col2 first">
+
+  <h2><%= link_to WasherDryer.human_name, washer_dryers_path, :title => t('general.search', :item => WasherDryer.human_name) %></h2>
+  <ul>
+    <% if @washer_dryers.any? %>
+        <% @washer_dryers.each do |appliance_instance| %>
+            <li><%= link_to appliance_instance.appliance_title, appliance_instance %></li>
+        <% end -%>
+    <% else %>
+        <li><%= "No hemos recuperado ningún #{WasherDryer.human_name}" %></li>
+    <% end -%>
+  </ul>
+</div>
+
+<div class="col2">
+
+  <h2><%= link_to WashingMachine.human_name, washing_machines_path, :title => t('general.search', :item => WashingMachine.human_name) %></h2>
+  <ul>
+    <% if @washing_machines.any? %>
+        <% @washing_machines.each do |appliance_instance| %>
+            <li><%= link_to appliance_instance.appliance_title, appliance_instance %></li>
+        <% end -%>
+    <% else %>
+        <li><%= "No hemos recuperado ningún #{WashingMachine.human_name}" %></li>
+    <% end -%>
+  </ul>
+</div>
 
