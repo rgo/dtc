@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :worktop_inductions
 
-  map.resources :fridges
+  map.resources :fridges, :only => [:show, :index]
 
   map.resources :fridge_freezers
 
