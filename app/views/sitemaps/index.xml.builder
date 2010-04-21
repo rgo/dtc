@@ -108,15 +108,6 @@ xml.urlset(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") do
       end
     end
     
-    @worktop_gas.each do |worktop|
-      xml.url do
-        xml.loc         url_for(worktop_url(worktop))
-        xml.lastmod     w3c_date(worktop.updated_at)
-        xml.changefreq  'monthly'
-        xml.priority    0.9
-      end
-    end
-    
     @worktop_inductions.each do |worktop_induction|
       xml.url do
         xml.loc         url_for(worktop_induction_url(worktop_induction))
